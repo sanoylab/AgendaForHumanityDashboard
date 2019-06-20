@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+<p> Hello </p>
+       <script>
+	   
+	 
+
+	   
+		var canvas = d3.select("body").append("svg")
+			.attr("width", 1500)
+			.attr("height", 3700)
+			.append("g")
+				.attr("transform","translate(50,50)");
+				
+		var tree = d3.layout.tree()
+			.size([3400,1400])
+		
+	
+		d3.json("TestData_tree.json", function(data) {
+			
+			var nodes = tree.nodes(data);
+			console.log(nodes);
+			var links = tree.links(nodes);
+			console.log(links);
+			
+			
+			var node = canvas.selectAll(".node")
+				.data(nodes)
+				.enter()
+				.append("g")
+					.attr("class", "node")
+					.attr("transform", function(d) {return "translate(" + d.y + "," + d.x + ")" })
+					
+			node.append("circle")
+				.attr("r", 5)
+				.attr("fill","steelblue")
+				
+			node.append("text")
+				.text(function(d) {return d.name})
+				.attr("font-size","13px");
+				
+			var diagonal = d3.svg.diagonal()
+				.projection(function(d) {return [d.y, d.x]});
+				
+			canvas.selectAll(".link")
+				.data(links)
+				.enter()
+				.append("path")
+				.attr("class","link")
+				.attr("stroke","#ADADAD")
+				.attr("d", diagonal)
+				.attr("fill","none")
+				.attr("stroke-width",function(d){return(d.target.value);});
+						
+			
+			
+		
+		});
+		
+
+	   </script>
+
+
+</body>
+</html>

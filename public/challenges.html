@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Agenda for Humanity Viz | Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="vendor/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/vnd.microsoft.icon" />
+    <link rel="stylesheet" href="css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="css/c3.css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <!-- Google Font -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <style>
+        #chart-stakeholder-2018,
+        #chart-stakeholder-2018,
+        #chart-stakeholder-region-2019,
+        #chart-stakeholder-2019,
+        #chart-stakeholder-region-2018,
+        #chart-transformation,
+        #chart_challenges-2019,
+        #chart-challenge-2018 {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+    <div class="wrapper">
+
+        <!-- Main Header -->
+        <header class="main-header">
+
+            <!-- Logo -->
+            <a href="index2.html" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>V</b>IZ</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Dashboard VIZ</b></span>
+            </a>
+
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top" role="navigation">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Messages: style can be found in dropdown.less-->
+                        <li class="dropdown messages-menu">
+                            <!-- Menu toggle button -->
+
+
+                            <!-- /.messages-menu -->
+
+                            <!-- Notifications Menu -->
+
+                            <!-- Tasks Menu -->
+
+                            <!-- User Account Menu -->
+                        <li class="dropdown user user-menu">
+                            <!-- Menu Toggle Button -->
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <!-- The user image in the navbar-->
+
+                                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                <span class="hidden-xs">Welcome to Agenda for Humanitarian Data Visualization
+                                    Dashboard</span>
+                            </a>
+
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->
+
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+
+                    </div>
+
+                </div>
+
+                <!-- search form (Optional) -->
+
+                <!-- /.search form -->
+
+                <!-- Sidebar Menu -->
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <!-- Optionally, you can add icons to the links -->
+                    <li><a href="index.html"><i class="fas fa-tv"></i> &nbsp;<span>Dashboard</span></a></li>
+                    <li><a href="transformation.html"><i class="fas fa-laptop"></i> <span>Transformation</span></a></li>
+                    <li><a href="stakeholder.html"><i class="fas fa-user-friends"></i> &nbsp;
+                            <span>Stakeholders</span></a></li>
+                    <li><a class="active" href="challenges.html"><i class="fas fa-desktop"></i> &nbsp;
+                            <span>Challenges</span></a></li>
+
+                </ul>
+            </section>
+        </aside>
+
+
+        <div class="content-wrapper">
+            <section class="content-header">
+                <h1>
+                        Challenges
+
+                </h1>
+
+            </section>
+
+            <section class="content container-fluid">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-warning">
+                            <div class="box-header with-border">
+                                <h3 class="box-title"></h3>
+                            </div>
+                            <div class="box-body no-padding" style="padding-left: 20px;padding-right: 20px;">
+                                <div id="chart-challenge"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <div class="box box-warning">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Challenges Variation </h3>
+                            </div>
+                            <div class="box-body no-padding">
+                                <div id="container">
+                                    <canvas id="canvas"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-warning">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Challenges</h3>
+                            </div>
+                            <div class="box-body no-padding" style="padding-left: 20px;padding-right: 20px;">
+                                <div id="chart-challenge-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2019. Agenda For Humanity.</strong> All rights reserved.
+    </footer>
+
+
+
+    <!-- REQUIRED JS SCRIPTS -->
+
+    <!-- jQuery 3 -->
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="js/adminlte.min.js"></script>
+    <script src="js/spin.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/c3.min.js"></script>
+    <script src='https://unpkg.com/chart.js@2.8.0/dist/Chart.bundle.js'></script>
+    <script src='https://unpkg.com/chartjs-chart-box-and-violin-plot@2/build/Chart.BoxPlot.js'></script>
+
+    <script>
+        PopulateChallenges();
+        PopulateChallengesBar();
+        PopulateChallengesVariation();
+        drawPlot();
+
+        var opts = {
+            lines: 9, // The number of lines to draw
+            length: 9, // The length of each line
+            width: 5, // The line thickness
+            radius: 14, // The radius of the inner circle
+            color: '#002840', // #rgb or #rrggbb or array of colors
+            speed: 1.9, // Rounds per second
+            trail: 40, // Afterglow percentage
+            className: 'spinner', // The CSS class to assign to the spinner
+        };
+
+
+
+
+
+
+
+        function PopulateChallenges() {
+            var target = document.getElementById('chart-challenge');
+            var spinner = new Spinner(opts).spin(target);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/challenges/get.php', function (crises) {
+                spinner.stop();
+
+
+                var countsData = [
+                    ['2018'],
+                    ['2019']
+                ];
+
+                crises.forEach(function (element, index) {
+                    /*     if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Buy-in'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Coordination'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Data'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Field or access'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Funding'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Funding modalities'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Gender'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Hum-dev nexus'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Human resources'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='IHL'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Info-management '){
+                    countsData[0].push(element['Total']);
+                  } 
+
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Internal constraints'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='National or local systems'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Hum-dev nexus'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Preparedness'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Standards'){
+                    countsData[0].push(element['Total']);
+                  } 
+                
+*/
+
+
+
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Buy-in') {
+                        countsData[0].push(element['Total']);
+                        prev1 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Coordination') {
+                        countsData[0].push(element['Total']);
+                        prev2 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Data') {
+                        countsData[0].push(element['Total']);
+                        prev3 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Field or access') {
+                        countsData[0].push(element['Total']);
+                        prev4 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Funding') {
+                        countsData[0].push(element['Total']);
+                        prev5 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Funding modalities') {
+                        countsData[0].push(element['Total']);
+                        prev6 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Gender') {
+                        countsData[0].push(element['Total']);
+                        prev7 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Hum-dev nexus') {
+                        countsData[0].push(element['Total']);
+                        prev8 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Human resources') {
+                        countsData[0].push(element['Total']);
+                        prev9 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] == 'IHL') {
+                        countsData[0].push(element['Total']);
+                        prev10 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Info-management') {
+                        countsData[0].push(element['Total']);
+                        prev11 = element['Total'];
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Internal constraints') {
+                        countsData[0].push(element['Total']);
+                        prev12 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'National or local systems') {
+                        countsData[0].push(element['Total']);
+                        prev13 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Hum-dev nexus') {
+                        countsData[0].push(element['Total']);
+                        prev14 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Preparedness') {
+                        countsData[0].push(element['Total']);
+                        prev15 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Standards') {
+                        countsData[0].push(element['Total']);
+                        prev16 = element['Total'];
+                    }
+
+
+
+
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Buy-in') {
+                        let per = (element['Total'] - prev1) / prev1 * 100;
+                        countsData[1].push(per.toFixed(0));
+
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Coordination') {
+                        let per = (element['Total'] - prev2) / prev2 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Data') {
+                        let per = (element['Total'] - prev3) / prev3 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Field or access') {
+                        let per = (element['Total'] - prev4) / prev4 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Funding') {
+                        let per = (element['Total'] - prev5) / prev5 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Funding modalities') {
+                        let per = (element['Total'] - prev6) / prev6 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Gender') {
+                        let per = (element['Total'] - prev7) / prev7 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Hum-dev nexus') {
+                        let per = (element['Total'] - prev8) / prev8 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Human resources') {
+                        let per = (element['Total'] - prev9) / prev9 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] == 'IHL') {
+                        let per = (element['Total'] - prev10) / prev10 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Info-management') {
+                        let per = (element['Total'] - prev11) / prev11 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Internal constraints') {
+                        let per = (element['Total'] - prev12) / prev12 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'National or local systems') {
+                        let per = (element['Total'] - prev13) / prev13 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Hum-dev nexus') {
+                        let per = (element['Total'] - prev14) / prev14 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Preparedness') {
+                        let per = (element['Total'] - prev15) / prev15 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Standards') {
+                        let per = (element['Total'] - prev16) / prev16 * 100;
+                        countsData[1].push(per.toFixed(0));
+                    }
+
+
+                });
+
+                var categoriesList = ['Buy-in', 'Coordination', 'Data', 'Field or access', 'Funding',
+                    'Funding modalities', 'Gender', 'Hum-dev nexus', 'Human resources', 'IHL',
+                    'Info-management', 'Internal constraints', 'National or local systems', 'Hum-dev nexus',
+                    'Preparedness', 'Standards'
+                ];
+                console.log(countsData);
+                $("#chart-challenge").fadeIn(1000);
+                c3.generate({
+                    bindto: '#chart-challenge',
+                    data: {
+
+                        type: 'line',
+                        columns: countsData,
+                        labels: false,
+                    },
+                    legend: {
+                        show: false
+                    },
+                    types: {
+                        data: 'line'
+                    },
+
+
+                    color: {
+                        pattern: ["#F39C12", "#006699"]
+                    },
+                    axis: {
+                        rotated: false,
+                        x: {
+                            type: 'category',
+                            categories: categoriesList
+                        },
+                    },
+                    tooltip: {
+                        format: {
+
+                            value: function (value, ratio, id) {
+                                if (id == '2018')
+                                    return value;
+                                else
+                                    return value + "%";
+                            }
+
+                        }
+                    },
+                    size: {
+                        height: 350
+                    },
+                    padding: {
+                        left: 100,
+                        right: 10
+                    }
+                });
+
+
+            });
+        }
+
+        function PopulateChallengesBar() {
+            var target = document.getElementById('chart-challenge-bar');
+            var spinner = new Spinner(opts).spin(target);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/challenges/get.php', function (crises) {
+                spinner.stop();
+
+
+                var countsData = [
+                    ['2018'],
+                    ['2019']
+                ];
+
+                crises.forEach(function (element, index) {
+                    /*     if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Buy-in'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Coordination'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Data'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Field or access'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Funding'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Funding modalities'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Gender'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Hum-dev nexus'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Human resources'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='IHL'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Info-management '){
+                    countsData[0].push(element['Total']);
+                  } 
+
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Internal constraints'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='National or local systems'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Other'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Preparedness'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Standards'){
+                    countsData[0].push(element['Total']);
+                  } 
+                
+*/
+
+
+
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Buy-in') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Coordination') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Data') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Field or access') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Funding') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Funding modalities') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Gender') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Hum-dev nexus') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Human resources') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] == 'IHL') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Info-management') {
+                        countsData[0].push(element['Total']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Internal constraints') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'National or local systems') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Other') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Preparedness') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Standards') {
+                        countsData[0].push(element['Total']);
+                    }
+
+
+
+
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Buy-in') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Coordination') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Data') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Field or access') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Funding') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Funding modalities') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Gender') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Hum-dev nexus') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Human resources') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] == 'IHL') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Info-management') {
+                        countsData[1].push(element['Total']);
+                    }
+
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Internal constraints') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'National or local systems') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Other') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Preparedness') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Standards') {
+                        countsData[1].push(element['Total']);
+                    }
+
+
+                });
+
+                var categoriesList = ['Buy-in', 'Coordination', 'Data', 'Field or access', 'Funding',
+                    'Funding modalities', 'Gender', 'Hum-dev nexus', 'Human resources', 'IHL',
+                    'Info-management', 'Internal constraints', 'National or local systems', 'Other',
+                    'Preparedness', 'Standards'
+                ];
+
+                $("#chart-challenge").fadeIn(1000);
+                c3.generate({
+                    bindto: '#chart-challenge-bar',
+                    data: {
+
+                        type: 'bar',
+                        columns: countsData,
+                        labels: true,
+                    },
+                    legend: {
+                        show: false
+                    },
+                    types: {
+                        data: 'bar'
+                    },
+
+
+                    color: {
+                        pattern: ["#F39C12", "#006699"]
+                    },
+                    axis: {
+                        rotated: false,
+                        x: {
+                            type: 'category',
+                            categories: categoriesList
+                        },
+                    },
+                    size: {
+                        height: 350
+                    },
+                    padding: {
+                        left: 100,
+                        right: 10
+                    }
+                });
+
+
+            });
+        }
+
+        function PopulateChallengesVariation() {
+
+
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/challenges/get.php', function (crises) {
+
+
+
+                var countsData = [
+                    ['Challenges'],
+
+                    ['2018'],
+                    ['2019']
+                ];
+
+
+                crises.forEach(function (element, index) {
+                    if (element['ChallengesShortCode'] == 'Buy-in') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Buy-in') {
+                        countsData[0].push(element['Total']);
+                        prev1 = element['Total'];
+
+
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Buy-in') {
+                        let per = (element['Total'] - prev1) / prev1 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev1 = element['Total'];
+                    }
+
+
+
+                    if (element['ChallengesShortCode'] == 'Coordination') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Coordination') {
+                        countsData[0].push(element['Total']);
+                        prev2 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Coordination') {
+                        let per = (element['Total'] - prev2) / prev2 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev2 = element['Total'];
+
+                    }
+
+                    if (element['ChallengesShortCode'] == 'Data') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Data') {
+                        countsData[0].push(element['Total']);
+
+                        prev3 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Data') {
+                        let per = (element['Total'] - prev3) / prev3 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+
+
+
+                        prev3 = element['Total'];
+                    }
+
+                    if (element['ChallengesShortCode'] == 'Field or access') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Field or access') {
+                        countsData[0].push(element['Total']);
+                        prev4 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Field or access') {
+                        let per = (element['Total'] - prev4) / prev4 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev4 = element['Total'];
+                    }
+                    if (element['ChallengesShortCode'] == 'Funding') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Funding') {
+                        countsData[0].push(element['Total']);
+                        prev5 = element['Total']
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Funding') {
+                        let per = (element['Total'] - prev5) / prev5 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev5 = element['Total']
+                    }
+
+                    if (element['ChallengesShortCode'] == 'Funding modalities') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Funding modalities') {
+                        countsData[0].push(element['Total']);
+                        prev6 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Funding modalities') {
+                        let per = (element['Total'] - prev6) / prev6 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev6 = element['Total'];
+                    }
+                    if (element['ChallengesShortCode'] == 'Gender') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Gender') {
+                        countsData[0].push(element['Total']);
+                        prev7 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Gender') {
+                        let per = (element['Total'] - prev7) / prev7 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev7 = element['Total'];
+                    }
+
+                    if (element['ChallengesShortCode'] == 'Hum-dev nexus') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Hum-dev nexus') {
+                        countsData[0].push(element['Total']);
+                        prev8 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Hum-dev nexus') {
+                        let per = (element['Total'] - prev8) / prev8 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev8 = element['Total'];
+                    }
+
+                    if (element['ChallengesShortCode'] == 'Human resources') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Human resources') {
+                        countsData[0].push(element['Total']);
+                        prev9 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Human resources') {
+                        let per = (element['Total'] - prev9) / prev9 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev9 = element['Total'];
+                    }
+
+
+
+
+                    if (element['ChallengesShortCode'] == 'IHL') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'IHL') {
+                        countsData[0].push(element['Total']);
+                        prev11 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'IHL') {
+                        let per = (element['Total'] - prev11) / prev11 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per == 0) {
+                            countsData[1].push(element['Total']);
+                        } else {
+                            countsData[3].push("-");
+                        }
+                        prev11 = element['Total'];
+                    }
+                    if (element['ChallengesShortCode'] == 'Info-management ') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Info-management ') {
+                        countsData[0].push(element['Total']);
+                        prev12 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Info-management ') {
+                        let per = (element['Total'] - prev12) / prev12 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev12 = element['Total'];
+                    }
+
+
+
+
+
+
+
+                    if (element['ChallengesShortCode'] == 'Internal constraints') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Internal constraints') {
+                        countsData[0].push(element['Total']);
+                        prev13 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Internal constraints') {
+                        let per = (element['Total'] - prev13) / prev13 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev13 = element['Total'];
+                    }
+
+
+                    if (element['ChallengesShortCode'] == 'National or local systems') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'National or local systems') {
+                        countsData[0].push(element['Total']);
+                        prev14 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'National or local systems') {
+                        let per = (element['Total'] - prev14) / prev14 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev14 = element['Total'];
+                    }
+
+
+
+
+
+
+
+                    if (element['ChallengesShortCode'] == 'Other') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Other') {
+                        countsData[0].push(element['Total']);
+                        prev15 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Other') {
+                        let per = (element['Total'] - prev15) / prev15 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev15 = element['Total'];
+                    }
+
+
+
+
+                    if (element['ChallengesShortCode'] == 'Preparedness') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Preparedness') {
+                        countsData[0].push(element['Total']);
+                        prev16 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Preparedness') {
+                        let per = (element['Total'] - prev16) / prev16 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev16 = element['Total'];
+                    }
+
+
+                    if (element['ChallengesShortCode'] == 'Standards') {
+                        countsData[0].push(element['ChallengesShortCode']);
+                    }
+
+                    if (element['ReportingYear'] == '2017' && element['ChallengesShortCode'] ==
+                        'Standards') {
+                        countsData[0].push(element['Total']);
+                        prev17 = element['Total'];
+                    }
+                    if (element['ReportingYear'] == '2018' && element['ChallengesShortCode'] ==
+                        'Standards') {
+                        let per = (element['Total'] - prev17) / prev17 * 100;
+                        if (per > 0.00) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else if (per < 0) {
+                            countsData[1].push(element['Total'] +
+                                " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                "<sup>" + per.toFixed(0) + "%</sup>" + "</span>");
+                        } else {
+                            countsData[1].push(element['Total']);
+                        }
+                        prev17 = element['Total'];
+                    }
+
+                });
+                let html = '';
+                console.log("Hello" + countsData);
+                html += "<TABLE class='table table-hover'>";
+                html +=
+                    "<thead><tr><th>Challenges</th><th><th>2018</th><th>2019</th></tr></thead><tbody>";
+                let j = 0;
+                let c = 1;
+                let index = 0;
+
+                for (x = 1; x <= countsData[1].length - 1; x++) {
+                    html += "<TR><TD>" + countsData[j][c] + "</TD>";
+                    for (y = 1; y <= 2; y++) {
+                        html += "<TD>" + countsData[y][x] + "</TD>";
+                        index++;
+                    }
+                    html += "</TR>";
+
+                    c = index + 1;
+                }
+                html += "</tbody></TABLE>";
+                console.log(html);
+                $("#challenges-variation").append(html);
+
+            });
+
+        }
+
+
+
+        function drawPlot() {
+
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/challenges/get.php', function (error,
+                data) {
+
+                if (error) {
+                    throw error;
+                }
+
+
+                let buy = ['Buy-in'],
+                    Coordination = ['Coordination'],
+                    dataa = ['Data'],
+                    field = ['Field or access'],
+                    funding = ['Funding'],
+                    funding_m = ['Funding modalities'],
+                    gender = ['Gender'],
+                    hum = ['Hum-dev nexus'],
+                    human = ['Human resources'],
+                    ihl = ['IHL'],
+                    info = ['Info-management '];
+                internal = ['Internal constraints'];
+                national = ['National or local systems'];
+                other = ['Other'];
+                preparedness = ['Preparedness'];
+                standards = ['Standards'];
+
+
+
+                data.forEach(function (element, index) {
+
+
+                    if (element['ChallengesShortCode'] == 'Buy-in') {
+                        buy.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] ==
+                        'Coordination') {
+                        Coordination.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] ==
+                        'Data') {
+                        dataa.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] ==
+                        'Field or access') {
+                        field.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] ==
+                        'Funding') {
+                        funding.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] ==
+                        'Funding modalities') {
+                        funding_m.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] ==
+                        'Gender') {
+                        gender.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] == 'Hum-dev nexus') {
+                        hum.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] ==
+                        'Human resources') {
+                        human.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] ==
+                        'IHL') {
+                        ihl.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] == 'Info-management ') {
+                        info.push(element['Total']);
+                    }
+
+
+                    if (element['ChallengesShortCode'] == 'Info-management ') {
+                        info.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] == 'Internal constraints') {
+                        internal.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] == 'National or local systems') {
+                        national.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] == 'Other') {
+                        other.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] == 'Preparedness') {
+                        preparedness.push(element['Total']);
+                    }
+                    if (element['ChallengesShortCode'] == 'Standards') {
+                        standards.push(element['Total']);
+                    }
+
+
+                });
+                const boxplotData = {
+                    // define label tree
+                    labels: ['Buy-in', 'Coordination', 'Data',
+                        'Field or access', 'Funding', 'Funding modalities',
+                        'Gender', 'Hum-dev nexus', 'Human resources', 'IHL', 'Info-management',
+                        'Internal constraints',
+                        'National or local systems', 'Other', 'Preparedness', 'Standards'
+                    ],
+                    datasets: [{
+                        label: 'ChallengesShortCodes',
+                        backgroundColor: 'rgba(255,0,0,0.5)',
+                        borderColor: 'red',
+                        borderWidth: 1,
+                        outlierColor: '#999999',
+                        padding: 10,
+                        itemRadius: 0,
+                        outlierColor: '#999999',
+                        data: [
+                            buy,
+                            Coordination,
+                            dataa,
+                            field,
+                            funding,
+                            funding_m,
+                            gender,
+                            hum,
+                            human,
+                            ihl,
+                            info,
+                            internal,
+                            national,
+                            other,
+                            preparedness,
+                            standards,
+                        ]
+                    }]
+                };
+                BoxPlot(boxplotData);
+            });
+        }
+
+        function BoxPlot(boxplotData) {
+
+            const ctx = document.getElementById("canvas").getContext("2d");
+            window.myBar = new Chart(ctx, {
+                type: 'boxplot',
+                data: boxplotData,
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'bottom',
+                    },
+                    title: {
+                        display: true,
+                        text: ''
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

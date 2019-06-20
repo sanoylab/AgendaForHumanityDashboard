@@ -1,0 +1,2416 @@
+
+
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Agenda for Humanity Viz | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="vendor/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="css/AdminLTE.min.css">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/vnd.microsoft.icon" />
+
+  <link rel="stylesheet" href="css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="css/c3.css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <!-- Google Font -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <style>
+    #chart-stakeholder-2018,#chart-stakeholder-2018,#chart-stakeholder-region-2019,#chart-stakeholder-2019,#chart-stakeholder-region-2018, #chart-transformation, #chart_challenges-2019, #chart-challenge-2018{
+  cursor: pointer;
+}
+    </style>
+</head>
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+      <!-- Logo -->
+      <a href="index2.html" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>V</b>IZ</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Dashboard VIZ</b></span>
+      </a>
+
+      <!-- Header Navbar -->
+      <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- Messages: style can be found in dropdown.less-->
+            <li class="dropdown messages-menu">
+              <!-- Menu toggle button -->
+
+
+              <!-- /.messages-menu -->
+
+              <!-- Notifications Menu -->
+
+              <!-- Tasks Menu -->
+
+              <!-- User Account Menu -->
+            <li class="dropdown user user-menu">
+              <!-- Menu Toggle Button -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <!-- The user image in the navbar-->
+
+                <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                <span class="hidden-xs">Welcome to Agenda for Humanitarian Data Visualization Dashboard</span>
+              </a>
+
+            </li>
+            <!-- Control Sidebar Toggle Button -->
+
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel">
+          <div class="pull-left image">
+
+          </div>
+
+        </div>
+
+        <!-- search form (Optional) -->
+
+        <!-- /.search form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree">
+          <li class="header">MAIN NAVIGATION</li>
+          <!-- Optionally, you can add icons to the links -->
+          <li class="active"><a href="index.html"><i class="fas fa-tv"></i> &nbsp;<span>Dashboard</span></a></li>
+          <li><a href="transformation.html"><i class="fas fa-laptop"></i> <span>Transformation</span></a></li>
+          <li><a href="stakeholder.html"><i class="fas fa-user-friends"></i> &nbsp; <span>Stakeholders</span></a></li>
+          <li><a href="challenges.html"><i class="fas fa-desktop"></i> &nbsp; <span>Challenges</span></a></li>
+         
+        </ul>        
+      </section>     
+    </aside>
+
+    
+    <div class="content-wrapper">     
+      <section class="content-header">
+        <h1>
+          Agenda for Humanity Data Visualization Dashboard
+         
+        </h1>
+    
+      </section>
+      
+      <section class="content container-fluid">
+          <div class="row">
+              <!-- Left col -->
+              <div class="col-md-8">
+                <!-- MAP & BOX PANE -->
+                <div class="box box-success">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">Reports</h3>     
+                   
+                  </div>
+                
+                  <div class="box-body no-padding">
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12">
+                        <div class="pad">
+                          <div class="col-md-4"><div id="chart-reported-2016"></div></div>
+                          <div class="col-md-4"><div id="chart-reported-2017"></div></div>
+                          <div class="col-md-4"><div id="chart-reported-2018"></div></div>
+                            
+                        
+                         
+                         
+                        </div>
+                      </div>
+                     
+                    </div>
+                  
+                  </div>                 
+                </div>               
+              </div>             
+      
+              <div class="col-md-4">
+                 <!-- /.info-box -->
+                
+                    <!-- /.info-box-content -->
+
+                    <div class="info-box bg-green" style="margin-bottom: 45px;">
+                        <span class="info-box-icon"><i class="fas fa-tv"></i></span>
+            
+                        <div class="info-box-content">
+                          <span class="info-box-text">2019 Total Reported</span>
+                          <span class="info-box-number"><span id="total-stakeholder-2018"></span></span>
+            
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 20%"></div>
+                          </div>
+                         
+                        </div>
+                        <!-- /.info-box-content -->
+      
+                        
+                      </div>
+                <!-- Info Boxes Style 2 -->
+                <div class="info-box bg-yellow" style="margin-bottom: 45px;">
+                  <span class="info-box-icon"><i class="fas fa-laptop"></i></span>
+      
+                  <div class="info-box-content">
+                    <span class="info-box-text">2018 Total Reported</span>
+                    <span class="info-box-number"><span id="total-stakeholder-2017"></span></span>
+      
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 50%"></div>
+                    </div>
+                   
+                  </div>
+                  <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+                <div class="info-box bg-red" style="margin-bottom: 45px;">
+                    <span class="info-box-icon"><i class="fas fa-desktop"></i></span>
+        
+                    <div class="info-box-content">
+                      <span class="info-box-text">2017 Total Reported</span>
+                      <span class="info-box-number"><span id="total-stackholder-2016"></span></span>
+        
+                      <div class="progress">
+                        <div class="progress-bar" style="width: 20%"></div>
+                      </div>
+                     
+                    </div>
+                    </div>
+               
+              </div>
+             
+            </div>
+            <div class="row"><h3>&nbsp;&nbsp;&nbsp;Transformation</h2></div>
+          <div class="row">
+              <div class="col-md-12">
+                <div class="box box-warning">
+                  <div class="box-header with-border">
+                    <h3 class="box-title"></h3>
+                  </div>
+                  <div class="box-body no-padding" style="padding-left: 20px;padding-right: 20px;">
+                    <div id="chart-transformation"></div>
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+            <div class="row"><h3>&nbsp;&nbsp;&nbsp;Stakeholder - By Type of Organisation</h2></div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="box box-warning">
+                    <div class="box-header with-border">
+                      <h3 class="box-title"></h3>
+                    </div>
+                    <div class="box-body no-padding">
+                        <div id="chart-stakeholder"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--
+        <div class="row">
+          <div class="col-md-4">
+            <div class="box box-warning">
+              <div class="box-header with-border">
+                <h3 class="box-title">2019</h3>
+              </div>
+              <div class="box-body no-padding">
+                  <div id="chart-stakeholder-2019"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="box box-warning">
+              <div class="box-header with-border">
+                <h3 class="box-title">2018</h3>
+              </div>
+              <div class="box-body no-padding">
+                  <div id="chart-stakeholder-2018"></div>
+              </div>
+            </div>
+          </div>
+            <div class="col-md-4">
+                <div class="box box-warning">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">2017</h3>
+                  </div>
+                  <div class="box-body no-padding">
+                      <div id="chart-stakeholder-2017"></div>
+                  </div>
+                </div>
+          </div>
+        </div>
+      -->
+        <div class="row"><h3>&nbsp;&nbsp;&nbsp;Stakeholder - By Region of Operation</h2></div>
+        <div class="row">
+            <div class="col-md-12">
+              <div class="box box-warning">
+                <div class="box-header with-border">
+                  <h3 class="box-title"></h3>
+                </div>
+                <div class="box-body no-padding"  style="padding-left: 20px; padding-right: 20px;">
+                  <!--<div id="chart-stakeholder-region-2019"></div>-->
+                  <div id="chart-stakeholder-region"></div>
+
+                </div>
+              </div>
+            </div>
+            
+            
+          </div>
+          <div class="row"><h3>&nbsp;&nbsp;&nbsp;Challenges</h2></div>
+          <div class="row">
+              <div class="col-md-12">
+                <div class="box box-warning">
+                  <div class="box-header with-border">
+                    <h3 class="box-title"></h3>
+                  </div>
+                  <div class="box-body" style="padding-left: 20px; padding-right: 20px;">
+                   <!-- <div id="chart_challenges-2019"></div>-->
+                    <div id="chart-challenge"></div>
+                  </div>
+                </div>
+              </div>
+              <!--
+              <div class="col-md-6">
+                <div class="box box-danger">
+                  <div class="box-header with-border"  style="padding-left: 20px; padding-right: 20px;">
+                    <h3 class="box-title">2018</h3>
+                  </div>
+                  <div class="box-body no-padding"  style="padding-left: 20px; padding-right: 20px;">
+                    <div id="chart_challenges-2018"></div>
+                  </div>
+                </div>
+              </div>
+            -->
+            </div>
+            <div class="row"><h3>&nbsp;&nbsp;&nbsp;Cross Cutting Issues</h2></div>
+          <div class="row">
+              <div class="col-md-4">
+                <div class="box box-warning">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">2019</h3>
+                  </div>
+                  <div class="box-body no-padding">
+                      <div id="table-cci-table-2019"></div>                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="box box-danger">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">2018</h3>
+                  </div>
+                  <div class="box-body no-padding">
+                      <div id="table-cci-table-2018"></div>            
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="box box-danger">
+                    <div class="box-header with-border">
+                      <h3 class="box-title">2017</h3>
+                    </div>
+                    <div class="box-body no-padding">
+                        <div id="table-cci-table-2017"></div>            
+                    </div>
+                  </div>
+                </div>
+            </div>
+          
+      </section>    
+    </div>
+    
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="pull-right hidden-xs">
+        
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2019. Agenda For Humanity.</strong> All rights reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Create the tabs -->
+      <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Home tab content -->
+        <div class="tab-pane active" id="control-sidebar-home-tab">
+          <h3 class="control-sidebar-heading">Recent Activity</h3>
+          <ul class="control-sidebar-menu">
+            <li>
+              <a href="javascript:;">
+                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                <div class="menu-info">
+                  <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                  <p>Will be 23 on April 24th</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- /.control-sidebar-menu -->
+
+          <h3 class="control-sidebar-heading">Tasks Progress</h3>
+          <ul class="control-sidebar-menu">
+            <li>
+              <a href="javascript:;">
+                <h4 class="control-sidebar-subheading">
+                  Custom Template Design
+                  <span class="pull-right-container">
+                    <span class="label label-danger pull-right">70%</span>
+                  </span>
+                </h4>
+
+                <div class="progress progress-xxs">
+                  <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                </div>
+              </a>
+            </li>
+          </ul>
+          <!-- /.control-sidebar-menu -->
+
+        </div>
+        <!-- /.tab-pane -->
+        <!-- Stats tab content -->
+        <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+        <!-- /.tab-pane -->
+        <!-- Settings tab content -->
+        <div class="tab-pane" id="control-sidebar-settings-tab">
+          <form method="post">
+            <h3 class="control-sidebar-heading">General Settings</h3>
+
+            <div class="form-group">
+              <label class="control-sidebar-subheading">
+                Report panel usage
+                <input type="checkbox" class="pull-right" checked>
+              </label>
+
+              <p>
+                Some information about this general settings option
+              </p>
+            </div>
+            <!-- /.form-group -->
+          </form>
+        </div>
+        <!-- /.tab-pane -->
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- REQUIRED JS SCRIPTS -->
+
+  <!-- jQuery 3 -->
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="js/adminlte.min.js"></script>
+  <script src="js/spin.js"></script>
+  <script src="js/d3.min.js"></script>
+  <script src="js/c3.min.js"></script>
+
+  <script>
+    PopulateTransformation(2018);
+    PopulateStokeHolder2018(2017);
+    PopulateStokeHolder2017(2016);
+    PopulateStokeHolder2019(2018);
+    PopulateStokeHolder();
+    PopulateStokeHolderRegion();
+    PopulateStokeHolderRegion2017(2016);
+    PopulateStokeHolderRegion2018(2017);
+    PopulateStokeHolderRegion2019(2018);
+    PopulateChallenge2018(2017);
+    PopulateChallenge2019(2018);
+    PopulateChallenges();
+    PopulateCrossCuttingIssueTable2019(2018);
+    PopulateCrossCuttingIssueTable2018(2017);
+    PopulateCrossCuttingIssueTable2017(2016);
+    PopulateStackholderTotal2017(2016);
+    PopulateStackholderTotal2019(2018);
+    PopulateStackholderTotal2018(2017);
+    PopulateReportStatusDashboard(2016,"chart-reported-2016");
+    PopulateReportStatusDashboard(2017,"chart-reported-2017");
+    PopulateReportStatusDashboard(2018,"chart-reported-2018");
+    function filterJSON(json, key) {
+
+var result = [];
+if (key)
+    result = json.filter(function (item) {
+        return item.Transformation_Short == key
+    });
+
+return result;
+}
+    var opts = {
+            lines: 9, // The number of lines to draw
+            length: 9, // The length of each line
+            width: 5, // The line thickness
+            radius: 14, // The radius of the inner circle
+            color: '#002840', // #rgb or #rrggbb or array of colors
+            speed: 1.9, // Rounds per second
+            trail: 40, // Afterglow percentage
+            className: 'spinner', // The CSS class to assign to the spinner
+        };
+        function PopulateTransformation(year) {
+            var target = document.getElementById('chart-transformation');
+            var spinner = new Spinner(opts).spin(target);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/transformation/get.php', function (crises) {
+                spinner.stop();
+                var a1 = ['1A'];
+                    var b1 = ['1B'];
+                    var c1 = ['1C'];
+                    var d1 = ['1D'];
+                    var a2 = ['2A'];
+                    var b2 = ['2B'];
+                    var c2 = ['2C'];
+                    var d2 = ['2D'];
+                    var e2 = ['2E'];
+                    var a3 = ['3A'];
+                    var b3 = ['3B'];
+                    
+                    var c33 = ['3C'];
+                    var d33 = ['3D'];
+                    
+                    var e3 = ['3E'];
+                    var f3 = ['3F'];
+                    var g3 = ['3G'];
+                    
+                    var a4 = ['4A'];
+                    var b4 = ['4B'];
+                    var c4 = ['4C'];
+                    var a5 = ['5A'];
+                    var b5 = ['5B'];
+                    var c5 = ['5C'];
+                    var d5 = ['5D'];
+                    var e5 = ['5E'];
+                   var transformation_short=['Transformation_Short'];
+                 var   total = ['Total'];
+                   var  transformation_long = ['Transformation_Long'];
+
+
+                crises.forEach(function (element, index) {
+                  if(element['Transformation_Short']=='1A'){
+                    a1.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="1B"){
+                    b1.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="1C"){
+                    c1.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="1D"){
+                    d1.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="2A"){
+                    a2.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="2B"){
+                    b2.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="2C"){
+                    c2.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="2D"){
+                    d2.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="2E"){
+                    e2.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="3A"){
+                    a3.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="3B"){
+                    b3.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="3C"){
+                    c33.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="3D"){
+                    d33.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="3E"){
+                    e3.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="3F"){
+                    f3.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="3G"){
+                    g3.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="4A"){
+                    a4.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="4B"){
+                    b4.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="4C"){
+                    c4.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="5A"){
+                    a5.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="5B"){
+                    b5.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="5C"){
+                    c5.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="5D"){
+                    d5.push(Number(element['Total']));
+                  }
+                  else if(element['Transformation_Short']=="5E"){
+                    e5.push(Number(element['Total']));
+                  }
+                  
+                        transformation_short.push(element['Transformation_Short']);
+                      
+                        //transformation_long.push(element['Transformation_Long']);
+                    
+                });
+            
+
+           
+                  var columnData = [['x','2017','2018','2019'],a1, b1, c1, d1, a2, b2, c2, d2, e2, a3, b3, c33, d33, e3, f3, g3, a4, b4, c4, a5, b5, c5, d5, e5];
+                  console.log(  columnData);
+                //  $("#chart-transformation").fadeIn(1000);
+                    c3.generate({
+                      bindto: '#chart-transformation',
+                        data: {
+                            x:'x',
+                            columns: columnData,                            
+                            type: 'bar',
+                          //  groups: [
+                         //       ['1A', '1B', '1C', '1D', '2A', '2B','2C','2D','2E','3A','3B','3C','3D','3E','3F','3G','4A','4B','4C','5A','5B','5C','5D','5E']
+                        //    ],
+                            
+                        },
+                        
+                    });                   
+                
+
+
+            });
+
+        }
+
+        function PopulateStokeHolder2018(year) {
+            var target = document.getElementById('chart-stakeholder');
+            var spinner = new Spinner(opts).spin(target);
+            // console.log(year);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (crises) {
+                spinner.stop();
+                var stakeHolders = ['StakeHolders'],
+                    total = ['Total'],
+                    reportingYear = ["ReportingYear"];
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == year) {
+                        // console.log(element['ReportingYear']);
+                        stakeHolders.push(element['Stakeholder']);
+                        total.push(Number(element['Total']));
+                        reportingYear.push(element['ReportingYear']);
+                    }
+
+                });
+                //console.log(reportingYear);
+                //console.log(stakeHolders.length && total.length);
+                if (stakeHolders.length > 1 && total.length) {
+console.log(total);
+                    $("#chart-stakeholder-2018").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart-stakeholder-2018',
+                        data: {
+                            x: 'StakeHolders',
+                            type: 'bar',
+                            columns: [stakeHolders, total],
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+
+                        groups: [
+                            stakeHolders, total
+                        ],
+                        color: {
+                            pattern: ["#00A65A"]
+                        },
+                        axis: {
+                            rotated: true,
+                            x: {
+                                type: 'category'
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 100,
+                            right: 10
+                        }
+                    });
+                } else {
+                    $("#chart-stakeholder-2018").fadeOut(1000);
+
+                }
+
+            });
+        }  
+
+        function PopulateTransformation(year) {
+            var target = document.getElementById('chart-transformation');
+            var spinner = new Spinner(opts).spin(target);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/transformation/get.php', function (crises) {
+                spinner.stop();
+                var a1 = ['1A'];           
+                var transformation_short=['Transformation_Short'];
+                var   total = ['Total'];
+                var  transformation_long = ['Transformation_Long'];
+               
+                var countsData = [  ['2017'], ['2018'], ['2019']];
+
+                crises.forEach(function (element, index) {
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='1A'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='1A'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='1A'){
+                    countsData[2].push(element['Total']);
+                  }               
+            
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='1B'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='1B'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='1B'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='1C'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='1C'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='1C'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='1D'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='1D'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='1D'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='2A'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='2A'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='2A'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='2B'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='2B'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='2B'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='2C'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='2C'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='2C'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='2D'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='2D'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='2D'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='2E'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='2E'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='2E'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3A'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3A'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3A'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3B'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3B'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3B'){
+                    countsData[2].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3C'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3C'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3C'){
+                    countsData[2].push(element['Total']);
+                  }     
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3D'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3D'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3D'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3E'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3E'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3E'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3F'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3F'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3F'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3G'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3G'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3G'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='4A'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='4A'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='4A'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='4B'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='4B'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='4B'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='4C'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='4C'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='4C'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='5A'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='5A'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='5A'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='5B'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='5B'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='5B'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='5C'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='5C'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='5C'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='5D'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='5D'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='5D'){
+                    countsData[2].push(element['Total']);
+                  }   
+                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='5E'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='5E'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='5E'){
+                    countsData[2].push(element['Total']);
+                  }   
+
+                });   
+              
+                var categoriesList = ['1A', '1B', '1C','1D','2A','2B','2C','2D','2E','3A','3B','3C','3D','3E','3F','3G','4A','4B','4C','5A','5B','5C','5D','5E'];
+       
+                    c3.generate({
+                      bindto: '#chart-transformation',
+                        data: {
+                          
+                            columns: countsData,     
+                            labels: true,                   
+                            type: 'bar',
+                            padding: {
+                                left: 60
+                            }, 
+                           
+                            /*
+                            color: function (color, d) {
+                              if (d.index < 4)
+                                color="#00B1EB";
+                              else if  (d.index >= 4 && d.index < 9)
+                                color="#51AF32";
+                              else if  (d.index >= 9 && d.index < 16)
+                                color="#A863A5"; 
+                              else if  (d.index >= 16 && d.index < 19)
+                                color="#F7A600"; 
+                                else if  (d.index >= 19 && d.index <= 23)
+                                color="#E84E0F";    
+                              return color;
+                            }
+                            */                                                
+                        },
+                        color: {
+                               pattern: ["#F39C12","#006699","#E84E0F"]
+                            },
+                        axis: {
+                          rotated: false,
+                          x: {
+                            type: 'category',
+                            categories: categoriesList
+                          },
+                          y: {show: false}
+                        },
+                    });                   
+                
+
+
+            });
+
+        }
+
+
+
+        function PopulateStokeHolder2018(year) {
+            var target = document.getElementById('chart-stakeholder');
+            var spinner = new Spinner(opts).spin(target);
+            // console.log(year);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (crises) {
+                spinner.stop();
+                var stakeHolders = ['StakeHolders'],
+                    total = ['Total'],
+                    reportingYear = ["ReportingYear"];
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == year) {
+                        // console.log(element['ReportingYear']);
+                        stakeHolders.push(element['Stakeholder']);
+                        total.push(Number(element['Total']));
+                        reportingYear.push(element['ReportingYear']);
+                    }
+
+                });
+                //console.log(reportingYear);
+                //console.log(stakeHolders.length && total.length);
+                if (stakeHolders.length > 1 && total.length) {
+
+                    $("#chart-stakeholder-2018").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart-stakeholder-2018',
+                        data: {
+                            x: 'StakeHolders',
+                            type: 'bar',
+                            columns: [stakeHolders, total],
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+
+                        groups: [
+                            stakeHolders, total
+                        ],
+                        color: {
+                            pattern: ["#00A65A"]
+                        },
+                        axis: {
+                            rotated: true,
+                            x: {
+                                type: 'category'
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 100,
+                            right: 10
+                        }
+                    });
+                } else {
+                    $("#chart-stakeholder-2018").fadeOut(1000);
+
+                }
+
+            });
+        }  
+        
+
+        function PopulateStokeHolder2017(year) {
+            var target = document.getElementById('chart-stakeholder');
+            var spinner = new Spinner(opts).spin(target);
+            // console.log(year);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (crises) {
+                spinner.stop();
+                var stakeHolders = ['StakeHolders'],
+                    total = ['Total'],
+                    reportingYear = ["ReportingYear"];
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == year) {
+                        // console.log(element['ReportingYear']);
+                        stakeHolders.push(element['Stakeholder']);
+                        total.push(Number(element['Total']));
+                        reportingYear.push(element['ReportingYear']);
+                    }
+
+                });
+                //console.log(reportingYear);
+                //console.log(stakeHolders.length && total.length);
+                if (stakeHolders.length > 1 && total.length) {
+
+                    $("#chart-stakeholder-2017").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart-stakeholder-2017',
+                        data: {
+                            x: 'StakeHolders',
+                            type: 'bar',
+                            columns: [stakeHolders, total],
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+
+                        groups: [
+                            stakeHolders, total
+                        ],
+                        color: {
+                            pattern: ["#00A65A"]
+                        },
+                        axis: {
+                            rotated: true,
+                            x: {
+                                type: 'category'
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 100,
+                            right: 10
+                        }
+                    });
+                } else {
+                    $("#chart-stakeholder-2017").fadeOut(1000);
+
+                }
+
+            });
+        }  
+
+        function PopulateStokeHolder() {
+            var target = document.getElementById('chart-stakeholder');
+            var spinner = new Spinner(opts).spin(target);           
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (crises) {
+                spinner.stop();
+                var stakeHolders = ['Stakeholder'],
+                    total = ['Total'],
+                    reportingYear = ["ReportingYear"];
+
+                    var countsData = [  ['2017'], ['2018'], ['2019']];
+
+                crises.forEach(function (element, index) {
+                  if(element['ReportingYear']=='2016' && element['Stakeholder']=='Academia'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Faith-based Organisation'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Foundation'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='International Organisation'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Member State'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='NGO - International'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='NGO - National'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Other'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Private Sector'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Regional Organisation'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='UN'){
+                    countsData[0].push(element['Total']);
+                  } 
+
+
+
+                  if(element['ReportingYear']=='2017' && element['Stakeholder']=='Academia'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Faith-based Organisation'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Foundation'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='International Organisation'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Member State'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='NGO - International'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='NGO - National'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Other'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Private Sector'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Regional Organisation'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='UN'){
+                    countsData[1].push(element['Total']);
+                  } 
+
+
+
+
+                  if(element['ReportingYear']=='2018' && element['Stakeholder']=='Academia'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Faith-based Organisation'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Foundation'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='International Organisation'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Member State'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='NGO - International'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='NGO - National'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Other'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Private Sector'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Regional Organisation'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='UN'){
+                    countsData[2].push(element['Total']);
+                  } 
+
+
+
+
+
+                });              
+                
+                  var categoriesList = ['Academia', 'Faith-based Organisation', 'Foundation','International Organisation','Member State','NGO - International','NGO - National','Other','Private Sector','Regional Organisation','UN'];
+                  console.log(countsData);
+                    $("#chart-stakeholder").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart-stakeholder',
+                        data: {
+                           
+                            type: 'bar',
+                            columns: countsData,   
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+
+                        
+                        color: {
+                           pattern: ["#F39C12","#006699","#E84E0F"]
+                        },
+                        axis: {
+                            rotated: false,
+                            x: {
+                                type: 'category',
+                                categories: categoriesList
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 100,
+                            right: 10
+                        }
+                    });
+                
+
+            });
+        } 
+        function PopulateChallenges() {
+            var target = document.getElementById('chart-challenge');
+            var spinner = new Spinner(opts).spin(target);           
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/challenges/get.php', function (crises) {
+                spinner.stop();
+               
+
+                    var countsData = [  ['2018'], ['2019']];
+
+                crises.forEach(function (element, index) {
+             /*     if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Buy-in'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Coordination'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Data'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Field or access'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Funding'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Funding modalities'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Gender'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Hum-dev nexus'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Human resources'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='IHL'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Info-management '){
+                    countsData[0].push(element['Total']);
+                  } 
+
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Internal constraints'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='National or local systems'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Other'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Preparedness'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2016' && element['ChallengesShortCode']=='Standards'){
+                    countsData[0].push(element['Total']);
+                  } 
+                
+*/
+
+
+                 
+
+                  if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Buy-in'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Coordination'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Data'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Field or access'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Funding'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Funding modalities'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Gender'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Hum-dev nexus'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Human resources'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='IHL'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Info-management'){
+                    countsData[0].push(element['Total']);
+                  } 
+
+                  if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Internal constraints'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='National or local systems'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Other'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Preparedness'){
+                    countsData[0].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2017' && element['ChallengesShortCode']=='Standards'){
+                    countsData[0].push(element['Total']);
+                  }
+                 
+
+
+
+                  if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Buy-in'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Coordination'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Data'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Field or access'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Funding'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Funding modalities'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Gender'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Hum-dev nexus'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Human resources'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='IHL'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Info-management'){
+                    countsData[1].push(element['Total']);
+                  } 
+
+                  if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Internal constraints'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='National or local systems'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Other'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Preparedness'){
+                    countsData[1].push(element['Total']);
+                  } 
+                  if(element['ReportingYear']=='2018' && element['ChallengesShortCode']=='Standards'){
+                    countsData[1].push(element['Total']);
+                  }
+
+
+                });              
+                
+                  var categoriesList = ['Buy-in', 'Coordination', 'Data','Field or access','Funding','Funding modalities','Gender','Hum-dev nexus','Human resources','IHL','Info-management','Internal constraints','National or local systems','Other','Preparedness','Standards'];
+                  console.log(countsData);
+                    $("#chart-challenge").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart-challenge',
+                        data: {
+                           
+                            type: 'bar',
+                            columns: countsData,   
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+
+                        
+                        color: {
+                           pattern: ["#F39C12","#006699","#E84E0F"]
+                        },
+                        axis: {
+                            rotated: false,
+                            x: {
+                                type: 'category',
+                                categories: categoriesList
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 100,
+                            right: 10
+                        }
+                    });
+                
+
+            });
+        } 
+
+        function PopulateStokeHolderRegion() {
+            var target = document.getElementById('chart-stakeholder-region');
+            var spinner = new Spinner(opts).spin(target);           
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/region.php', function (crises) {
+                spinner.stop();
+             
+
+                    var countsData = [  ['2017'], ['2018'], ['2019']];
+
+                crises.forEach(function (element, index) {
+                  if(element['ReportingYear']=='2016' && element['Stakeholder']=='Africa'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Asia'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Asia-Pacific'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Europe'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Global'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Latin America and the Caribbean'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Middle East'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='North America'){
+                    countsData[0].push(element['Total']);
+                  } 
+                   
+
+
+
+                  if(element['ReportingYear']=='2017' && element['Stakeholder']=='Africa'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Asia'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Asia-Pacific'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Europe'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Global'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Latin America and the Caribbean'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Middle East'){
+                    countsData[1].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='North America'){
+                    countsData[1].push(element['Total']);
+                  } 
+
+
+
+
+                  if(element['ReportingYear']=='2018' && element['Stakeholder']=='Africa'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Asia'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Asia-Pacific'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Europe'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Global'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Latin America and the Caribbean'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Middle East'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='North America'){
+                    countsData[2].push(element['Total']);
+                  } 
+                   
+
+
+
+
+
+                });              
+                
+                  var categoriesList = ['Africa', 'Asia', 'Asia-Pacific','Europe','Global','Latin America and the Caribbean','Middle East','North America'];
+                  console.log(countsData);
+                    $("#chart-stakeholder-region").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart-stakeholder-region',
+                        data: {
+                           
+                            type: 'bar',
+                            columns: countsData,   
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+
+                        
+                        color: {
+                           pattern: ["#F39C12","#006699","#E84E0F"]
+                        },
+                        axis: {
+                            rotated: false,
+                            x: {
+                                type: 'category',
+                                categories: categoriesList
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 100,
+                            right: 10
+                        }
+                    });
+                
+
+            });
+        } 
+
+
+
+        function PopulateStokeHolder2019(year) {
+            var target = document.getElementById('chart-stakeholder-2019');
+            var spinner = new Spinner(opts).spin(target);           
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (crises) {
+                spinner.stop();
+                var stakeHolders = ['StakeHolders'],
+                    total = ['Total'],
+                    reportingYear = ["ReportingYear"];
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == year) {
+                        // console.log(element['ReportingYear']);
+                        stakeHolders.push(element['Stakeholder']);
+                        total.push(Number(element['Total']));
+                        reportingYear.push(element['ReportingYear']);
+                    }
+
+                });              
+                if (stakeHolders.length > 1 && total.length) {
+
+                    $("#chart-stakeholder-2019").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart-stakeholder-2019',
+                        data: {
+                            x: 'StakeHolders',
+                            type: 'bar',
+                            columns: [stakeHolders, total],
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+
+                        groups: [
+                            stakeHolders, total
+                        ],
+                        color: {
+                            pattern: ["#F39C12"]
+                        },
+                        axis: {
+                            rotated: true,
+                            x: {
+                                type: 'category'
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 100,
+                            right: 10
+                        }
+                    });
+                } else {
+                    $("#chart-stakeholder-2019").fadeOut(1000);
+
+                }
+
+            });
+        }   
+        function PopulateStokeHolderRegion2018(year) {
+            var target = document.getElementById('chart-stakeholder-region-2018');
+            var spinner = new Spinner(opts).spin(target);
+            // console.log(year);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/region.php', function (crises) {
+                spinner.stop();
+                var stakeHolders = ['StakeHolders'],
+                    total = ['Total'],
+                    reportingYear = ["ReportingYear"];
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == year) {
+                        // console.log(element['ReportingYear']);
+                        stakeHolders.push(element['Stakeholder']);
+                        total.push(Number(element['Total']));
+                        reportingYear.push(element['ReportingYear']);
+                    }
+
+                });
+                //console.log(reportingYear);
+                //console.log(stakeHolders.length && total.length);
+                if (stakeHolders.length > 1 && total.length) {
+
+                    $("#chart-stakeholder-region-2018").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart-stakeholder-region-2018',
+                        data: {
+                            x: 'StakeHolders',
+                            type: 'bar',
+                            columns: [stakeHolders, total],
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+                        groups: [
+                            stakeHolders, total
+                        ],
+                        color: {
+                            pattern: ["#DD4B39"]
+                        },
+                        axis: {
+                            rotated: true,
+                            x: {
+                                type: 'category'
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 100,
+                            right: 10
+                        }
+                    });
+                } else {
+                    $("#chart-stakeholder-region-2018").fadeOut(1000);
+
+                }
+
+            });
+        }
+        function PopulateStokeHolderRegion2017(year) {
+            var target = document.getElementById('chart-stakeholder-region-2018');
+            var spinner = new Spinner(opts).spin(target);
+            // console.log(year);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/region.php', function (crises) {
+                spinner.stop();
+                var stakeHolders = ['StakeHolders'],
+                    total = ['Total'],
+                    reportingYear = ["ReportingYear"];
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == year) {
+                        // console.log(element['ReportingYear']);
+                        stakeHolders.push(element['Stakeholder']);
+                        total.push(Number(element['Total']));
+                        reportingYear.push(element['ReportingYear']);
+                    }
+
+                });
+                //console.log(reportingYear);
+                //console.log(stakeHolders.length && total.length);
+                if (stakeHolders.length > 1 && total.length) {
+
+                    $("#chart-stakeholder-region-2017").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart-stakeholder-region-2017',
+                        data: {
+                            x: 'StakeHolders',
+                            type: 'bar',
+                            columns: [stakeHolders, total],
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+                        groups: [
+                            stakeHolders, total
+                        ],
+                        color: {
+                            pattern: ["#DD4B39"]
+                        },
+                        axis: {
+                            rotated: true,
+                            x: {
+                                type: 'category'
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 100,
+                            right: 10
+                        }
+                    });
+                } else {
+                    $("#chart-stakeholder-region-2017").fadeOut(1000);
+
+                }
+
+            });
+        }
+        function PopulateStokeHolderRegion2019(year) {
+            var target = document.getElementById('chart-stakeholder-region-2019');
+            var spinner = new Spinner(opts).spin(target);
+            // console.log(year);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/region.php', function (crises) {
+                spinner.stop();
+                var stakeHolders = ['StakeHolders'],
+                    total = ['Total'],
+                    reportingYear = ["ReportingYear"];
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == year) {
+                        // console.log(element['ReportingYear']);
+                        stakeHolders.push(element['Stakeholder']);
+                        total.push(Number(element['Total']));
+                        reportingYear.push(element['ReportingYear']);
+                    }
+
+                });
+                //console.log(reportingYear);
+                //console.log(stakeHolders.length && total.length);
+                if (stakeHolders.length > 1 && total.length) {
+
+                    $("#chart-stakeholder-region-2019").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart-stakeholder-region-2019',
+                        data: {
+                            x: 'StakeHolders',
+                            type: 'bar',
+                            columns: [stakeHolders, total],
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+                        groups: [
+                            stakeHolders, total
+                        ],
+                        color: {
+                            pattern: ["#002840"]
+                        },
+                        axis: {
+                            rotated: true,
+                            x: {
+                                type: 'category'
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 100,
+                            right: 10
+                        }
+                    });
+                } else {
+                    $("#chart-stakeholder-region-2019").fadeOut(1000);
+
+                }
+
+            });
+        }
+
+        function PopulateChallenge2018(year) {
+            var target = document.getElementById('chart_challenges-2018');
+            var spinner = new Spinner(opts).spin(target);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/challenges/get.php', function (crises) {
+                spinner.stop();
+                var challengeID = ['ChallengeID'],
+                    challengesShortCode = ['ChallengesShortCode'],
+                    reportingYear = ['ReportingYear'],
+                    total = ['Total'];
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == year) {
+                        challengeID.push([element['ChallengeID']]);
+                        challengesShortCode.push([element['ChallengesShortCode']]);
+                        total.push(Number(element['Total']));
+                    }
+                });
+                if (challengeID.length > 1 ) {
+                    $("#chart_challenges").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart_challenges-2018',
+                        data: {
+                            x: 'ChallengesShortCode',
+                            type: 'bar',
+                            columns: [challengesShortCode, total],
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+                        groups: [
+                            challengesShortCode, total
+                        ],
+                        color: {
+                            pattern: ["#006699"]
+                        },
+                        axis: {
+
+                            x: {
+                                type: 'category',
+                                tick: {
+                                    rotate: 75,
+                                    multiline: true
+                                }
+                            },
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 10,
+                            right: 10
+                        },
+
+                    });
+                } else {
+                    $("#chart_challenges-2018").fadeOut(1000);
+                }
+            });
+        }
+
+        function PopulateChallenge2018(year) {
+            var target = document.getElementById('chart_challenges-2018');
+            var spinner = new Spinner(opts).spin(target);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/challenges/get.php', function (crises) {
+                spinner.stop();
+                var challengeID = ['ChallengeID'],
+                    challengesShortCode = ['ChallengesShortCode'],
+                    reportingYear = ['ReportingYear'],
+                    total = ['Total'];
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == year) {
+                        challengeID.push([element['ChallengeID']]);
+                        challengesShortCode.push([element['ChallengesShortCode']]);
+                        total.push(Number(element['Total']));
+                    }
+                });
+                if (challengeID.length > 1) {
+                    $("#chart_challenges").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart_challenges-2018',
+                        data: {
+                            x: 'ChallengesShortCode',
+                            type: 'bar',
+                            columns: [challengesShortCode, total],
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+                        groups: [
+                            challengesShortCode, total
+                        ],
+                        color: {
+                            pattern: ["#006699"]
+                        },
+                        axis: {
+
+                            x: {
+                                type: 'category'
+                            },
+                            tick: {
+                                    rotate: 75,
+                                    multiline: true
+                                }
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 10,
+                            right: 10
+                        },
+
+                    });
+                } else {
+                    $("#chart_challenges-2018").fadeOut(1000);
+                }
+            });
+        }
+        
+        function PopulateChallenge2019(year) {
+            var target = document.getElementById('chart_challenges-2019');
+            var spinner = new Spinner(opts).spin(target);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/challenges/get.php', function (crises) {
+                spinner.stop();
+                var challengeID = ['ChallengeID'],
+                    challengesShortCode = ['ChallengesShortCode'],
+                    reportingYear = ['ReportingYear'],
+                    total = ['Total'];
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == year) {
+                        challengeID.push([element['ChallengeID']]);
+                        challengesShortCode.push([element['ChallengesShortCode']]);
+                        total.push(Number(element['Total']));
+                    }
+                });
+                if (challengeID.length > 1 && total.length > 1) {
+                    $("#chart_challenges").fadeIn(1000);
+                    c3.generate({
+                        bindto: '#chart_challenges-2019',
+                        data: {
+                            x: 'ChallengesShortCode',
+                            type: 'bar',
+                            columns: [challengesShortCode, total],
+                            labels: true,
+                        },
+                        legend: {
+                            show: false
+                        },
+                        types: {
+                            data: 'bar'
+                        },
+                        groups: [
+                            challengesShortCode, total
+                        ],
+                        color: {
+                            pattern: ["#F6B54D"]
+                        },
+                        axis: {
+
+                            x: {
+                                type: 'category'
+                            },
+                            tick: {
+                                    rotate: 75,
+                                    multiline: true
+                                }
+                        },
+                        size: {
+                            height: 350
+                        },
+                        padding: {
+                            left: 10,
+                            right: 10
+                        },
+
+                    });
+                } else {
+                    $("#chart_challenges-2019").fadeOut(1000);
+                }
+            });
+        }
+        function PopulateCrossCuttingIssueTable2019(year) {
+
+
+var target = document.getElementById('table-cci-table-2019');
+var spinner = new Spinner(opts).spin(target);
+
+
+var target = document.getElementById('table-cci-table-2019');
+var spinner = new Spinner(opts).spin(target);
+d3.json('https://www.agendaforhumanity.org/viz_endpoint/crosscutting-issues/get.php', function (error,
+data) {
+    spinner.stop();
+    if (error) {
+        throw error;
+    }
+    var cci = ['CCI'],
+        reportingYear = ['ReportingYear'],
+        total = ['Total'];
+    var myAssociativeArr = [];
+
+    data.forEach(function (element, index) {
+        var obj = {
+            CCI: '',
+            Total: ''
+        };
+        if (element['ReportingYear'] == year) {
+            obj.CCI = element['CCI'];
+            obj.Total = element['Total'];
+            myAssociativeArr.push(obj);
+        }
+    });
+
+
+    if (myAssociativeArr.length > 1) {
+      myAssociativeArr.sort();
+        var row =
+            "<table class='table table-hover'><tr class='header-row'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr>";
+
+        for (i = 1; i < myAssociativeArr.length; i++) {
+            row = row +
+                "<tr class='row-data'><td style='text-align:left;'>" +
+                myAssociativeArr[i].CCI + "</td><td>" + myAssociativeArr[i].Total + "</td></tr>";
+        }
+        row = row + "</table>";
+        document.getElementById("table-cci-table-2019").innerHTML = row;
+
+    } else {
+        $("#table-cci-table-2019").fadeOut(1000);
+    }
+
+});
+}
+function PopulateCrossCuttingIssueTable2018(year) {
+
+
+var target = document.getElementById('table-cci-table-2018');
+var spinner = new Spinner(opts).spin(target);
+
+
+var target = document.getElementById('table-cci-table-2018');
+var spinner = new Spinner(opts).spin(target);
+d3.json('https://www.agendaforhumanity.org/viz_endpoint/crosscutting-issues/get.php', function (error,
+data) {
+    spinner.stop();
+    if (error) {
+        throw error;
+    }
+    var cci = ['CCI'],
+        reportingYear = ['ReportingYear'],
+        total = ['Total'];
+    var myAssociativeArr = [];
+
+    data.forEach(function (element, index) {
+        var obj = {
+            CCI: '',
+            Total: ''
+        };
+        if (element['ReportingYear'] == year) {
+            obj.CCI = element['CCI'];
+            obj.Total = element['Total'];
+            myAssociativeArr.push(obj);
+        }
+    });
+
+
+    if (myAssociativeArr.length > 1) {
+      myAssociativeArr.sort();
+        var row =
+            "<table class='table table-hover'><tr class='header-row'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr>";
+
+        for (i = 1; i < myAssociativeArr.length; i++) {
+            row = row +
+                "<tr class='row-data'><td style='text-align:left;'>" +
+                myAssociativeArr[i].CCI + "</td><td>" + myAssociativeArr[i].Total + "</td></tr>";
+        }
+        row = row + "</table>";
+        document.getElementById("table-cci-table-2018").innerHTML = row;
+
+    } else {
+        $("#table-cci-table-2018").fadeOut(1000);
+    }
+
+});
+}
+function PopulateCrossCuttingIssueTable2017(year) {
+
+
+var target = document.getElementById('table-cci-table-2017');
+var spinner = new Spinner(opts).spin(target);
+
+
+var target = document.getElementById('table-cci-table-2017');
+var spinner = new Spinner(opts).spin(target);
+d3.json('https://www.agendaforhumanity.org/viz_endpoint/crosscutting-issues/get.php', function (error,
+data) {
+    spinner.stop();
+    if (error) {
+        throw error;
+    }
+    var cci = ['CCI'],
+        reportingYear = ['ReportingYear'],
+        total = ['Total'];
+    var myAssociativeArr = [];
+
+    data.forEach(function (element, index) {
+        var obj = {
+            CCI: '',
+            Total: ''
+        };
+        if (element['ReportingYear'] == year) {
+            obj.CCI = element['CCI'];
+            obj.Total = element['Total'];
+            myAssociativeArr.push(obj);
+        }
+    });
+
+
+    if (myAssociativeArr.length > 1) {
+      myAssociativeArr.sort();
+        var row =
+            "<table class='table table-hover'><tr class='header-row'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr>";
+
+        for (i = 1; i < myAssociativeArr.length; i++) {
+            row = row +
+                "<tr class='row-data'><td style='text-align:left;'>" +
+                myAssociativeArr[i].CCI + "</td><td>" + myAssociativeArr[i].Total + "</td></tr>";
+        }
+        row = row + "</table>";
+        document.getElementById("table-cci-table-2017").innerHTML = row;
+
+    } else {
+        $("#table-cci-table-2017").fadeOut(1000);
+    }
+
+});
+}
+function PopulateStackholderTotal2017(year) {
+
+var target = document.getElementById('total-stackholder-2016');
+var spinner = new Spinner(opts).spin(target);
+
+
+d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', function (crises) {
+    spinner.stop();
+  
+    var total = ['Total'],
+        reportingYear = ['ReportingYear'];
+    crises.forEach(function (element, index) {
+        if (element['ReportingYear'] == year) {
+            total.push(Number(element['Total']));
+        }
+    });
+
+
+    if (total.length > 0 && total[1] != undefined) {
+        $("#total-stackholder-2016").fadeIn(1000);
+        
+        $('#total-stackholder-2016').html(
+           
+            total[1]);
+       
+
+
+
+    } else {
+
+        $('#total-stackholder-2016').fadeOut(1000);
+      
+    }
+});
+}
+function PopulateStackholderTotal2018(year) {
+
+var target = document.getElementById('total-stakeholder-2017');
+var spinner = new Spinner(opts).spin(target);
+
+
+d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', function (crises) {
+    spinner.stop();
+   
+    var total = ['Total'],
+        reportingYear = ['ReportingYear'];
+    crises.forEach(function (element, index) {
+        if (element['ReportingYear'] == year) {
+            total.push(Number(element['Total']));
+        }
+    });
+
+
+    if (total.length > 0 && total[1] != undefined) {
+        $("#total-stackholder-2017").fadeIn(1000);
+      
+        $('#total-stakeholder-2017').html(
+           
+            total[1] );
+       
+
+
+
+    } else {
+
+        $('#total-stakeholder-2017').fadeOut(1000);
+      
+    }
+});
+}
+function PopulateStackholderTotal2019(year) {
+
+var target = document.getElementById('total-stakeholder-2018');
+var spinner = new Spinner(opts).spin(target);
+
+
+d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', function (crises) {
+    spinner.stop();
+   
+    var total = ['Total'],
+        reportingYear = ['ReportingYear'];
+    crises.forEach(function (element, index) {
+        if (element['ReportingYear'] == year) {
+            total.push(Number(element['Total']));
+        }
+    });
+
+
+    if (total.length > 0 && total[1] != undefined) {
+        $("#total-stackholder-2018").fadeIn(1000);
+      
+        $('#total-stakeholder-2018').html(
+           
+            total[1] );
+       
+
+
+
+    } else {
+
+        $('#total-stakeholder-2018').fadeOut(1000);
+      
+    }
+});
+}
+
+function PopulateReportStatusDashboard(year,dom) {
+
+
+news = "https://www.agendaforhumanity.org/viz_endpoint/dashboard/get.php";
+var target = document.getElementById(dom);
+var spinner = new Spinner(opts).spin(target);
+d3.json(news, function (error, data) {
+    spinner.stop();
+    if (error) {
+        // console.error('Error getting or parsing the data.');
+        throw error;
+    }
+    var reported = ['Reported'],        
+        notreported = ['Not reported'];
+    data.forEach(function (element, index) {
+        if (element['ReportingYear'] == year ) {
+            reported.push([Number(element['Reported'])]);
+            notreported.push([Number(element['NotReported'])]);
+        }
+       
+    });
+ //  console.log(reported);
+    if (reported.length > 1) {      
+       
+        $("#"+dom).fadeIn(1000);
+
+        c3.generate({
+            bindto: '#'+dom,
+            data: {
+               
+                columns: [reported,notreported],
+                type: 'donut',                
+            },
+            color: {
+                pattern: ['#2CA02C','#D62728']
+            },
+            donut: {
+                label: {
+                    format: function (value, ratio, id) {
+                        return d3.format('')(value);
+                    }
+                },
+                title: (parseInt(year)+1)+" Reported",
+            },
+            legend: {
+  show: false
+},
+            tooltip: {
+                format: {
+                    value: function (value, ratio, id) {
+                        return (value);
+                    }
+                }
+            }
+
+
+
+        });
+    }  else {
+        $("#"+dom).fadeOut(1000);       
+    }
+})
+}
+
+  </script>
+</body>
+
+</html>
