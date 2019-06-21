@@ -4486,7 +4486,8 @@ table.text-center th {
 .alert-success,
 .label-success,
 .modal-success .modal-body {
-  background-color: #00a65a !important;
+  background-color: #51AF32 !important;
+  color: #fff;
 }
 .bg-navy {
   background-color: #001f3f !important;

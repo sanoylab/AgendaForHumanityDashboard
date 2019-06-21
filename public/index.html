@@ -32,6 +32,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     #chart-stakeholder-2018,#chart-stakeholder-2018,#chart-stakeholder-region-2019,#chart-stakeholder-2019,#chart-stakeholder-region-2018, #chart-transformation, #chart_challenges-2019, #chart-challenge-2018{
   cursor: pointer;
 }
+.bg-yellow
+ {
+  background-color: #51AF32 !important;
+  color: #fff;
+}
+
+.bg-green {
+  background-color: #E84E0F !important;
+  color: #fff;
+}
+
+.bg-red {
+  background-color: #00B1EB !important;
+  color: #fff;
+}
     </style>
 </head>
 
@@ -639,67 +654,203 @@ return result;
         }
 
         function PopulateStokeHolder2018(year) {
-            var target = document.getElementById('chart-stakeholder');
+          var target = document.getElementById('chart-stakeholder');
             var spinner = new Spinner(opts).spin(target);
-            // console.log(year);
-            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (crises) {
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (
+                crises) {
                 spinner.stop();
-                var stakeHolders = ['StakeHolders'],
+                var stakeHolders = ['Stakeholder'],
                     total = ['Total'],
                     reportingYear = ["ReportingYear"];
+
+                var countsData = [
+                    ['2017'],
+                    ['2018'],
+                    ['2019']
+                ];
+
                 crises.forEach(function (element, index) {
-                    if (element['ReportingYear'] == year) {
-                        // console.log(element['ReportingYear']);
-                        stakeHolders.push(element['Stakeholder']);
-                        total.push(Number(element['Total']));
-                        reportingYear.push(element['ReportingYear']);
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Academia') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Faith-based Organisation') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Foundation') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'International Organisation') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Member State') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'NGO - International') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'NGO - National') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] == 'Other') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Private Sector') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Regional Organisation') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] == 'UN') {
+                        countsData[0].push(element['Total']);
                     }
 
+
+
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Academia') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Faith-based Organisation') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Foundation') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'International Organisation') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Member State') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'NGO - International') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'NGO - National') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] == 'Other') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Private Sector') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Regional Organisation') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] == 'UN') {
+                        countsData[1].push(element['Total']);
+                    }
+
+
+
+
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Academia') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Faith-based Organisation') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Foundation') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'International Organisation') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Member State') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'NGO - International') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'NGO - National') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] == 'Other') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Private Sector') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Regional Organisation') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] == 'UN') {
+                        countsData[2].push(element['Total']);
+                    }
+
+
+
+
+
                 });
-                //console.log(reportingYear);
-                //console.log(stakeHolders.length && total.length);
-                if (stakeHolders.length > 1 && total.length) {
-console.log(total);
-                    $("#chart-stakeholder-2018").fadeIn(1000);
-                    c3.generate({
-                        bindto: '#chart-stakeholder-2018',
-                        data: {
-                            x: 'StakeHolders',
-                            type: 'bar',
-                            columns: [stakeHolders, total],
-                            labels: true,
-                        },
-                        legend: {
-                            show: false
-                        },
-                        types: {
-                            data: 'bar'
-                        },
 
-                        groups: [
-                            stakeHolders, total
-                        ],
-                        color: {
-                            pattern: ["#00A65A"]
-                        },
-                        axis: {
-                            rotated: true,
-                            x: {
-                                type: 'category'
-                            },
-                        },
-                        size: {
-                            height: 350
-                        },
-                        padding: {
-                            left: 100,
-                            right: 10
-                        }
-                    });
-                } else {
-                    $("#chart-stakeholder-2018").fadeOut(1000);
+                var categoriesList = ['Academia', 'Faith-based Organisation', 'Foundation',
+                    'International Organisation', 'Member State', 'NGO - International',
+                    'NGO - National', 'Other', 'Private Sector', 'Regional Organisation', 'UN'
+                ];
 
-                }
+                $("#chart-stakeholder").fadeIn(1000);
+                stakholder = c3.generate({
+                    bindto: '#chart-stakeholder',
+                    data: {
+
+                        type: 'bar',
+                        columns: countsData,
+                        labels: true,
+                    },
+                    legend: {
+                        show: true
+                    },
+                    types: {
+                        data: 'bar'
+                    },
+
+
+                    color: {
+                        pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
+                    },
+                    axis: {
+                        rotated: false,
+                        x: {
+                            type: 'category',
+                            categories: categoriesList
+                        },
+                    },
+                    size: {
+                        height: 350
+                    },
+                    padding: {
+                        left: 100,
+                        right: 10
+                    }
+                });
+
 
             });
         }  
@@ -967,7 +1118,7 @@ console.log(total);
                             */                                                
                         },
                         color: {
-                               pattern: ["#F39C12","#006699","#E84E0F"]
+                          pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
                             },
                         axis: {
                           rotated: false,
@@ -1121,168 +1272,203 @@ console.log(total);
         }  
 
         function PopulateStokeHolder() {
-            var target = document.getElementById('chart-stakeholder');
-            var spinner = new Spinner(opts).spin(target);           
-            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (crises) {
+          var target = document.getElementById('chart-stakeholder');
+            var spinner = new Spinner(opts).spin(target);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (
+                crises) {
                 spinner.stop();
                 var stakeHolders = ['Stakeholder'],
                     total = ['Total'],
                     reportingYear = ["ReportingYear"];
 
-                    var countsData = [  ['2017'], ['2018'], ['2019']];
+                var countsData = [
+                    ['2017'],
+                    ['2018'],
+                    ['2019']
+                ];
 
                 crises.forEach(function (element, index) {
-                  if(element['ReportingYear']=='2016' && element['Stakeholder']=='Academia'){
-                    countsData[0].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Faith-based Organisation'){
-                    countsData[0].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Foundation'){
-                    countsData[0].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='International Organisation'){
-                    countsData[0].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Member State'){
-                    countsData[0].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='NGO - International'){
-                    countsData[0].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='NGO - National'){
-                    countsData[0].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Other'){
-                    countsData[0].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Private Sector'){
-                    countsData[0].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='Regional Organisation'){
-                    countsData[0].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2016' && element['Stakeholder']=='UN'){
-                    countsData[0].push(element['Total']);
-                  } 
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Academia') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Faith-based Organisation') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Foundation') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'International Organisation') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Member State') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'NGO - International') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'NGO - National') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] == 'Other') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Private Sector') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                        'Regional Organisation') {
+                        countsData[0].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Stakeholder'] == 'UN') {
+                        countsData[0].push(element['Total']);
+                    }
 
 
 
-                  if(element['ReportingYear']=='2017' && element['Stakeholder']=='Academia'){
-                    countsData[1].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Faith-based Organisation'){
-                    countsData[1].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Foundation'){
-                    countsData[1].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='International Organisation'){
-                    countsData[1].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Member State'){
-                    countsData[1].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='NGO - International'){
-                    countsData[1].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='NGO - National'){
-                    countsData[1].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Other'){
-                    countsData[1].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Private Sector'){
-                    countsData[1].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='Regional Organisation'){
-                    countsData[1].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2017' && element['Stakeholder']=='UN'){
-                    countsData[1].push(element['Total']);
-                  } 
-
-
-
-
-                  if(element['ReportingYear']=='2018' && element['Stakeholder']=='Academia'){
-                    countsData[2].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Faith-based Organisation'){
-                    countsData[2].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Foundation'){
-                    countsData[2].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='International Organisation'){
-                    countsData[2].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Member State'){
-                    countsData[2].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='NGO - International'){
-                    countsData[2].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='NGO - National'){
-                    countsData[2].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Other'){
-                    countsData[2].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Private Sector'){
-                    countsData[2].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='Regional Organisation'){
-                    countsData[2].push(element['Total']);
-                  } 
-                   if(element['ReportingYear']=='2018' && element['Stakeholder']=='UN'){
-                    countsData[2].push(element['Total']);
-                  } 
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Academia') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Faith-based Organisation') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Foundation') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'International Organisation') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Member State') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'NGO - International') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'NGO - National') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] == 'Other') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Private Sector') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                        'Regional Organisation') {
+                        countsData[1].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2017' && element['Stakeholder'] == 'UN') {
+                        countsData[1].push(element['Total']);
+                    }
 
 
 
 
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Academia') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Faith-based Organisation') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Foundation') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'International Organisation') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Member State') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'NGO - International') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'NGO - National') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] == 'Other') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Private Sector') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                        'Regional Organisation') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2018' && element['Stakeholder'] == 'UN') {
+                        countsData[2].push(element['Total']);
+                    }
 
-                });              
-                
-                  var categoriesList = ['Academia', 'Faith-based Organisation', 'Foundation','International Organisation','Member State','NGO - International','NGO - National','Other','Private Sector','Regional Organisation','UN'];
-                  console.log(countsData);
-                    $("#chart-stakeholder").fadeIn(1000);
-                    c3.generate({
-                        bindto: '#chart-stakeholder',
-                        data: {
-                           
-                            type: 'bar',
-                            columns: countsData,   
-                            labels: true,
+
+
+
+
+                });
+
+                var categoriesList = ['Academia', 'Faith-based Organisation', 'Foundation',
+                    'International Organisation', 'Member State', 'NGO - International',
+                    'NGO - National', 'Other', 'Private Sector', 'Regional Organisation', 'UN'
+                ];
+
+                $("#chart-stakeholder").fadeIn(1000);
+                stakholder = c3.generate({
+                    bindto: '#chart-stakeholder',
+                    data: {
+
+                        type: 'bar',
+                        columns: countsData,
+                        labels: true,
+                    },
+                    legend: {
+                        show: true
+                    },
+                    types: {
+                        data: 'bar'
+                    },
+
+
+                    color: {
+                        pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
+                    },
+                    axis: {
+                        rotated: false,
+                        x: {
+                            type: 'category',
+                            categories: categoriesList
                         },
-                        legend: {
-                            show: false
-                        },
-                        types: {
-                            data: 'bar'
-                        },
+                    },
+                    size: {
+                        height: 350
+                    },
+                    padding: {
+                        left: 100,
+                        right: 10
+                    }
+                });
 
-                        
-                        color: {
-                           pattern: ["#F39C12","#006699","#E84E0F"]
-                        },
-                        axis: {
-                            rotated: false,
-                            x: {
-                                type: 'category',
-                                categories: categoriesList
-                            },
-                        },
-                        size: {
-                            height: 350
-                        },
-                        padding: {
-                            left: 100,
-                            right: 10
-                        }
-                    });
-                
 
             });
         } 
@@ -1477,7 +1663,7 @@ console.log(total);
 
                         
                         color: {
-                           pattern: ["#F39C12","#006699","#E84E0F"]
+                          pattern: [ "#51AF32", "#E84E0F"]
                         },
                         axis: {
                             rotated: false,
@@ -1617,7 +1803,7 @@ console.log(total);
 
                         
                         color: {
-                           pattern: ["#F39C12","#006699","#E84E0F"]
+                          pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
                         },
                         axis: {
                             rotated: false,
@@ -2380,7 +2566,7 @@ d3.json(news, function (error, data) {
                 type: 'donut',                
             },
             color: {
-                pattern: ['#2CA02C','#D62728']
+              pattern: ['#2CA02C', '#F7A600']
             },
             donut: {
                 label: {
