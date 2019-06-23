@@ -65,16 +65,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu">
-                            <!-- Menu toggle button -->
-
-
-                            <!-- /.messages-menu -->
-
-                            <!-- Notifications Menu -->
-
-                            <!-- Tasks Menu -->
-
-                            <!-- User Account Menu -->
+                          
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -122,6 +113,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <span>Challenges</span></a></li>
 
                 </ul>
+                <table style="margin-top: 50px; color: #fff;" class="table table-condesed">
+                        <tr><td>1A - Demonstrate timely, coherent and decisive political leadership	</td></tr>
+                        <tr><td>1B - Act early	</td></tr>
+                        <tr><td>1C - Remain engaged and invest in stability	</td></tr>
+                        <tr><td>1D - Develop solutions with and for people	</td></tr>
+                        <tr><td>2A - Respect and protect civilians and civilian objects in the conduct of hostilities	</td></tr>
+                        <tr><td>2B - Ensure full access to and protection of the humanitarian and medical missions	</td></tr>
+                        <tr><td>2C - Speak out on violations	</td></tr>
+                        <tr><td>2D - Take concrete steps to improve compliance and accountability	</td></tr>
+                        <tr><td>2E - Uphold the rules: a global campaign to affirm the norms that safeguard humanity	</td></tr>
+                        <tr><td>3A - Reduce and address displacement	</td></tr>
+                        <tr><td>3B - Address the vulnerabilities of migrants and provide more regular and lawful opportunities for migration	</td></tr>
+                        <tr><td>3C - End statelessness in the next decade	</td></tr>
+                        <tr><td>3D - Empower and protect women and girls	</td></tr>
+                        <tr><td>3E - Eliminate gaps in education for children, adolescents and young people	</td></tr>
+                        <tr><td>3F - Enable adolescents and young people to be agents of positive transformation	</td></tr>
+                        <tr><td>3G - Address other groups or minorities in crisis settings	</td></tr>
+                        <tr><td>4A - Reinforce, do not replace, national and local systems	</td></tr>
+                        <tr><td>4B - Anticipate, do not wait, for crises	</td></tr>
+                        <tr><td>4C - Deliver collective outcomes: transcend humanitarian-development divides	</td></tr>
+                        <tr><td>5A - Invest in local capacities	</td></tr>
+                        <tr><td>5B - Invest according to risk	</td></tr>
+                        <tr><td>5C - Invest in stability	</td></tr>
+                        <tr><td>5D - Finance outcomes, not fragmentation: shift from funding to financing	</td></tr>
+                        <tr><td>5E - Diversify the resource base and increase cost-efficiency	</td></tr>
+                      </table> 
             </section>
         </aside>
 
@@ -136,8 +153,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </section>
 
             <section class="content container-fluid">
-
-                <div class="row">
+<!--
+                    <div class="row">
                     <div class="col-md-12">
                         <div class="box box-warning">
                             <div class="box-header with-border">
@@ -145,6 +162,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div>
                             <div class="box-body no-padding" style="padding-left: 20px;padding-right: 20px;">
                                 <div id="chart-challenge"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            -->
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-warning">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Challenges</h3>
+                            </div>
+                            <div class="box-body no-padding" style="padding-left: 20px;padding-right: 20px;">
+                                <div id="chart-challenge-bar"></div>
                             </div>
                         </div>
                     </div>
@@ -165,19 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="box box-warning">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Challenges</h3>
-                            </div>
-                            <div class="box-body no-padding" style="padding-left: 20px;padding-right: 20px;">
-                                <div id="chart-challenge-bar"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                
 
 
 
@@ -490,7 +509,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         type: 'line',
                         columns: countsData,
-                        labels: false,
+                        labels: true,
                     },
                     legend: {
                         show: false
@@ -501,7 +520,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                     color: {
-                        pattern: ["#F39C12", "#006699"]
+                        pattern: ["#51AF32", "#E84E0F"]
                     },
                     axis: {
                         rotated: false,

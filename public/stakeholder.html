@@ -36,6 +36,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         #chart-challenge-2018 {
             cursor: pointer;
         }
+
+        .c3-line {
+            stroke-width: 5px;
+        }
+
+        .c3-circle {
+            fill: black !important;
+        }
     </style>
 </head>
 
@@ -121,6 +129,32 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li><a href="challenges.html"><i class="fas fa-desktop"></i> &nbsp; <span>Challenges</span></a></li>
 
                 </ul>
+                <table style="margin-top: 50px; color: #fff;" class="table table-condesed">
+                        <tr><td>1A - Demonstrate timely, coherent and decisive political leadership	</td></tr>
+                        <tr><td>1B - Act early	</td></tr>
+                        <tr><td>1C - Remain engaged and invest in stability	</td></tr>
+                        <tr><td>1D - Develop solutions with and for people	</td></tr>
+                        <tr><td>2A - Respect and protect civilians and civilian objects in the conduct of hostilities	</td></tr>
+                        <tr><td>2B - Ensure full access to and protection of the humanitarian and medical missions	</td></tr>
+                        <tr><td>2C - Speak out on violations	</td></tr>
+                        <tr><td>2D - Take concrete steps to improve compliance and accountability	</td></tr>
+                        <tr><td>2E - Uphold the rules: a global campaign to affirm the norms that safeguard humanity	</td></tr>
+                        <tr><td>3A - Reduce and address displacement	</td></tr>
+                        <tr><td>3B - Address the vulnerabilities of migrants and provide more regular and lawful opportunities for migration	</td></tr>
+                        <tr><td>3C - End statelessness in the next decade	</td></tr>
+                        <tr><td>3D - Empower and protect women and girls	</td></tr>
+                        <tr><td>3E - Eliminate gaps in education for children, adolescents and young people	</td></tr>
+                        <tr><td>3F - Enable adolescents and young people to be agents of positive transformation	</td></tr>
+                        <tr><td>3G - Address other groups or minorities in crisis settings	</td></tr>
+                        <tr><td>4A - Reinforce, do not replace, national and local systems	</td></tr>
+                        <tr><td>4B - Anticipate, do not wait, for crises	</td></tr>
+                        <tr><td>4C - Deliver collective outcomes: transcend humanitarian-development divides	</td></tr>
+                        <tr><td>5A - Invest in local capacities	</td></tr>
+                        <tr><td>5B - Invest according to risk	</td></tr>
+                        <tr><td>5C - Invest in stability	</td></tr>
+                        <tr><td>5D - Finance outcomes, not fragmentation: shift from funding to financing	</td></tr>
+                        <tr><td>5E - Diversify the resource base and increase cost-efficiency	</td></tr>
+                      </table> 
             </section>
         </aside>
 
@@ -143,7 +177,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <h3 class="box-title"></h3>
                             </div>
                             <div class="box-body no-padding" style="padding-left: 20px;padding-right: 20px;">
-                                <div id="chart-stakeholder"></div>
+                                <div id="chart-stakeholder-line"></div>
                             </div>
                         </div>
                     </div>
@@ -276,283 +310,283 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 
-            function PopulateStakholderLine(year)
-            {
-                var total2016, total2017, total2018;
-                
-                d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', function (crises) {                   
-                                 
-                    crises.forEach(function (element, index) {
-                        if (element['ReportingYear'] == "2016") {
-                            total2016=element['Total'];
-                                                
-                        }
-                        else if (element['ReportingYear'] =="2017") {
-                            total2017 =element['Total'];                          
-                        }
-                        else if (element['ReportingYear'] =="2018") {
-                            total2018=element['Total'];                        
-                        }
-                    });
+            function PopulateStakholderLine(year) {
+            var total2016, total2017, total2018;
 
-              var target = document.getElementById('chart-stakeholder');
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', function (crises) {
+
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == "2016") {
+                        total2016 = element['Total'];
+
+                    } else if (element['ReportingYear'] == "2017") {
+                        total2017 = element['Total'];
+                    } else if (element['ReportingYear'] == "2018") {
+                        total2018 = element['Total'];
+                    }
+                });
+
+                var target = document.getElementById('chart-stakeholder-line');
                 var spinner = new Spinner(opts).spin(target);
-                d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (
-                    crises) {
-                    spinner.stop();
-                    
-
-                    var countsData = [
-                        ['2017'],
-                        ['2018'],
-                        ['2019']
-                    ];
-
-                    crises.forEach(function (element, index) {
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Academia') {
-                            let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Faith-based Organisation') {
-                           let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Foundation') {
-                            let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'International Organisation') {
-                            let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Member State') {
-                             let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'NGO - International') {
-                             let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'NGO - National') {
-                             let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] == 'Other') {
-                             let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Private Sector') {
-                            let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Regional Organisation') {
-                             let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] == 'UN') {
-                             let per = (element['Total'] *100) /total2016;                          
-                            countsData[0].push(per.toFixed(1));
-                        }
+                d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php',
+                    function (
+                        crises) {
+                        spinner.stop();
 
 
+                        var countsData = [
+                            ['2017'],
+                            ['2018'],
+                            ['2019']
+                        ];
 
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Academia') {
-                            let per = (element['Total'] *100) /total2017;                          
-                            countsData[1].push(per.toFixed(1));
-
-
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Faith-based Organisation') {
-                             let per = (element['Total'] *100) /total2017;                          
-                            countsData[1].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Foundation') {
-                             let per = (element['Total'] *100) /total2017;                          
-                            countsData[1].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'International Organisation') {
-                            let per = (element['Total'] *100) /total2017;                          
-                            countsData[1].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Member State') {
-                            let per = (element['Total'] *100) /total2017;                          
-                            countsData[1].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'NGO - International') {
-                            let per = (element['Total'] *100) /total2017;                          
-                            countsData[1].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'NGO - National') {
-                            let per = (element['Total'] - prev7) / prev7 * 100;
-                            countsData[1].push(per.toFixed(1));
-                            prev7 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] == 'Other') {
-                           let per = (element['Total'] *100) /total2017;                          
-                            countsData[1].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Private Sector') {
-                            let per = (element['Total'] - prev9) / prev9 * 100;
-                            countsData[1].push(element['Total']);
-                            prev9 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Regional Organisation') {
-                           let per = (element['Total'] *100) /total2017;                          
-                            countsData[1].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] == 'UN') {
-                            let per = (element['Total'] *100) /total2017;                          
-                            countsData[1].push(per.toFixed(1));
-                        }
-
-
-
-
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Academia') {
-                                let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Faith-based Organisation') {
-                            let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Foundation') {
-                             let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'International Organisation') {
-                            let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Member State') {
-                              let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'NGO - International') {
-                            let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'NGO - National') {
-                            let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] == 'Other') {
-                             let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Private Sector') {
-                             let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Regional Organisation') {
-                             let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] == 'UN') {
-                            let per = (element['Total'] *100) /total2018;                          
-                            countsData[2].push(per.toFixed(1));
-                        }
-
-
-
-
-
-                    });
-
-                    var categoriesList = ['Academia', 'Faith-based Organisation', 'Foundation',
-                        'International Organisation', 'Member State', 'NGO - International',
-                        'NGO - National', 'Other', 'Private Sector', 'Regional Organisation', 'UN'
-                    ];
-                    console.log(countsData);
-                    $("#chart-stakeholder").fadeIn(1000);
-                    c3.generate({
-                        bindto: '#chart-stakeholder',
-                        data: {
-
-                            type: 'line',
-                            columns: countsData,
-                            labels: false,
-                        },
-                        legend: {
-                            show: false
-                        },
-                        types: {
-                            data: 'bar'
-                        },
-
-
-                        color: {
-                            pattern: ["#F39C12", "#006699","#269226"]
-                        },
-                        axis: {
-                            rotated: true,
-                            x: {
-                                type: 'category',
-                                categories: categoriesList
-                            },
-                        },
-                        size: {
-                            height: 350
-                        },
-                        padding: {
-                            left: 100,
-                            right: 10
-                        },
-                        tooltip: {
-                            format: {
-
-                                value: function (value, ratio, id) {
-                                   
-                                        return value + "%";
-                                }
-                               
+                        crises.forEach(function (element, index) {
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'Academia') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
                             }
-                        }
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'Faith-based Organisation') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'Foundation') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'International Organisation') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'Member State') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'NGO - International') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'NGO - National') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'Other') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'Private Sector') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'Regional Organisation') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                'UN') {
+                                let per = (element['Total'] * 100) / total2016;
+                                countsData[0].push(per.toFixed(1));
+                            }
+
+
+
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'Academia') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+
+
+                            }
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'Faith-based Organisation') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'Foundation') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'International Organisation') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'Member State') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'NGO - International') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'NGO - National') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'Other') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'Private Sector') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'Regional Organisation') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                'UN') {
+                                let per = (element['Total'] * 100) / total2017;
+                                countsData[1].push(per.toFixed(1));
+                            }
+
+
+
+
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'Academia') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'Faith-based Organisation') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'Foundation') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'International Organisation') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'Member State') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'NGO - International') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'NGO - National') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'Other') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'Private Sector') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'Regional Organisation') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+                            if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                'UN') {
+                                let per = (element['Total'] * 100) / total2018;
+                                countsData[2].push(per.toFixed(1));
+                            }
+
+
+
+
+
+                        });
+
+                        var categoriesList = ['Academia', 'Faith-based Organisation', 'Foundation',
+                            'International Organisation', 'Member State', 'NGO - International',
+                            'NGO - National', 'Other', 'Private Sector', 'Regional Organisation', 'UN'
+                        ];
+                      //  console.log(countsData);
+                        $("#chart-stakeholder-line").fadeIn(1000);
+                        chart_stakeholder_line = c3.generate({
+                            bindto: '#chart-stakeholder-line',
+                            data: {
+
+                                type: 'line',
+                                columns: countsData,
+                                labels: true,
+                            },
+                            legend: {
+                                show: true
+                            },
+                            types: {
+                                data: 'bar'
+                            },
+
+
+                            color: {
+
+                                pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
+                            },
+                            axis: {
+                                rotated: false,
+                                x: {
+                                    type: 'category',
+                                    categories: categoriesList
+                                },
+                            },
+                            size: {
+                                height: 350
+                            },
+                            padding: {
+                                left: 100,
+                                right: 10
+                            },
+                            tooltip: {
+                                format: {
+
+                                    value: function (value, ratio, id) {
+
+                                        return value + "%";
+                                    }
+
+                                }
+                            }
+                        });
+
+
                     });
 
 
-                });
-                   
-                  
-                    
-                });
+
+            });
 
 
-   
 
 
-              
-            }
 
-           
 
+        }
 
 
             function PopulateStokeHolderBar() {
@@ -735,7 +769,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                         color: {
-                            pattern: ["#F39C12", "#006699"]
+                            pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
                         },
                         axis: {
                             rotated: false,
