@@ -29,6 +29,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <style>
+        @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+        @import url("http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+
     #chart-stakeholder-2018,#chart-stakeholder-2018,#chart-stakeholder-region-2019,#chart-stakeholder-2019,#chart-stakeholder-region-2018, #chart-transformation, #chart_challenges-2019, #chart-challenge-2018{
   cursor: pointer;
 }
@@ -47,6 +50,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   background-color: #00B1EB !important;
   color: #fff;
 }
+
+ /* Up and Down Arrows */
+ .sortable th.descend:after {
+            content: "\25B2";
+        }
+
+        .sortable th.ascend:after {
+            content: "\25BC";
+        }
+
+
+
     </style>
 </head>
 
@@ -468,7 +483,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="js/spin.js"></script>
   <script src="js/d3.min.js"></script>
   <script src="js/c3.min.js"></script>
-
+  <script src="js/tsorter.min.js"></script>
   <script>
     PopulateTransformation(2018);
     PopulateStokeHolder2018(2017);
@@ -2306,7 +2321,7 @@ data) {
     if (myAssociativeArr.length > 1) {
       myAssociativeArr.sort();
         var row =
-            "<table class='table table-hover'><tr class='header-row'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr>";
+            "<table id='cci' class='table table-hover sortable'><thead><tr class='header-row' style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead>";
 
         for (i = 1; i < myAssociativeArr.length; i++) {
             row = row +
@@ -2358,7 +2373,7 @@ data) {
     if (myAssociativeArr.length > 1) {
       myAssociativeArr.sort();
         var row =
-            "<table class='table table-hover'><tr class='header-row'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr>";
+            "<table id='cci2' class='table table-hover sortable'><thead><tr class='header-row'  style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead>";
 
         for (i = 1; i < myAssociativeArr.length; i++) {
             row = row +
@@ -2410,7 +2425,7 @@ data) {
     if (myAssociativeArr.length > 1) {
       myAssociativeArr.sort();
         var row =
-            "<table class='table table-hover'><tr class='header-row'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr>";
+            "<table id='cci3' class='table table-hover sortable'><thead><tr class='header-row'  style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead>";
 
         for (i = 1; i < myAssociativeArr.length; i++) {
             row = row +
@@ -2597,6 +2612,19 @@ d3.json(news, function (error, data) {
 }
 
   </script>
+
+<script>
+  function init() {
+      var sorter = tsorter.create('cci');
+      var sorter1 = tsorter.create('cci2');
+      var sorter2 = tsorter.create('cci3');
+  }
+
+  window.onload = init;
+</script>
+
+
+
 </body>
 
 </html>

@@ -49,6 +49,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
         .c3-circle {
             fill: black !important;
         }
+
+         /* Up and Down Arrows */
+ .sortable th.descend:after {
+            content: "\25B2";
+        }
+
+        .sortable th.ascend:after {
+            content: "\25BC";
+        }
+
+
+
+
     </style>
 </head>
 
@@ -241,7 +254,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="js/c3.min.js"></script>
         <script src='https://unpkg.com/chart.js@2.8.0/dist/Chart.bundle.js'></script>
         <script src='https://unpkg.com/chartjs-chart-box-and-violin-plot@2/build/Chart.BoxPlot.js'></script>
-
+        <script src="js/tsorter.min.js"></script>
         <script>
             
          PopulateTransformation("2016");
@@ -278,7 +291,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 var target = document.getElementById('chart-transformation');
                 var spinner = new Spinner(opts).spin(target);
                 var tran = [];
-                console.log(total2018);
+               // console.log(total2018);
                 d3.json('https://www.agendaforhumanity.org/viz_endpoint/transformation/get.php', function (
                     crises) {
                     spinner.stop();
@@ -2147,9 +2160,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     });
                     let html = '';
 
-                    html += "<TABLE class='table table-hover'>";
+                    html += "<TABLE id='trans1' class='table table-hover sortable'>";
                     html +=
-                        "<thead><tr><th>TRANSFORMATION</th><th>2017</th><th>2018</th><th>2019</th></tr></thead><tbody>";
+                        "<thead><tr style='cursor:pointer;'><th>TRANSFORMATION</th></tr></thead>";
                     let j = 0;
                     let c = 1;
                     let index = 0;
@@ -2170,7 +2183,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         c = index + 1;
                     }
-                    html += "</tbody></TABLE>";
+                    html += "</TABLE>";
 
                     $("#transformation-variation").append(html);
 
@@ -2329,6 +2342,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             }
         </script>
+
+<script>
+        function init() {
+            var sorter = tsorter.create('trans1');
+           
+        }
+      
+        window.onload = init;
+      </script>
 </body>
 
 </html>
