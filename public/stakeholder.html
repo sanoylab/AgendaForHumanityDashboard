@@ -1503,391 +1503,492 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             function PopulateStakeholderRegionVariation() {
 
-
-                d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/region.php', function (crises) {
-
-
-
-                    var countsData = [
-                        ['Stakeholder'],
-                        ['2017'],
-                        ['2018'],
-                        ['2019']
-                    ];
-
+                
+                d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', function (crises) {
 
                     crises.forEach(function (element, index) {
-                        if (element['Stakeholder'] == 'Africa') {
-                            countsData[0].push(element['Stakeholder']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Africa') {
-                            countsData[1].push(element['Total']);
-                            prev1 = element['Total'];
+                        if (element['ReportingYear'] == "2016") {
+                            total2016 = element['Total'];
 
+                        } else if (element['ReportingYear'] == "2017") {
+                            total2017 = element['Total'];
+                        } else if (element['ReportingYear'] == "2018") {
+                            total2018 = element['Total'];
                         }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Africa') {
-                            let per = (element['Total'] - prev1) / prev1 * 100;
-                            if (per > 0.00) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[2].push(element['Total']);
-                            }
-
-                            prev1 = element['Total'];
-
-
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Africa') {
-                            let per = (element['Total'] - prev1) / prev1 * 100;
-                            if (per > 0.00) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[3].push(element['Total']);
-                            }
-                            prev1 = element['Total'];
-                        }
-
-
-
-                        if (element['Stakeholder'] == 'Asia') {
-                            countsData[0].push(element['Stakeholder']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Asia') {
-
-                            countsData[1].push(element['Total']);
-                            prev2 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Asia') {
-                            let per = (element['Total'] - prev2) / prev2 * 100;
-                            if (per > 0.00) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[2].push(element['Total']);
-                            }
-                            prev2 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Asia') {
-                            let per = (element['Total'] - prev2) / prev2 * 100;
-                            if (per > 0.00) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[3].push(element['Total']);
-                            }
-                            prev2 = element['Total'];
-
-                        }
-
-                        if (element['Stakeholder'] == 'Asia-Pacific') {
-                            countsData[0].push(element['Stakeholder']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Asia-Pacific') {
-                            countsData[1].push(element['Total']);
-                            prev3 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Asia-Pacific') {
-                            let per = (element['Total'] - prev3) / prev3 * 100;
-                            if (per > 0.00) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[2].push(element['Total']);
-                            }
-                            prev3 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Asia-Pacific') {
-                            let per = (element['Total'] - prev3) / prev3 * 100;
-                            if (per > 0.00) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[3].push(element['Total']);
-                            }
-
-
-
-                            prev3 = element['Total'];
-                        }
-
-                        if (element['Stakeholder'] == 'Europe') {
-                            countsData[0].push(element['Stakeholder']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Europe') {
-                            countsData[1].push(element['Total']);
-                            prev4 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Europe') {
-                            let per = (element['Total'] - prev4) / prev4 * 100;
-                            if (per > 0.00) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[2].push(element['Total']);
-                            }
-                            prev4 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Europe') {
-                            let per = (element['Total'] - prev4) / prev4 * 100;
-                            if (per > 0.00) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[3].push(element['Total']);
-                            }
-                            prev4 = element['Total'];
-                        }
-                        if (element['Stakeholder'] == 'Global') {
-                            countsData[0].push(element['Stakeholder']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Global') {
-                            countsData[1].push(element['Total']);
-                            prev5 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Global') {
-                            let per = (element['Total'] - prev5) / prev5 * 100;
-                            if (per > 0.00) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[2].push(element['Total']);
-                            }
-                            prev5 = element['Total']
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Global') {
-                            let per = (element['Total'] - prev5) / prev5 * 100;
-                            if (per > 0.00) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[3].push(element['Total']);
-                            }
-                            prev5 = element['Total']
-                        }
-
-                        if (element['Stakeholder'] == 'Latin America and the Caribbean') {
-                            countsData[0].push(element['Stakeholder']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Latin America and the Caribbean') {
-                            countsData[1].push(element['Total']);
-                            prev6 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Latin America and the Caribbean') {
-                            let per = (element['Total'] - prev6) / prev6 * 100;
-                            if (per > 0.00) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[2].push(element['Total']);
-                            }
-                            prev6 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Latin America and the Caribbean') {
-                            let per = (element['Total'] - prev6) / prev6 * 100;
-                            if (per > 0.00) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[3].push(element['Total']);
-                            }
-                            prev6 = element['Total'];
-                        }
-                        if (element['Stakeholder'] == 'Middle East') {
-                            countsData[0].push(element['Stakeholder']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'Middle East') {
-                            countsData[1].push(element['Total']);
-                            prev7 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'Middle East') {
-                            let per = (element['Total'] - prev7) / prev7 * 100;
-                            if (per > 0.00) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[2].push(element['Total']);
-                            }
-                            prev7 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'Middle East') {
-                            let per = (element['Total'] - prev7) / prev7 * 100;
-                            if (per > 0.00) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[3].push(element['Total']);
-                            }
-                            prev7 = element['Total'];
-                        }
-
-                        if (element['Stakeholder'] == 'North America') {
-                            countsData[0].push(element['Stakeholder']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
-                            'North America') {
-                            countsData[1].push(element['Total']);
-                            prev8 = element['Total'];
-
-                        }
-                        if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
-                            'North America') {
-                            let per = (element['Total'] - prev8) / prev8 * 100;
-                            if (per > 0.00) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[2].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[2].push(element['Total']);
-                            }
-                            prev8 = element['Total'];
-                        }
-                        if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
-                            'North America') {
-                            let per = (element['Total'] - prev8) / prev8 * 100;
-                            if (per > 0.00) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else if (per < 0) {
-                                countsData[3].push(element['Total'] +
-                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
-                            } else {
-                                countsData[3].push(element['Total']);
-                            }
-                            prev8 = element['Total'];
-                        }
-
-
-
-
-
-
-
-
                     });
-                    let html = '';
-                    console.log(countsData);
-                    html += "<TABLE class='table table-hover'>";
-                    html +=
-                        "<thead><tr><th>Stakeholder</th><th>2017</th><th>2018</th><th>2019</th></tr></thead><tbody>";
-                    let j = 0;
-                    let c = 1;
-                    let index = 0;
 
-                    for (x = 1; x <= countsData[1].length - 1; x++) {
-                        html += "<TR><TD>" + countsData[j][c] + "</TD>";
-                        for (y = 1; y <= 3; y++) {
-                            html += "<TD>" + countsData[y][x] + "</TD>";
-                            index++;
-                        }
-                        html += "</TR>";
+                    d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/region.php', function (crises) {
 
-                        c = index + 1;
-                    }
-                    html += "</tbody></TABLE>";
-                    console.log(html);
-                    $("#stakholder-variation-region").append(html);
+
+
+                            var countsData = [
+                                ['Stakeholder'],
+                                ['2017'],
+                                ['2018'],
+                                ['2019']
+                            ];
+
+
+                            crises.forEach(function (element, index) {
+                                if (element['Stakeholder'] == 'Africa') {
+                                    countsData[0].push(element['Stakeholder']);
+                                }
+                                if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                    'Africa') {
+                                        let per = (element['Total'] * 100) / total2016;
+                                    if (per > 0.00) {
+                                    countsData[1].push(element['Total'] +
+                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                } else if (per < 0) {
+                                    countsData[1].push(element['Total'] +
+                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                } else {
+                                    countsData[1].push(element['Total']);
+                                }
+
+                                }
+                                if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                    'Africa') {
+                                        let per = (element['Total'] * 100) / total2017;
+                                    if (per > 0.00) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[2].push(element['Total']);
+                                    }
+
+                                    prev1 = element['Total'];
+
+
+                                }
+                                if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                    'Africa') {
+                                        let per = (element['Total'] * 100) / total2018;
+                                    if (per > 0.00) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[3].push(element['Total']);
+                                    }
+                                    prev1 = element['Total'];
+                                }
+
+
+
+                                if (element['Stakeholder'] == 'Asia') {
+                                    countsData[0].push(element['Stakeholder']);
+                                }
+                                if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                    'Asia') {
+
+                                    let per = (element['Total'] * 100) / total2016;
+                                    if (per > 0.00) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[1].push(element['Total']);
+                                    }
+                                }
+                                if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                    'Asia') {
+                                        let per = (element['Total'] * 100) / total2017;
+                                    if (per > 0.00) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[2].push(element['Total']);
+                                    }
+                                    prev2 = element['Total'];
+                                }
+                                if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                    'Asia') {
+                                        let per = (element['Total'] * 100) / total2018;
+                                    if (per > 0.00) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[3].push(element['Total']);
+                                    }
+                                    prev2 = element['Total'];
+
+                                }
+
+                                if (element['Stakeholder'] == 'Asia-Pacific') {
+                                    countsData[0].push(element['Stakeholder']);
+                                }
+                                if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                    'Asia-Pacific') {
+                                        let per = (element['Total'] * 100) / total2016;
+                                    if (per > 0.00) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[1].push(element['Total']);
+                                    }
+                                }
+                                if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                    'Asia-Pacific') {
+                                        let per = (element['Total'] * 100) / total2017;
+                                    if (per > 0.00) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[2].push(element['Total']);
+                                    }
+                                    prev3 = element['Total'];
+                                }
+                                if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                    'Asia-Pacific') {
+                                        let per = (element['Total'] * 100) / total2018;
+                                    if (per > 0.00) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[3].push(element['Total']);
+                                    }
+
+
+
+                                    prev3 = element['Total'];
+                                }
+
+                                if (element['Stakeholder'] == 'Europe') {
+                                    countsData[0].push(element['Stakeholder']);
+                                }
+                                if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                    'Europe') {
+                                        let per = (element['Total'] * 100) / total2016;
+                                    if (per > 0.00) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[1].push(element['Total']);
+                                    }
+                                }
+                                if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                    'Europe') {
+                                        let per = (element['Total'] * 100) / total2017;
+                                    if (per > 0.00) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[2].push(element['Total']);
+                                    }
+                                    prev4 = element['Total'];
+                                }
+                                if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                    'Europe') {
+                                        let per = (element['Total'] * 100) / total2018;
+                                    if (per > 0.00) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[3].push(element['Total']);
+                                    }
+                                    prev4 = element['Total'];
+                                }
+                                if (element['Stakeholder'] == 'Global') {
+                                    countsData[0].push(element['Stakeholder']);
+                                }
+                                if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                    'Global') {
+                                        let per = (element['Total'] * 100) / total2016;
+                                    if (per > 0.00) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[1].push(element['Total']);
+                                    }
+                                }
+                                if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                    'Global') {
+                                        let per = (element['Total'] * 100) / total2017;
+                                    if (per > 0.00) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[2].push(element['Total']);
+                                    }
+                                    prev5 = element['Total']
+                                }
+                                if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                    'Global') {
+                                        let per = (element['Total'] * 100) / total2018;
+                                    if (per > 0.00) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[3].push(element['Total']);
+                                    }
+                                    prev5 = element['Total']
+                                }
+
+                                if (element['Stakeholder'] == 'Latin America and the Caribbean') {
+                                    countsData[0].push(element['Stakeholder']);
+                                }
+                                if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                    'Latin America and the Caribbean') {
+                                        let per = (element['Total'] * 100) / total2016;
+                                    if (per > 0.00) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[1].push(element['Total']);
+                                    }
+                                }
+                                if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                    'Latin America and the Caribbean') {
+                                        let per = (element['Total'] * 100) / total2017;
+                                    if (per > 0.00) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[2].push(element['Total']);
+                                    }
+                                    prev6 = element['Total'];
+                                }
+                                if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                    'Latin America and the Caribbean') {
+                                        let per = (element['Total'] * 100) / total2018;
+                                    if (per > 0.00) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[3].push(element['Total']);
+                                    }
+                                    prev6 = element['Total'];
+                                }
+                                if (element['Stakeholder'] == 'Middle East') {
+                                    countsData[0].push(element['Stakeholder']);
+                                }
+                                if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                    'Middle East') {
+                                        let per = (element['Total'] * 100) / total2016;
+                                    if (per > 0.00) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[1].push(element['Total']);
+                                    }
+                                }
+                                if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                    'Middle East') {
+                                        let per = (element['Total'] * 100) / total2017;
+                                    if (per > 0.00) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[2].push(element['Total']);
+                                    }
+                                    prev7 = element['Total'];
+                                }
+                                if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                    'Middle East') {
+                                        let per = (element['Total'] * 100) / total2018;
+                                    if (per > 0.00) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[3].push(element['Total']);
+                                    }
+                                    prev7 = element['Total'];
+                                }
+
+                                if (element['Stakeholder'] == 'North America') {
+                                    countsData[0].push(element['Stakeholder']);
+                                }
+                                if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
+                                    'North America') {
+                                        let per = (element['Total'] * 100) / total2016;
+                                    if (per > 0.00) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[1].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[1].push(element['Total']);
+                                    }
+
+                                }
+                                if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
+                                    'North America') {
+                                        let per = (element['Total'] * 100) / total2017;
+                                    if (per > 0.00) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[2].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[2].push(element['Total']);
+                                    }
+                                    prev8 = element['Total'];
+                                }
+                                if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
+                                    'North America') {
+                                        let per = (element['Total'] * 100) / total2016;
+                                    if (per > 0.00) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else if (per < 0) {
+                                        countsData[3].push(element['Total'] +
+                                            " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                            "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                    } else {
+                                        countsData[3].push(element['Total']);
+                                    }
+                                    prev8 = element['Total'];
+                                }
+
+
+
+
+
+
+
+
+                            });
+                            let html = '';
+                            console.log(countsData);
+                            html += "<TABLE class='table table-hover'>";
+                            html +=
+                                "<thead><tr><th>Stakeholder</th><th>2017</th><th>2018</th><th>2019</th></tr></thead><tbody>";
+                            let j = 0;
+                            let c = 1;
+                            let index = 0;
+
+                            for (x = 1; x <= countsData[1].length - 1; x++) {
+                                html += "<TR><TD>" + countsData[j][c] + "</TD>";
+                                for (y = 1; y <= 3; y++) {
+                                    html += "<TD>" + countsData[y][x] + "</TD>";
+                                    index++;
+                                }
+                                html += "</TR>";
+
+                                c = index + 1;
+                            }
+                            html += "</tbody></TABLE>";
+                            console.log(html);
+                            $("#stakholder-variation-region").append(html);
+
+                            });
+
+
 
                 });
-                drawPlot();
+
+
+
+
+                               drawPlot();
                 drawPlotRegion();
 
             }
