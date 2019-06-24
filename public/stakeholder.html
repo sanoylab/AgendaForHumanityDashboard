@@ -797,8 +797,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             function PopulateStakeholderVariation() {
 
+                var total2016, total2017, total2018;
 
-                d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (
+                d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', function (crises) {
+
+                    crises.forEach(function (element, index) {
+                        if (element['ReportingYear'] == "2016") {
+                            total2016 = element['Total'];
+
+                        } else if (element['ReportingYear'] == "2017") {
+                            total2017 = element['Total'];
+                        } else if (element['ReportingYear'] == "2018") {
+                            total2018 = element['Total'];
+                        }
+                    });
+
+
+                    d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (
                     crises) {
 
 
@@ -817,13 +832,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'Academia') {
-                            countsData[1].push(element['Total']);
-                            prev1 = element['Total'];
+                            let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                    countsData[1].push(element['Total'] +
+                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                } else if (per < 0) {
+                                    countsData[1].push(element['Total'] +
+                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                } else {
+                                    countsData[1].push(element['Total']);
+                                }
 
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'Academia') {
-                            let per = (element['Total'] - prev1) / prev1 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -842,7 +867,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Academia') {
-                            let per = (element['Total'] - prev1) / prev1 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -864,13 +889,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'Faith-based Organisation') {
-
-                            countsData[1].push(element['Total']);
-                            prev2 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else {
+                                countsData[1].push(element['Total']);
+                            }
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'Faith-based Organisation') {
-                            let per = (element['Total'] - prev2) / prev2 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -886,7 +920,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Faith-based Organisation') {
-                            let per = (element['Total'] - prev2) / prev2 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -907,12 +941,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'Foundation') {
-                            countsData[1].push(element['Total']);
-                            prev3 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else {
+                                countsData[1].push(element['Total']);
+                            }
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'Foundation') {
-                            let per = (element['Total'] - prev3) / prev3 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -928,7 +972,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Foundation') {
-                            let per = (element['Total'] - prev3) / prev3 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -951,12 +995,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'International Organisation') {
-                            countsData[1].push(element['Total']);
-                            prev4 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else {
+                                countsData[1].push(element['Total']);
+                            }
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'International Organisation') {
-                            let per = (element['Total'] - prev4) / prev4 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -972,7 +1026,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'International Organisation') {
-                            let per = (element['Total'] - prev4) / prev4 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -991,12 +1045,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'Member State') {
-                            countsData[1].push(element['Total']);
-                            prev5 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else {
+                                countsData[1].push(element['Total']);
+                            }
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'Member State') {
-                            let per = (element['Total'] - prev5) / prev5 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1012,7 +1076,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Member State') {
-                            let per = (element['Total'] - prev5) / prev5 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1032,12 +1096,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'NGO - International') {
-                            countsData[1].push(element['Total']);
-                            prev6 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else {
+                                countsData[1].push(element['Total']);
+                            }
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'NGO - International') {
-                            let per = (element['Total'] - prev6) / prev6 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1053,7 +1127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'NGO - International') {
-                            let per = (element['Total'] - prev6) / prev6 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1072,12 +1146,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'NGO - National') {
-                            countsData[1].push(element['Total']);
-                            prev7 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else {
+                                countsData[1].push(element['Total']);
+                            }
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'NGO - National') {
-                            let per = (element['Total'] - prev7) / prev7 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1093,7 +1177,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'NGO - National') {
-                            let per = (element['Total'] - prev7) / prev7 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1113,13 +1197,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'Other') {
-                            countsData[1].push(element['Total']);
-                            prev8 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else {
+                                countsData[1].push(element['Total']);
+                            }
 
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'Other') {
-                            let per = (element['Total'] - prev8) / prev8 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1135,7 +1229,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Other') {
-                            let per = (element['Total'] - prev8) / prev8 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1155,12 +1249,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'Private Sector') {
-                            countsData[1].push(element['Total']);
-                            prev9 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else {
+                                countsData[1].push(element['Total']);
+                            }
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'Private Sector') {
-                            let per = (element['Total'] - prev9) / prev9 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1176,7 +1280,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Private Sector') {
-                            let per = (element['Total'] - prev9) / prev9 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1199,12 +1303,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'Regional Organisation') {
-                            countsData[1].push(element['Total']);
-                            prev10 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else {
+                                countsData[1].push(element['Total']);
+                            }
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'Regional Organisation') {
-                            let per = (element['Total'] - prev10) / prev10 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1222,7 +1336,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Regional Organisation') {
-                            let per = (element['Total'] - prev10) / prev10 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1244,12 +1358,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'Regional Organisation') {
-                            countsData[1].push(element['Total']);
-                            prev11 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per == 0) {
+                                countsData[1].push(element['Total']);
+                            } else if (element['Total'] == 'undefined') {
+                                countsData[1].push("-");
+                            }
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'Regional Organisation') {
-                            let per = (element['Total'] - prev11) / prev11 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1265,7 +1391,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Regional Organisation') {
-                            let per = (element['Total'] - prev11) / prev11 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1286,12 +1412,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'UN') {
-                            countsData[1].push(element['Total']);
-                            prev12 = element['Total'];
+                                let per = (element['Total'] * 100) / total2016;
+                            if (per > 0.00) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per < 0) {
+                                countsData[1].push(element['Total'] +
+                                    " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
+                                    "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                            } else if (per == 0) {
+                                countsData[1].push(element['Total']);
+                            } else {
+                                countsData[1].push("-");
+                            }
                         }
                         if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                             'UN') {
-                            let per = (element['Total'] - prev12) / prev12 * 100;
+                                let per = (element['Total'] * 100) / total2017;
                             if (per > 0.00) {
                                 countsData[2].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1307,7 +1445,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'UN') {
-                            let per = (element['Total'] - prev12) / prev12 * 100;
+                                let per = (element['Total'] * 100) / total2018;
                             if (per > 0.00) {
                                 countsData[3].push(element['Total'] +
                                     " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
@@ -1353,6 +1491,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 });
 
+            
+
+
+                });
+
+
+            
+            
             }
 
             function PopulateStakeholderRegionVariation() {
