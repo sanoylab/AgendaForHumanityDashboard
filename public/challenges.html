@@ -501,7 +501,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     'Info-management', 'Internal constraints', 'National or local systems', 'Hum-dev nexus',
                     'Preparedness', 'Standards'
                 ];
-                console.log(countsData);
+               // console.log(countsData);
                 $("#chart-challenge").fadeIn(1000);
                 c3.generate({
                     bindto: '#chart-challenge',
@@ -1266,7 +1266,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 });
                 let html = '';
-                console.log("Hello" + countsData);
+                //console.log("Hello" + countsData);
                 html += "<TABLE class='table table-hover'>";
                 html +=
                     "<thead><tr><th>Challenges</th><th><th>2018</th><th>2019</th></tr></thead><tbody>";
@@ -1285,7 +1285,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     c = index + 1;
                 }
                 html += "</tbody></TABLE>";
-                console.log(html);
+              //  console.log(html);
                 $("#challenges-variation").append(html);
 
             });
