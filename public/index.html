@@ -510,7 +510,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="js/spin.js"></script>
   <script src="js/d3.min.js"></script>
   <script src="js/c3.min.js"></script>
-  <script src="js/tsorter.min.js"></script>
+
   <script>
     PopulateTransformation(2018);
     PopulateStokeHolder2018(2017);
@@ -2348,14 +2348,14 @@ data) {
     if (myAssociativeArr.length > 1) {
       myAssociativeArr.sort();
         var row =
-            "<table id='cci1' class='table table-hover sortable'><thead><tr class='header-row' style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead>";
+            "<table id='cci1' class='table table-hover sortable'><thead><tr class='header-row' style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead><tbody>";
 
         for (i = 1; i < myAssociativeArr.length; i++) {
             row = row +
                 "<tr class='row-data'><td style='text-align:left;'>" +
                 myAssociativeArr[i].CCI + "</td><td>" + myAssociativeArr[i].Total + "</td></tr>";
         }
-        row = row + "</table>";
+        row = row + "</tbody></table>";
         document.getElementById("table-cci-table-2019").innerHTML = row;
 
     } else {
@@ -2400,14 +2400,14 @@ data) {
     if (myAssociativeArr.length > 1) {
       myAssociativeArr.sort();
         var row =
-            "<table id='cci2' class='table table-hover sortable'><thead><tr class='header-row'  style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead>";
+            "<table id='cci2' class='table table-hover sortable'><thead><tr class='header-row'  style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead><tbody>";
 
         for (i = 1; i < myAssociativeArr.length; i++) {
             row = row +
                 "<tr class='row-data'><td style='text-align:left;'>" +
                 myAssociativeArr[i].CCI + "</td><td>" + myAssociativeArr[i].Total + "</td></tr>";
         }
-        row = row + "</table>";
+        row = row + "</tbody></table>";
         document.getElementById("table-cci-table-2018").innerHTML = row;
 
     } else {
@@ -2452,14 +2452,14 @@ data) {
     if (myAssociativeArr.length > 1) {
       myAssociativeArr.sort();
         var row =
-            "<table id='cci3' class='table table-hover sortable'><thead><tr class='header-row'  style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead>";
+            "<table id='cci3' class='table table-hover sortable'><thead><tr class='header-row'  style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead><tbody>";
 
         for (i = 1; i < myAssociativeArr.length; i++) {
             row = row +
                 "<tr class='row-data'><td style='text-align:left;'>" +
                 myAssociativeArr[i].CCI + "</td><td>" + myAssociativeArr[i].Total + "</td></tr>";
         }
-        row = row + "</table>";
+        row = row + "</tbody></table>";
         document.getElementById("table-cci-table-2017").innerHTML = row;
 
     } else {
@@ -2639,7 +2639,7 @@ d3.json(news, function (error, data) {
 }
 
   </script>
-
+  <script src="js/tsorter.min.js"></script>
 <script>
   function init() {
       var sorter = tsorter.create('cci1');

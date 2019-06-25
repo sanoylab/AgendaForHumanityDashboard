@@ -2511,7 +2511,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         html += "<table id='trans1' class='table table-hover sortable'>";
                         html +=
-                            "<thead><tr style='cursor:pointer;'><th>TRANSFORMATION</th><th>2017</th><th>2018</th><th>2019</th></tr></thead>";
+                            "<thead><tr style='cursor:pointer;'><th>TRANSFORMATION</th><th>2017</th><th>2018</th><th>2019</th></tr></thead><tbody>";
                         let j = 0;
                         let c = 1;
                         let index = 0;
@@ -2533,7 +2533,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             c = index + 1;
                         }
-                        html += "</table>";
+                        html += "</tbody></table>";
 
                         $("#transformation-variation").append(html);
 
