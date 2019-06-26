@@ -1317,6 +1317,7 @@ return result;
         }  
 
         function PopulateStokeHolder() {
+          
           var target = document.getElementById('chart-stakeholder');
             var spinner = new Spinner(opts).spin(target);
             d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/organization.php', function (
@@ -1431,6 +1432,7 @@ return result;
                     if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                         'Faith-based Organisation') {
                         countsData[2].push(element['Total']);
+                        countsData[2].push(0);
                     }
                     if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                         'Foundation') {
@@ -1457,7 +1459,8 @@ return result;
                     }
                     if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                         'Private Sector') {
-                        countsData[2].push(element['Total']);
+                        countsData[2].push(element['Total']); 
+                        countsData[2].push(0);
                     }
                     if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                         'Regional Organisation') {
