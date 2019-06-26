@@ -277,7 +277,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src="js/c3.min.js"></script>
         <script src='https://unpkg.com/chart.js@2.8.0/dist/Chart.bundle.js'></script>
         <script src='https://unpkg.com/chartjs-chart-box-and-violin-plot@2/build/Chart.BoxPlot.js'></script>
-        <script src="js/tsorter.min.js"></script>
+      
         <script>
             PopulateTransformation("2016");
             PopulateTransformation("2017");
@@ -2529,7 +2529,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             }
 
                             html += "<td><div id='ch-" + countsData[j][c].substr(0, 2) +
-                                "'></div></td></TR>";
+                                "'></div></td></tr>";
 
                             c = index + 1;
                         }
@@ -2698,7 +2698,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             }
         </script>
-
+ <script src="js/tsorter.min.js"></script>
         <script>
             function init() {
                 var sorter = tsorter.create('trans1');

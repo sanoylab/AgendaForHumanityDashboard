@@ -480,6 +480,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 'Faith-based Organisation') {
                                 let per = (element['Total'] * 100) / total2018;
                                 countsData[2].push(per.toFixed(1));
+                                countsData[2].push(0);
                             }
                             if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                                 'Foundation') {
@@ -515,6 +516,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 'Private Sector') {
                                 let per = (element['Total'] * 100) / total2018;
                                 countsData[2].push(per.toFixed(1));
+                                countsData[2].push(0);
                             }
                             if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                                 'Regional Organisation') {
@@ -651,6 +653,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'Private Sector') {
                             countsData[0].push(element['Total']);
+                            
                         }
                         if (element['ReportingYear'] == '2016' && element['Stakeholder'] ==
                             'Regional Organisation') {
@@ -715,6 +718,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Faith-based Organisation') {
                             countsData[2].push(element['Total']);
+                            countsData[2].push(0);
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Foundation') {
@@ -742,6 +746,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Private Sector') {
                             countsData[2].push(element['Total']);
+                            countsData[2].push(0);
                         }
                         if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                             'Regional Organisation') {
@@ -1472,14 +1477,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         }
 
 
-
-
-
-
                     });
                     let html = '';
                    // console.log(countsData);
-                    html += "<TABLE id='stakeholdertable' class='table table-hover sortable'>";
+                    html += "<table id='stakeholdertable' class='table table-hover sortable'>";
                     html +=
                         "<thead><tr style='cursor:pointer'><th>Stakeholder</th><th>2017</th><th>2018</th><th>2019</th></tr></thead><tbody>";
                     let j = 0;
@@ -1487,16 +1488,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     let index = 0;
 
                     for (x = 1; x <= countsData[1].length - 1; x++) {
-                        html += "<TR><TD>" + countsData[j][c] + "</TD>";
+                        html += "<tr><td>" + countsData[j][c] + "</td>";
                         for (y = 1; y <= 3; y++) {
-                            html += "<TD>" + countsData[y][x] + "</TD>";
+                            html += "<td>" + countsData[y][x] + "</td>";
                             index++;
                         }
-                        html += "</TR>";
+                        html += "</tr>";
 
                         c = index + 1;
                     }
-                    html += "</tbody></TABLE>";
+                    html += "</tbody></table>";
                     //console.log(html);
                     $("#stakholder-variation").append(html);
 
@@ -1969,7 +1970,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             });
                             let html = '';
                           //  console.log(countsData);
-                            html += "<TABLE id='stakeholdertable1' class='table table-hover sortable'>";
+                            html += "<table id='stakeholdertable1' class='table table-hover sortable'>";
                             html +=
                                 "<thead><tr style='cursor:pointer'><th>Stakeholder</th><th>2017</th><th>2018</th><th>2019</th></tr></thead><tbody>";
                             let j = 0;
@@ -1977,16 +1978,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             let index = 0;
 
                             for (x = 1; x <= countsData[1].length - 1; x++) {
-                                html += "<TR><TD>" + countsData[j][c] + "</TD>";
+                                html += "<tr><td>" + countsData[j][c] + "</td>";
                                 for (y = 1; y <= 3; y++) {
-                                    html += "<TD>" + countsData[y][x] + "</TD>";
+                                    html += "<td>" + countsData[y][x] + "</td>";
                                     index++;
                                 }
-                                html += "</TR>";
+                                html += "</tr>";
 
                                 c = index + 1;
                             }
-                            html += "</tbody></TABLE>";
+                            html += "</tbody></table>";
                            // console.log(html);
                             $("#stakholder-variation-region").append(html);
 
