@@ -51,14 +51,39 @@ scratch. This page gets rid of all links and provides the needed markup only.
             fill: black !important;
         }
 
-        /* Up and Down Arrows */
-        .sortable th.descend:after {
-            content: "\25B2";
-        }
+        th[role=columnheader]:not(.no-sort) {
+	cursor: pointer;
+}
 
-        .sortable th.ascend:after {
-            content: "\25BC";
-        }
+th[role=columnheader]:not(.no-sort):after {
+	content: '';
+	float: right;
+	margin-top: 7px;
+	border-width: 0 4px 4px;
+	border-style: solid;
+	border-color: #404040 transparent;
+	visibility: hidden;
+	opacity: 0;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+th[aria-sort=ascending]:not(.no-sort):after {
+	border-bottom: none;
+	border-width: 4px 4px 0;
+}
+
+th[aria-sort]:not(.no-sort):after {
+	visibility: visible;
+	opacity: 0.4;
+}
+
+th[role=columnheader]:not(.no-sort):hover:after {
+	visibility: visible;
+	opacity: 1;
+}
     </style>
 </head>
 
@@ -193,7 +218,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <h3 class="box-title"></h3>
                             </div>
                             <div class="box-body no-padding" style="padding-left: 20px;padding-right: 20px;">
-                                <div id="chart-transformation"></div>
+                                <div id="chart_transformation_comp"></div>
                             </div>
                         </div>
                     </div>
@@ -293,519 +318,523 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             function PopulateTransformation(year) {
 
-
                 var total2016, total2017, total2018;
 
-                d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', function (crises) {
+d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', function (crises) {
 
-                    crises.forEach(function (element, index) {
-                        if (element['ReportingYear'] == "2016") {
-                            total2016 = element['Total'];
+    crises.forEach(function (element, index) {
+        if (element['ReportingYear'] == "2016") {
+            total2016 = element['Total'];
 
-                        } else if (element['ReportingYear'] == "2017") {
-                            total2017 = element['Total'];
-                        } else if (element['ReportingYear'] == "2018") {
-                            total2018 = element['Total'];
-                        }
-                    });
+        } else if (element['ReportingYear'] == "2017") {
+            total2017 = element['Total'];
+        } else if (element['ReportingYear'] == "2018") {
+            total2018 = element['Total'];
+        }
+    });
 
-                    var target = document.getElementById('chart-transformation');
-                    var spinner = new Spinner(opts).spin(target);
-                    var tran = [];
-                   
-                    d3.json('https://www.agendaforhumanity.org/viz_endpoint/transformation/get.php', function (
-                        crises) {
-                        spinner.stop();
-                        var a1 = ['1A'];
-                        var transformation_short = ['Transformation_Short'];
-                        var total = ['Total'];
-                        var transformation_long = ['Transformation_Long'];
+    var target = document.getElementById('chart_transformation_comp');
+    var spinner = new Spinner(opts).spin(target);
+    var tran = [];
+    // console.log(total2018);
+    d3.json('https://www.agendaforhumanity.org/viz_endpoint/transformation/get.php', function (
+        crises) {
+        spinner.stop();
+        var a1 = ['1A'];
+        var transformation_short = ['Transformation_Short'];
+        var total = ['Total'];
+        var transformation_long = ['Transformation_Long'];
 
-                        var countsData = [
-                            ['2017'],
-                            ['2018'],
-                            ['2019']
-                        ];
+        var countsData = [
+            ['2017'],
+            ['2018'],
+            ['2019']
+        ];
 
-                        crises.forEach(function (element, index) {
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '1A') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
+        crises.forEach(function (element, index) {
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '1A') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
 
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '1A') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '1A') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
 
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '1A') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-
-                            }
-
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '1B') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '1B') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '1B') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '1C') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '1C') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '1C') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '1D') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '1D') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '1D') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '2A') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '2A') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '2A') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '2B') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '2B') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '2B') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '2C') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '2C') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '2C') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '2D') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '2D') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '2D') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '2E') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '2E') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '2E') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '3A') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '3A') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '3A') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '3B') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '3B') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '3B') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '3C') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '3C') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '3C') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '3D') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '3D') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '3D') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '3E') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '3E') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '3E') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '3F') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '3F') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '3F') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '3G') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '3G') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '3G') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '4A') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '4A') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '4A') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '4B') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '4B') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '4B') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '4C') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '4C') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '4C') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '5A') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '5A') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '5A') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '5B') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '5B') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '5B') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '5C') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '5C') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '5C') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '5D') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '5D') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '5D') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-                            if (element['ReportingYear'] == '2016' && element[
-                                    'Transformation_Short'] ==
-                                '5E') {
-                                let per = (element['Total'] * 100) / total2016;
-                                countsData[0].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2017' && element[
-                                    'Transformation_Short'] == '5E') {
-                                let per = (element['Total'] * 100) / total2017;
-                                countsData[1].push(per.toFixed(1));
-                            } else if (element['ReportingYear'] == '2018' && element[
-                                    'Transformation_Short'] == '5E') {
-                                let per = (element['Total'] * 100) / total2018;
-                                countsData[2].push(per.toFixed(1));
-                            }
-
-                        });
-
-                        var categoriesList = ['1A', '1B', '1C', '1D', '2A', '2B', '2C', '2D', '2E',
-                            '3A',
-                            '3B',
-                            '3C', '3D', '3E', '3F', '3G', '4A', '4B', '4C', '5A', '5B', '5C', '5D',
-                            '5E'
-                        ];
-
-                        chart_transformation_comps = c3.generate({
-                            bindto: '#chart-transformation',
-                            data: {
-
-                                columns: countsData,
-                                labels: true,
-                                type: 'line',
-                                padding: {
-                                    left: 60
-                                },
-
-
-                            },
-                            color: {
-                                pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
-                            },
-                            axis: {
-                                rotated: false,
-                                x: {
-                                    type: 'category',
-                                    categories: categoriesList
-                                },
-                                y: {
-                                    show: false
-                                }
-                            },
-                            tooltip: {
-                                format: {
-                                    title: function (d) {
-                                        if (d === 0) {
-                                            return '1A - Demonstrate timely, coherent and decisive political leadership';
-                                        } else if (d === 1) {
-                                            return '1B - Act early';
-                                        } else if (d === 2) {
-                                            return '1C - Remain engaged and invest in stability';
-
-                                        } else if (d === 3) {
-                                            return '1D - Develop solutions with and for people';
-
-                                        } else if (d === 4) {
-
-                                            return '2A - Respect and protect civilians and civilian objects in the conduct of hostilities';
-                                        } else if (d === 5) {
-                                            return '2B - Ensure full access to and protection of the humanitarian and medical missions';
-
-                                        } else if (d === 6) {
-                                            return '2C - Speak out on violations';
-
-                                        } else if (d === 7) {
-                                            return '2D - Take concrete steps to improve compliance and accountability';
-
-                                        } else if (d === 8) {
-                                            return '2E - Uphold the rules: a global campaign to affirm the norms that safeguard humanity';
-
-                                        } else if (d === 9) {
-                                            return '3A - Reduce and address displacement';
-
-                                        } else if (d === 10) {
-                                            return '3B - Address the vulnerabilities of migrants and provide more regular and lawful opportunities for migration';
-
-                                        } else if (d === 11) {
-                                            return '3C - End statelessness in the next decade';
-
-                                        } else if (d === 12) {
-                                            return '3D - Empower and protect women and girls';
-
-                                        } else if (d === 13) {
-                                            return '3E - Eliminate gaps in education for children, adolescents and young people';
-
-                                        } else if (d === 14) {
-                                            return '3F - Enable adolescents and young people to be agents of positive transformation';
-
-                                        } else if (d === 15) {
-                                            return '3G - Address other groups or minorities in crisis settings';
-
-                                        } else if (d === 16) {
-                                            return '4A - Reinforce, do not replace, national and local systems';
-
-                                        } else if (d === 17) {
-                                            return '4B - Anticipate, do not wait, for crises';
-
-                                        } else if (d === 18) {
-                                            return '4C - Deliver collective outcomes: transcend humanitarian-development divides';
-
-                                        } else if (d === 19) {
-                                            return '5A - Invest in local capacities';
-
-                                        } else if (d === 20) {
-                                            return '5B - Invest according to risk';
-
-                                        } else if (d === 21) {
-                                            return '5C - Invest in stability';
-
-                                        } else if (d === 22) {
-                                            return '5D - Finance outcomes, not fragmentation: shift from funding to financing';
-
-                                        } else if (d === 23) {
-                                            return '5E - Diversify the resource base and increase cost-efficiency';
-                                        }
-
-
-
-
-
-                                    },
-
-                                    value: function (value, ratio, id) {
-
-                                        return value + "%";
-                                    }
-
-                                }
-                            }
-                        });
-
-
-
-                    });
-
-
-
-                });
-
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '1A') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
 
             }
+
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '1B') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '1B') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '1B') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '1C') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '1C') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '1C') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '1D') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '1D') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '1D') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '2A') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '2A') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '2A') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '2B') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '2B') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '2B') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '2C') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '2C') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '2C') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '2D') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '2D') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '2D') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '2E') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '2E') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '2E') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '3A') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '3A') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '3A') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '3B') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '3B') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '3B') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '3C') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '3C') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '3C') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '3D') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '3D') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '3D') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '3E') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '3E') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '3E') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '3F') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '3F') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '3F') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '3G') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '3G') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '3G') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '4A') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '4A') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '4A') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '4B') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '4B') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '4B') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '4C') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '4C') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '4C') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '5A') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '5A') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '5A') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '5B') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '5B') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '5B') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '5C') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '5C') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '5C') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '5D') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '5D') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '5D') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+            if (element['ReportingYear'] == '2016' && element[
+                    'Transformation_Short'] ==
+                '5E') {
+                let per = (element['Total'] * 100) / total2016;
+                countsData[0].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2017' && element[
+                    'Transformation_Short'] == '5E') {
+                let per = (element['Total'] * 100) / total2017;
+                countsData[1].push(per.toFixed(1));
+            } else if (element['ReportingYear'] == '2018' && element[
+                    'Transformation_Short'] == '5E') {
+                let per = (element['Total'] * 100) / total2018;
+                countsData[2].push(per.toFixed(1));
+            }
+
+        });
+
+        var categoriesList = ['1A', '1B', '1C', '1D', '2A', '2B', '2C', '2D', '2E', '3A',
+            '3B',
+            '3C', '3D', '3E', '3F', '3G', '4A', '4B', '4C', '5A', '5B', '5C', '5D', '5E'
+        ];
+
+        chart_transformation_comps = c3.generate({
+            bindto: '#chart_transformation_comp',
+            data: {
+
+                columns: countsData,
+                labels: false,
+                type: 'line',
+                padding: {
+                    left: 60
+                },
+
+
+            },
+            color: {
+                pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
+            },
+            axis: {
+                rotated: false,
+                x: {
+                    type: 'category',
+                    categories: categoriesList
+                },
+                y: {
+                    show: false
+                }
+            },
+            padding:{
+                bottom: 40
+            },
+            tooltip: {
+                format: {
+                    title: function (d) {
+                        if (d === 0) {
+                            return '1A - Demonstrate timely, coherent and decisive political leadership';
+                        } else if (d === 1) {
+                            return '1B - Act early';
+                        } else if (d === 2) {
+                            return '1C - Remain engaged and invest in stability';
+
+                        } else if (d === 3) {
+                            return '1D - Develop solutions with and for people';
+
+                        } else if (d === 4) {
+
+                            return '2A - Respect and protect civilians and civilian objects in the conduct of hostilities';
+                        } else if (d === 5) {
+                            return '2B - Ensure full access to and protection of the humanitarian and medical missions';
+
+                        } else if (d === 6) {
+                            return '2C - Speak out on violations';
+
+                        } else if (d === 7) {
+                            return '2D - Take concrete steps to improve compliance and accountability';
+
+                        } else if (d === 8) {
+                            return '2E - Uphold the rules: a global campaign to affirm the norms that safeguard humanity';
+
+                        } else if (d === 9) {
+                            return '3A - Reduce and address displacement';
+
+                        } else if (d === 10) {
+                            return '3B - Address the vulnerabilities of migrants and provide more regular and lawful opportunities for migration';
+
+                        } else if (d === 11) {
+                            return '3C - End statelessness in the next decade';
+
+                        } else if (d === 12) {
+                            return '3D - Empower and protect women and girls';
+
+                        } else if (d === 13) {
+                            return '3E - Eliminate gaps in education for children, adolescents and young people';
+
+                        } else if (d === 14) {
+                            return '3F - Enable adolescents and young people to be agents of positive transformation';
+
+                        } else if (d === 15) {
+                            return '3G - Address other groups or minorities in crisis settings';
+
+                        } else if (d === 16) {
+                            return '4A - Reinforce, do not replace, national and local systems';
+
+                        } else if (d === 17) {
+                            return '4B - Anticipate, do not wait, for crises';
+
+                        } else if (d === 18) {
+                            return '4C - Deliver collective outcomes: transcend humanitarian-development divides';
+
+                        } else if (d === 19) {
+                            return '5A - Invest in local capacities';
+
+                        } else if (d === 20) {
+                            return '5B - Invest according to risk';
+
+                        } else if (d === 21) {
+                            return '5C - Invest in stability';
+
+                        } else if (d === 22) {
+                            return '5D - Finance outcomes, not fragmentation: shift from funding to financing';
+
+                        } else if (d === 23) {
+                            return '5E - Diversify the resource base and increase cost-efficiency';
+                        }
+
+
+
+
+
+                    },
+
+                    value: function (value, ratio, id) {
+
+                        return value + "%";
+                    }
+
+                }
+            }
+        });
+
+        d3.select(".c3-legend-item .c3-legend-item-2017 .c3-legend-item-2018 .c3-legend-item-2019"). style("float", "right").attr("transform", "translate(0,7)");
+
+
+    });
+
+
+
+});
+
+
+
+
+
+}
 
 
             var opts = {
@@ -823,315 +852,390 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             function PopulateTransformationBar(year) {
                 var target = document.getElementById('chart-transformation-bar');
-                var spinner = new Spinner(opts).spin(target);
-                d3.json('https://www.agendaforhumanity.org/viz_endpoint/transformation/get.php', function (crises) {
-                    spinner.stop();
-                    var a1 = ['1A'];
-                    var transformation_short = ['Transformation_Short'];
-                    var total = ['Total'];
-                    var transformation_long = ['Transformation_Long'];
+            var spinner = new Spinner(opts).spin(target);
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/transformation/get.php', function (crises) {
+                spinner.stop();
+                var a1 = ['1A'];
+                var transformation_short = ['Transformation_Short'];
+                var total = ['Total'];
+                var transformation_long = ['Transformation_Long'];
 
-                    var countsData = [
-                        ['2017'],
-                        ['2018'],
-                        ['2019']
-                    ];
+                var countsData = [
+                    ['2017'],
+                    ['2018'],
+                    ['2019']
+                ];
 
-                    crises.forEach(function (element, index) {
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '1A') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '1A') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '1A') {
-                            countsData[2].push(element['Total']);
-                        }
+                crises.forEach(function (element, index) {
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '1A') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '1A') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '1A') {
+                        countsData[2].push(element['Total']);
+                    }
 
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '1B') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '1B') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '1B') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '1C') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '1C') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '1C') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '1D') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '1D') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '1D') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '2A') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '2A') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '2A') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '2B') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '2B') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '2B') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '2C') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '2C') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '2C') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '2D') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '2D') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '2D') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '2E') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '2E') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '2E') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '3A') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '3A') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '3A') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '3B') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '3B') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '3B') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '3C') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '3C') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '3C') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '3D') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '3D') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '3D') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '3E') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '3E') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '3E') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '3F') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '3F') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '3F') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '3G') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '3G') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '3G') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '4A') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '4A') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '4A') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '4B') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '4B') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '4B') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '4C') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '4C') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '4C') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '5A') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '5A') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '5A') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '5B') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '5B') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '5B') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '5C') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '5C') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '5C') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '5D') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '5D') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '5D') {
-                            countsData[2].push(element['Total']);
-                        }
-                        if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
-                            '5E') {
-                            countsData[0].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2017' && element[
-                                'Transformation_Short'] == '5E') {
-                            countsData[1].push(element['Total']);
-                        } else if (element['ReportingYear'] == '2018' && element[
-                                'Transformation_Short'] == '5E') {
-                            countsData[2].push(element['Total']);
-                        }
-
-                    });
-
-                    var categoriesList = ['1A', '1B', '1C', '1D', '2A', '2B', '2C', '2D', '2E', '3A', '3B',
-                        '3C', '3D', '3E', '3F', '3G', '4A', '4B', '4C', '5A', '5B', '5C', '5D', '5E'
-                    ];
-
-                    c3.generate({
-                        bindto: '#chart-transformation-bar',
-                        data: {
-
-                            columns: countsData,
-                            labels: true,
-                            type: 'bar',
-                            padding: {
-                                left: 60
-                            },
-
-                            /*
-                            color: function (color, d) {
-                              if (d.index < 4)
-                                color="#00B1EB";
-                              else if  (d.index >= 4 && d.index < 9)
-                                color="#51AF32";
-                              else if  (d.index >= 9 && d.index < 16)
-                                color="#A863A5"; 
-                              else if  (d.index >= 16 && d.index < 19)
-                                color="#F7A600"; 
-                                else if  (d.index >= 19 && d.index <= 23)
-                                color="#E84E0F";    
-                              return color;
-                            }
-                            */
-                        },
-
-                        color: {
-                            pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
-                        },
-                        axis: {
-                            rotated: false,
-                            x: {
-                                type: 'category',
-                                categories: categoriesList
-                            },
-                            y: {
-                                show: false
-                            }
-                        },
-                    });
-
-
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '1B') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '1B') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '1B') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '1C') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '1C') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '1C') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '1D') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '1D') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '1D') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '2A') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '2A') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '2A') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '2B') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '2B') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '2B') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '2C') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '2C') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '2C') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '2D') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '2D') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '2D') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '2E') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '2E') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '2E') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3A') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3A') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3A') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3B') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3B') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3B') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3C') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3C') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3C') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3D') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3D') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3D') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3E') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3E') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3E') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3F') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3F') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3F') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3G') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3G') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3G') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '4A') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '4A') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '4A') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '4B') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '4B') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '4B') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '4C') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '4C') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '4C') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '5A') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '5A') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '5A') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '5B') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '5B') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '5B') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '5C') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '5C') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '5C') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '5D') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '5D') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '5D') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '5E') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '5E') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '5E') {
+                        countsData[2].push(element['Total']);
+                    }
 
                 });
+
+                var categoriesList = ['1A', '1B', '1C', '1D', '2A', '2B', '2C', '2D', '2E', '3A', '3B',
+                    '3C', '3D', '3E', '3F', '3G', '4A', '4B', '4C', '5A', '5B', '5C', '5D', '5E'
+                ];
+
+                transforms = c3.generate({
+                    bindto: '#chart-transformation-bar',
+                    data: {
+
+                        columns: countsData,
+                        labels: true,
+                        type: 'bar',
+                        padding: {
+                            left: 60,
+                            bottom: 40
+                        },
+
+
+                    },
+                    color: {
+                        pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
+                    },
+                    axis: {
+                        rotated: false,
+                        x: {
+                            type: 'category',
+                            categories: categoriesList
+                        },
+                        y: {
+                            show: false
+                        }
+                    },
+                    padding: {
+                               
+                                bottom: 40
+                            },
+                    tooltip: {
+                        format: {
+                            title: function (d) {
+                                if (d === 0) {
+                                    return '1A - Demonstrate timely, coherent and decisive political leadership';
+                                } else if (d === 1) {
+                                    return '1B - Act early';
+                                } else if (d === 2) {
+                                    return '1C - Remain engaged and invest in stability';
+
+                                } else if (d === 3) {
+                                    return '1D - Develop solutions with and for people';
+
+                                } else if (d === 4) {
+
+                                    return '2A - Respect and protect civilians and civilian objects in the conduct of hostilities';
+                                } else if (d === 5) {
+                                    return '2B - Ensure full access to and protection of the humanitarian and medical missions';
+
+                                } else if (d === 6) {
+                                    return '2C - Speak out on violations';
+
+                                } else if (d === 7) {
+                                    return '2D - Take concrete steps to improve compliance and accountability';
+
+                                } else if (d === 8) {
+                                    return '2E - Uphold the rules: a global campaign to affirm the norms that safeguard humanity';
+
+                                } else if (d === 9) {
+                                    return '3A - Reduce and address displacement';
+
+                                } else if (d === 10) {
+                                    return '3B - Address the vulnerabilities of migrants and provide more regular and lawful opportunities for migration';
+
+                                } else if (d === 11) {
+                                    return '3C - End statelessness in the next decade';
+
+                                } else if (d === 12) {
+                                    return '3D - Empower and protect women and girls';
+
+                                } else if (d === 13) {
+                                    return '3E - Eliminate gaps in education for children, adolescents and young people';
+
+                                } else if (d === 14) {
+                                    return '3F - Enable adolescents and young people to be agents of positive transformation';
+
+                                } else if (d === 15) {
+                                    return '3G - Address other groups or minorities in crisis settings';
+
+                                } else if (d === 16) {
+                                    return '4A - Reinforce, do not replace, national and local systems';
+
+                                } else if (d === 17) {
+                                    return '4B - Anticipate, do not wait, for crises';
+
+                                } else if (d === 18) {
+                                    return '4C - Deliver collective outcomes: transcend humanitarian-development divides';
+
+                                } else if (d === 19) {
+                                    return '5A - Invest in local capacities';
+
+                                } else if (d === 20) {
+                                    return '5B - Invest according to risk';
+
+                                } else if (d === 21) {
+                                    return '5C - Invest in stability';
+
+                                } else if (d === 22) {
+                                    return '5D - Finance outcomes, not fragmentation: shift from funding to financing';
+
+                                } else if (d === 23) {
+                                    return '5E - Diversify the resource base and increase cost-efficiency';
+                                }
+
+
+
+
+
+                            },
+
+                            //value: d3.format(',') // apply this format to both y and y2
+                        }
+                    }
+                });
+                d3.select(".c3-legend-item .c3-legend-item-2017 .c3-legend-item-2018 .c3-legend-item-2019"). style("float", "right").attr("transform", "translate(0,7)");
+
+
+
+            });
+
 
             }
         </script>
@@ -2706,14 +2810,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             }
         </script>
- <script src="js/tsorter.min.js"></script>
-        <script>
-            function init() {
-                var sorter = tsorter.create('trans1');
-            }
 
-            window.onload = init;
-        </script>
+
+<script src='js/tablesort.min.js'></script>
+
+<!-- Include sort types you need -->
+<script src='js/tablesort.number.min.js'></script>
+
+
+<script>
+  window.onload = function() {
+   new Tablesort(document.getElementById('trans1'));
+
+}
+
+</script>
+
+
 </body>
 
 </html>

@@ -61,7 +61,56 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
 
 
+        .big-font{
+  font-size: 2vw;
+  padding-top: 5px;
+    font-weight: bold;
+    color: #286BCE !important;
+    font-family: 'Roboto', sans-serif;
+}
+.small-font{
+  font-family: 'Roboto', sans-serif;
+    font-size: 1vw;
+}
+.small-fontlast{
+  font-family: 'Roboto', sans-serif;
+    font-size: 1vw;
+    padding-bottom: 10px;
+}
 
+th[role=columnheader]:not(.no-sort) {
+	cursor: pointer;
+}
+
+th[role=columnheader]:not(.no-sort):after {
+	content: '';
+	float: right;
+	margin-top: 7px;
+	border-width: 0 4px 4px;
+	border-style: solid;
+	border-color: #404040 transparent;
+	visibility: hidden;
+	opacity: 0;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+th[aria-sort=ascending]:not(.no-sort):after {
+	border-bottom: none;
+	border-width: 4px 4px 0;
+}
+
+th[aria-sort]:not(.no-sort):after {
+	visibility: visible;
+	opacity: 0.4;
+}
+
+th[role=columnheader]:not(.no-sort):hover:after {
+	visibility: visible;
+	opacity: 1;
+}
     </style>
 </head>
 
@@ -200,9 +249,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="row">
                       <div class="col-md-12 col-sm-12">
                         <div class="pad">
-                          <div class="col-md-4"><div id="chart-reported-2016"></div></div>
-                          <div class="col-md-4"><div id="chart-reported-2017"></div></div>
-                          <div class="col-md-4"><div id="chart-reported-2018"></div></div>
+                          <div class="col-md-4">
+                            <div id="charts_reported_2016" ></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="charts_reported_2017"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div id="charts_reported_2018"></div>
+                        </div>
                             
                         
                          
@@ -216,58 +271,65 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>               
               </div>             
       
-              <div class="col-md-4">
-                 <!-- /.info-box -->
-                
-                    <!-- /.info-box-content -->
+              <div class="col-md-4 col-sm-12">
 
-                    <div class="info-box bg-green" style="margin-bottom: 45px;">
-                        <span class="info-box-icon"><i class="fas fa-tv"></i></span>
-            
+                <!-- /.info-box -->
+
+                <!-- /.info-box-content -->
+
+                
+
+                 <!-- /.info-box -->
+                 <div class="info-box bg-red"  style="border-top-right-radius: 20px;">
+                        <span class="info-box-icon"><i class="fas fa-chart-pie"></i></span>
+
                         <div class="info-box-content">
-                          <span class="info-box-text">2019 Total Reported</span>
-                          <span class="info-box-number"><span id="total-stakeholder-2018"></span></span>
-            
-                          <div class="progress">
-                            <div class="progress-bar" style="width: 20%"></div>
-                          </div>
-                         
+                            <span class="info-box-text">2017 Total Reported</span>
+                            <span class="info-box-number"><span
+                                    id="total-stackholder-2016"></span></span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 40%"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                <!-- Info Boxes Style 2 -->
+                <div class="info-box bg-yellow">
+                    <span class="info-box-icon"><i class="fas fa-chart-pie"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">2018 Total Reported</span>
+                        <span class="info-box-number"><span
+                                id="total-stakeholder-2017"></span></span>
+
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 42%"></div>
+                        </div>
+
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <div class="info-box bg-green" style="border-bottom-right-radius: 20px;">
+                        <span class="info-box-icon"><i class="fas fa-chart-pie"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">2019 Total Reported</span>
+                            <span class="info-box-number"><span
+                                    id="total-stakeholder-2018"></span></span>
+
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 32%"></div>
+                            </div>
+
                         </div>
                         <!-- /.info-box-content -->
-      
-                        
-                      </div>
-                <!-- Info Boxes Style 2 -->
-                <div class="info-box bg-yellow" style="margin-bottom: 45px;">
-                  <span class="info-box-icon"><i class="fas fa-laptop"></i></span>
-      
-                  <div class="info-box-content">
-                    <span class="info-box-text">2018 Total Reported</span>
-                    <span class="info-box-number"><span id="total-stakeholder-2017"></span></span>
-      
-                    <div class="progress">
-                      <div class="progress-bar" style="width: 50%"></div>
+
+
                     </div>
-                   
-                  </div>
-                  <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-                <div class="info-box bg-red" style="margin-bottom: 45px;">
-                    <span class="info-box-icon"><i class="fas fa-desktop"></i></span>
-        
-                    <div class="info-box-content">
-                      <span class="info-box-text">2017 Total Reported</span>
-                      <span class="info-box-number"><span id="total-stackholder-2016"></span></span>
-        
-                      <div class="progress">
-                        <div class="progress-bar" style="width: 20%"></div>
-                      </div>
-                     
-                    </div>
-                    </div>
-               
-              </div>
+
+
+            </div>
              
             </div>
             <div class="row"><h3>&nbsp;&nbsp;&nbsp;Transformation</h2></div>
@@ -278,7 +340,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <h3 class="box-title"></h3>
                   </div>
                   <div class="box-body no-padding" style="padding-left: 20px;padding-right: 20px;">
-                    <div id="chart-transformation"></div>
+                    <div id="chart-transformation-bar"></div>
+                    <div class="alert alert-success" role="alert">In 2019, subcategories were refined for 4B and 4C. 3D had new subcategories added for reporting.</div>
                   </div>
                 </div>
               </div>
@@ -293,6 +356,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="box-body no-padding">
                         <div id="chart-stakeholder"></div>
+                        <div class="alert alert-success" role="alert">In 2019, after identifying a misalignment between region of location and operation, the regions Asia-Pacific, Central and South Asia were merged into a single region 'Asia' and the region 'Pacific' was added. </div>
                     </div>
                   </div>
                 </div>
@@ -382,7 +446,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <h3 class="box-title">2019</h3>
                   </div>
                   <div class="box-body no-padding">
-                      <div id="table-cci-table-2019"></div>                    
+                      <div id="table-cci-table-2019"></div>     
+                      <div class="alert alert-success" role="alert">The percentage represents the proportion of reporting or stakeholders from the absolute total for that particular year. The arrow represents the percentage increase or decrease compared to the previous year</div>               
                   </div>
                 </div>
               </div>
@@ -392,7 +457,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <h3 class="box-title">2018</h3>
                   </div>
                   <div class="box-body no-padding">
-                      <div id="table-cci-table-2018"></div>            
+                      <div id="table-cci-table-2018"></div>    
+                      <div class="alert alert-success" role="alert">The percentage represents the proportion of reporting or stakeholders from the absolute total for that particular year. The arrow represents the percentage increase or decrease compared to the previous year</div>                       
                   </div>
                 </div>
               </div>
@@ -402,7 +468,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <h3 class="box-title">2017</h3>
                     </div>
                     <div class="box-body no-padding">
-                        <div id="table-cci-table-2017"></div>            
+                        <div id="table-cci-table-2017"></div>      
+                        <div class="alert alert-success" role="alert">The percentage represents the proportion of reporting or stakeholders from the absolute total for that particular year. The arrow represents the percentage increase or decrease compared to the previous year</div>                     
                     </div>
                   </div>
                 </div>
@@ -512,7 +579,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="js/c3.min.js"></script>
 
   <script>
-    PopulateTransformation(2018);
+    PopulateTransformation();
     PopulateStokeHolder2018(2017);
     PopulateStokeHolder2017(2016);
     PopulateStokeHolder2019(2018);
@@ -530,9 +597,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     PopulateStackholderTotal2017(2016);
     PopulateStackholderTotal2019(2018);
     PopulateStackholderTotal2018(2017);
-    PopulateReportStatusDashboard(2016,"chart-reported-2016");
-    PopulateReportStatusDashboard(2017,"chart-reported-2017");
-    PopulateReportStatusDashboard(2018,"chart-reported-2018");
+    PopulateReportStatusDashboard2016(2016, "charts_reported_2016");
+        PopulateReportStatusDashboard2017(2017, "charts_reported_2017");
+        PopulateReportStatusDashboard2018(2018, "charts_reported_2018");
     function filterJSON(json, key) {
 
 var result = [];
@@ -554,144 +621,391 @@ return result;
             className: 'spinner', // The CSS class to assign to the spinner
         };
         function PopulateTransformation(year) {
-            var target = document.getElementById('chart-transformation');
+          var target = document.getElementById('chart-transformation-bar');
             var spinner = new Spinner(opts).spin(target);
             d3.json('https://www.agendaforhumanity.org/viz_endpoint/transformation/get.php', function (crises) {
                 spinner.stop();
                 var a1 = ['1A'];
-                    var b1 = ['1B'];
-                    var c1 = ['1C'];
-                    var d1 = ['1D'];
-                    var a2 = ['2A'];
-                    var b2 = ['2B'];
-                    var c2 = ['2C'];
-                    var d2 = ['2D'];
-                    var e2 = ['2E'];
-                    var a3 = ['3A'];
-                    var b3 = ['3B'];
-                    
-                    var c33 = ['3C'];
-                    var d33 = ['3D'];
-                    
-                    var e3 = ['3E'];
-                    var f3 = ['3F'];
-                    var g3 = ['3G'];
-                    
-                    var a4 = ['4A'];
-                    var b4 = ['4B'];
-                    var c4 = ['4C'];
-                    var a5 = ['5A'];
-                    var b5 = ['5B'];
-                    var c5 = ['5C'];
-                    var d5 = ['5D'];
-                    var e5 = ['5E'];
-                   var transformation_short=['Transformation_Short'];
-                 var   total = ['Total'];
-                   var  transformation_long = ['Transformation_Long'];
+                var transformation_short = ['Transformation_Short'];
+                var total = ['Total'];
+                var transformation_long = ['Transformation_Long'];
 
+                var countsData = [
+                    ['2017'],
+                    ['2018'],
+                    ['2019']
+                ];
 
                 crises.forEach(function (element, index) {
-                  if(element['Transformation_Short']=='1A'){
-                    a1.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="1B"){
-                    b1.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="1C"){
-                    c1.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="1D"){
-                    d1.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="2A"){
-                    a2.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="2B"){
-                    b2.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="2C"){
-                    c2.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="2D"){
-                    d2.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="2E"){
-                    e2.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="3A"){
-                    a3.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="3B"){
-                    b3.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="3C"){
-                    c33.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="3D"){
-                    d33.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="3E"){
-                    e3.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="3F"){
-                    f3.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="3G"){
-                    g3.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="4A"){
-                    a4.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="4B"){
-                    b4.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="4C"){
-                    c4.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="5A"){
-                    a5.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="5B"){
-                    b5.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="5C"){
-                    c5.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="5D"){
-                    d5.push(Number(element['Total']));
-                  }
-                  else if(element['Transformation_Short']=="5E"){
-                    e5.push(Number(element['Total']));
-                  }
-                  
-                        transformation_short.push(element['Transformation_Short']);
-                      
-                        //transformation_long.push(element['Transformation_Long']);
-                    
-                });
-            
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '1A') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '1A') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '1A') {
+                        countsData[2].push(element['Total']);
+                    }
 
-           
-                  var columnData = [['x','2017','2018','2019'],a1, b1, c1, d1, a2, b2, c2, d2, e2, a3, b3, c33, d33, e3, f3, g3, a4, b4, c4, a5, b5, c5, d5, e5];
-               //   console.log(  columnData);
-                //  $("#chart-transformation").fadeIn(1000);
-                    c3.generate({
-                      bindto: '#chart-transformation',
-                        data: {
-                            x:'x',
-                            columns: columnData,                            
-                            type: 'bar',
-                          //  groups: [
-                         //       ['1A', '1B', '1C', '1D', '2A', '2B','2C','2D','2E','3A','3B','3C','3D','3E','3F','3G','4A','4B','4C','5A','5B','5C','5D','5E']
-                        //    ],
-                            
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '1B') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '1B') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '1B') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '1C') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '1C') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '1C') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '1D') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '1D') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '1D') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '2A') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '2A') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '2A') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '2B') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '2B') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '2B') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '2C') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '2C') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '2C') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '2D') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '2D') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '2D') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '2E') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '2E') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '2E') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3A') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3A') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3A') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3B') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3B') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3B') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3C') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3C') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3C') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3D') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3D') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3D') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3E') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3E') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3E') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3F') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3F') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3F') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '3G') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '3G') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '3G') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '4A') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '4A') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '4A') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '4B') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '4B') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '4B') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '4C') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '4C') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '4C') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '5A') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '5A') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '5A') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '5B') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '5B') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '5B') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '5C') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '5C') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '5C') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '5D') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '5D') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '5D') {
+                        countsData[2].push(element['Total']);
+                    }
+                    if (element['ReportingYear'] == '2016' && element['Transformation_Short'] ==
+                        '5E') {
+                        countsData[0].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2017' && element[
+                            'Transformation_Short'] == '5E') {
+                        countsData[1].push(element['Total']);
+                    } else if (element['ReportingYear'] == '2018' && element[
+                            'Transformation_Short'] == '5E') {
+                        countsData[2].push(element['Total']);
+                    }
+
+                });
+
+                var categoriesList = ['1A', '1B', '1C', '1D', '2A', '2B', '2C', '2D', '2E', '3A', '3B',
+                    '3C', '3D', '3E', '3F', '3G', '4A', '4B', '4C', '5A', '5B', '5C', '5D', '5E'
+                ];
+
+                transforms = c3.generate({
+                    bindto: '#chart-transformation-bar',
+                    data: {
+
+                        columns: countsData,
+                        labels: true,
+                        type: 'bar',
+                        padding: {
+                            left: 60,
+                            bottom: 40
                         },
-                        
-                    });                   
-                
+
+
+                    },
+                    color: {
+                        pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
+                    },
+                    axis: {
+                        rotated: false,
+                        x: {
+                            type: 'category',
+                            categories: categoriesList
+                        },
+                        y: {
+                            show: false
+                        }
+                    },
+                    padding: {
+                               
+                                bottom: 40
+                            },
+                    tooltip: {
+                        format: {
+                            title: function (d) {
+                                if (d === 0) {
+                                    return '1A - Demonstrate timely, coherent and decisive political leadership';
+                                } else if (d === 1) {
+                                    return '1B - Act early';
+                                } else if (d === 2) {
+                                    return '1C - Remain engaged and invest in stability';
+
+                                } else if (d === 3) {
+                                    return '1D - Develop solutions with and for people';
+
+                                } else if (d === 4) {
+
+                                    return '2A - Respect and protect civilians and civilian objects in the conduct of hostilities';
+                                } else if (d === 5) {
+                                    return '2B - Ensure full access to and protection of the humanitarian and medical missions';
+
+                                } else if (d === 6) {
+                                    return '2C - Speak out on violations';
+
+                                } else if (d === 7) {
+                                    return '2D - Take concrete steps to improve compliance and accountability';
+
+                                } else if (d === 8) {
+                                    return '2E - Uphold the rules: a global campaign to affirm the norms that safeguard humanity';
+
+                                } else if (d === 9) {
+                                    return '3A - Reduce and address displacement';
+
+                                } else if (d === 10) {
+                                    return '3B - Address the vulnerabilities of migrants and provide more regular and lawful opportunities for migration';
+
+                                } else if (d === 11) {
+                                    return '3C - End statelessness in the next decade';
+
+                                } else if (d === 12) {
+                                    return '3D - Empower and protect women and girls';
+
+                                } else if (d === 13) {
+                                    return '3E - Eliminate gaps in education for children, adolescents and young people';
+
+                                } else if (d === 14) {
+                                    return '3F - Enable adolescents and young people to be agents of positive transformation';
+
+                                } else if (d === 15) {
+                                    return '3G - Address other groups or minorities in crisis settings';
+
+                                } else if (d === 16) {
+                                    return '4A - Reinforce, do not replace, national and local systems';
+
+                                } else if (d === 17) {
+                                    return '4B - Anticipate, do not wait, for crises';
+
+                                } else if (d === 18) {
+                                    return '4C - Deliver collective outcomes: transcend humanitarian-development divides';
+
+                                } else if (d === 19) {
+                                    return '5A - Invest in local capacities';
+
+                                } else if (d === 20) {
+                                    return '5B - Invest according to risk';
+
+                                } else if (d === 21) {
+                                    return '5C - Invest in stability';
+
+                                } else if (d === 22) {
+                                    return '5D - Finance outcomes, not fragmentation: shift from funding to financing';
+
+                                } else if (d === 23) {
+                                    return '5E - Diversify the resource base and increase cost-efficiency';
+                                }
+
+
+
+
+
+                            },
+
+                            //value: d3.format(',') // apply this format to both y and y2
+                        }
+                    }
+                });
+                d3.select(".c3-legend-item .c3-legend-item-2017 .c3-legend-item-2018 .c3-legend-item-2019"). style("float", "right").attr("transform", "translate(0,7)");
+
 
 
             });
+
 
         }
 
@@ -900,289 +1214,7 @@ return result;
             });
         }  
 
-        function PopulateTransformation(year) {
-            var target = document.getElementById('chart-transformation');
-            var spinner = new Spinner(opts).spin(target);
-            d3.json('https://www.agendaforhumanity.org/viz_endpoint/transformation/get.php', function (crises) {
-                spinner.stop();
-                var a1 = ['1A'];           
-                var transformation_short=['Transformation_Short'];
-                var   total = ['Total'];
-                var  transformation_long = ['Transformation_Long'];
-               
-                var countsData = [  ['2017'], ['2018'], ['2019']];
-
-                crises.forEach(function (element, index) {
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='1A'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='1A'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='1A'){
-                    countsData[2].push(element['Total']);
-                  }               
-            
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='1B'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='1B'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='1B'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='1C'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='1C'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='1C'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='1D'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='1D'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='1D'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='2A'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='2A'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='2A'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='2B'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='2B'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='2B'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='2C'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='2C'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='2C'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='2D'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='2D'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='2D'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='2E'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='2E'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='2E'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3A'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3A'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3A'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3B'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3B'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3B'){
-                    countsData[2].push(element['Total']);
-                  } 
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3C'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3C'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3C'){
-                    countsData[2].push(element['Total']);
-                  }     
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3D'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3D'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3D'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3E'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3E'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3E'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3F'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3F'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3F'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='3G'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='3G'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='3G'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='4A'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='4A'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='4A'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='4B'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='4B'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='4B'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='4C'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='4C'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='4C'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='5A'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='5A'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='5A'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='5B'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='5B'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='5B'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='5C'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='5C'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='5C'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='5D'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='5D'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='5D'){
-                    countsData[2].push(element['Total']);
-                  }   
-                  if(element['ReportingYear']=='2016' && element['Transformation_Short']=='5E'){
-                    countsData[0].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2017'&& element['Transformation_Short']=='5E'){
-                    countsData[1].push(element['Total']);
-                  } 
-                  else if(element['ReportingYear']=='2018'&& element['Transformation_Short']=='5E'){
-                    countsData[2].push(element['Total']);
-                  }   
-
-                });   
-              
-                var categoriesList = ['1A', '1B', '1C','1D','2A','2B','2C','2D','2E','3A','3B','3C','3D','3E','3F','3G','4A','4B','4C','5A','5B','5C','5D','5E'];
-       
-                    c3.generate({
-                      bindto: '#chart-transformation',
-                        data: {
-                          
-                            columns: countsData,     
-                            labels: true,                   
-                            type: 'bar',
-                            padding: {
-                                left: 60
-                            }, 
-                           
-                            /*
-                            color: function (color, d) {
-                              if (d.index < 4)
-                                color="#00B1EB";
-                              else if  (d.index >= 4 && d.index < 9)
-                                color="#51AF32";
-                              else if  (d.index >= 9 && d.index < 16)
-                                color="#A863A5"; 
-                              else if  (d.index >= 16 && d.index < 19)
-                                color="#F7A600"; 
-                                else if  (d.index >= 19 && d.index <= 23)
-                                color="#E84E0F";    
-                              return color;
-                            }
-                            */                                                
-                        },
-                        color: {
-                          pattern: ["#00B1EB", "#51AF32", "#E84E0F"]
-                            },
-                        axis: {
-                          rotated: false,
-                          x: {
-                            type: 'category',
-                            categories: categoriesList
-                          },
-                          y: {show: false}
-                        },
-                    });                   
-                
-
-
-            });
-
-        }
-
-
-
+     
         function PopulateStokeHolder2018(year) {
             var target = document.getElementById('chart-stakeholder');
             var spinner = new Spinner(opts).spin(target);
@@ -2354,7 +2386,7 @@ data) {
     if (myAssociativeArr.length > 1) {
       myAssociativeArr.sort();
         var row =
-            "<table id='cci1' class='table table-hover sortable'><thead><tr class='header-row' style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead><tbody>";
+            "<table id='cci1' class='table table-hover'><thead><tr class='header-row' style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead><tbody>";
 
         for (i = 1; i < myAssociativeArr.length; i++) {
             row = row +
@@ -2580,82 +2612,337 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
 });
 }
 
-function PopulateReportStatusDashboard(year,dom) {
+function PopulateReportStatusDashboard2016(year, dom) {
+            reportedapi = "https://www.agendaforhumanity.org/viz_endpoint/dashboard/reported.php";
+            var target = document.getElementById(dom);
+            var spinner = new Spinner(opts).spin(target);
+            var reported = ['Reported'],
+                notreported = ['Not reported'];
+
+                let total=0;
+                
+                d3.json('https://www.agendaforhumanity.org/viz_endpoint/dashboard/reported.php', function (crises) {
+
+                    crises.forEach(function (element, index) {
+                        if (element['ReportingYear'] == year) {
+                            reported.push([Number(element['Reported'])]);
+                            total = total + Number(element['Reported']);
+                        }
+                    });
+
+                    var target = document.getElementById('chart-stakeholder-line');
+                    var spinner = new Spinner(opts).spin(target);
+                    d3.json('https://www.agendaforhumanity.org/viz_endpoint/dashboard/notreported.php', function (crises) {
+
+                            crises.forEach(function (element, index) {
+                                if (element['ReportingYear'] == year) {
+                                    notreported.push([Number(element['NotReported'])]);
+                                    total = total + Number(element['NotReported']);
+                                }
+
+                            });
+                            //chart     
 
 
-news = "https://www.agendaforhumanity.org/viz_endpoint/dashboard/get.php";
-var target = document.getElementById(dom);
-var spinner = new Spinner(opts).spin(target);
-d3.json(news, function (error, data) {
-    spinner.stop();
-    if (error) {
-        // console.error('Error getting or parsing the data.');
-        throw error;
-    }
-    var reported = ['Reported'],        
-        notreported = ['Not reported'];
-    data.forEach(function (element, index) {
-        if (element['ReportingYear'] == year ) {
-            reported.push([Number(element['Reported'])]);
-            notreported.push([Number(element['NotReported'])]);
-        }
-       
-    });
- //  console.log(reported);
-    if (reported.length > 1) {      
-       
-        $("#"+dom).fadeIn(1000);
+                               
 
-        c3.generate({
-            bindto: '#'+dom,
-            data: {
-               
-                columns: [reported,notreported],
-                type: 'donut',                
-            },
-            color: {
-              pattern: ['#2CA02C', '#F7A600']
-            },
-            donut: {
-                label: {
-                    format: function (value, ratio, id) {
-                        return d3.format('')(value);
-                    }
-                },
-                title: (parseInt(year)+1)+" Reported",
-            },
-            legend: {
-  show: false
-},
-            tooltip: {
-                format: {
-                    value: function (value, ratio, id) {
-                        return (value);
-                    }
+                            
+
+                            
+
+                            if (reported.length > 1) {
+
+                    $("#" + dom).fadeIn(1000);
+              
+                    
+
+                    chart_reported_2016 = c3.generate({
+                        bindto: '#' + dom,
+                        data: {
+
+                            columns: [reported, notreported],
+                            type: 'donut',
+                        },
+                        color: {
+                            pattern: ['#00B1EB', '#F7A600']
+                        },
+                        donut: {
+                            label: {
+                                format: function (value, ratio, id) {
+                                    return value;
+                                }
+                            },
+                          
+                            title:  total+" stakeholders in "+(parseInt(year+1))
+
+
+                        },
+                        legend: {
+                            show: false
+                        },
+                        tooltip: {
+
+                            format: {
+                                value: function (value, ratio, id) {
+                                    var percentFormat = d3.format('.1%');
+                                  ///  var per = (value * 100) / total;
+                                    var h = (value) + ' <br />(' + percentFormat(ratio) + ')'
+                                    return (value) + ' (' + percentFormat(ratio) + ')';
+                                }
+                            }
+                        }
+
+
+
+                    });
+                    var label = d3.select('#charts_reported_2016 text.c3-chart-arcs-title');
+ 
+                    label.html(''); // remove existant text
+                    label.insert('tspan').text(total).attr('dy', -20).attr('x', 0).attr('class','big-font');
+                    label.insert('tspan').text('Total').attr('dy', 25).attr('x', 0).attr('class', 'small-font');
+                    label.insert('tspan').text('stakeholders').attr('dy', 25).attr('x', 0).attr('class', 'small-font');
+                    label.insert('tspan').text('2017').attr('dy', 25).attr('x', 0).attr('class', 'small-fontlast');
+
+                   
+                } else {
+                    $("#" + dom).fadeOut(1000);
                 }
-            }
 
 
 
-        });
-    }  else {
-        $("#"+dom).fadeOut(1000);       
-    }
-})
-}
+
+                    });
+
+            });
+
+        }
+
+
+        function PopulateReportStatusDashboard2017(year, dom) {
+            reportedapi = "https://www.agendaforhumanity.org/viz_endpoint/dashboard/reported.php";
+            var target = document.getElementById(dom);
+            var spinner = new Spinner(opts).spin(target);
+            var reported = ['Reported'],
+                notreported = ['Not reported'];
+                let total =0;
+                
+                d3.json('https://www.agendaforhumanity.org/viz_endpoint/dashboard/reported.php', function (crises) {
+
+                    crises.forEach(function (element, index) {
+                        if (element['ReportingYear'] == year) {
+                            reported.push([Number(element['Reported'])]);
+                            total = total + Number(element['Reported']);
+                        }
+                    });
+
+                    var target = document.getElementById('chart-stakeholder-line');
+                    var spinner = new Spinner(opts).spin(target);
+                    d3.json('https://www.agendaforhumanity.org/viz_endpoint/dashboard/notreported.php', function (crises) {
+
+                            crises.forEach(function (element, index) {
+                                if (element['ReportingYear'] == year) {
+                                    notreported.push([Number(element['NotReported'])]);
+                                    total = total + Number(element['NotReported']);
+                                }
+
+                            });
+                            //chart     
+
+
+                              
+
+                            if (reported.length > 1) {
+
+                    $("#" + dom).fadeIn(1000);
+
+                    chart_reported_2017 = c3.generate({
+                        bindto: '#' + dom,
+                        data: {
+
+                            columns: [reported, notreported],
+                            type: 'donut',
+                        },
+                        color: {
+                            pattern: ['#51AF32', '#F7A600']
+                        },
+                        donut: {
+                            label: {
+                                format: function (value, ratio, id) {
+                                    return value;
+                                }
+                            },
+                            title:  total+" stakeholders in "+(parseInt(year+1))
+
+
+
+                        },
+                        legend: {
+                            show: false
+                        },
+                        tooltip: {
+
+                            format: {
+                                value: function (value, ratio, id) {
+                                    var percentFormat = d3.format('.1%');
+                                  ///  var per = (value * 100) / total;
+                                    var h = (value) + ' <br />(' + percentFormat(ratio) + ')'
+                                    return (value) + ' (' + percentFormat(ratio) + ')';
+                                }
+                            }
+                        }
+
+
+
+                    });
+                    var label = d3.select('#charts_reported_2017 text.c3-chart-arcs-title');
+ 
+                        label.html(''); // remove existant text
+                        label.insert('tspan').text(total).attr('dy', -20).attr('x', 0).attr('class','big-font');
+                        label.insert('tspan').text('Total').attr('dy', 25).attr('x', 0).attr('class', 'small-font');
+                        label.insert('tspan').text('stakeholders').attr('dy', 25).attr('x', 0).attr('class', 'small-font');
+                        label.insert('tspan').text('2018').attr('dy', 25).attr('x', 0).attr('class', 'small-fontlast');
+
+                } else {
+                    $("#" + dom).fadeOut(1000);
+                }
+
+
+
+
+                    });
+
+            });
+
+
+
+
+
+
+
+
+        }
+
+        function PopulateReportStatusDashboard2018(year, dom) {
+            reportedapi = "https://www.agendaforhumanity.org/viz_endpoint/dashboard/reported.php";
+            var target = document.getElementById(dom);
+            var spinner = new Spinner(opts).spin(target);
+            var reported = ['Reported'],
+                notreported = ['Not reported'];
+                let total=0;
+                
+                d3.json('https://www.agendaforhumanity.org/viz_endpoint/dashboard/reported.php', function (crises) {
+
+                    crises.forEach(function (element, index) {
+                        if (element['ReportingYear'] == year) {
+                            reported.push([Number(element['Reported'])]);
+                            total = total + Number(element['Reported']);
+                        }
+                    });
+
+                    var target = document.getElementById('chart-stakeholder-line');
+                    var spinner = new Spinner(opts).spin(target);
+                    d3.json('https://www.agendaforhumanity.org/viz_endpoint/dashboard/notreported.php', function (crises) {
+
+                            crises.forEach(function (element, index) {
+                                if (element['ReportingYear'] == year) {
+                                    notreported.push([Number(element['NotReported'])]);
+                                    total = total + Number(element['NotReported']);
+                                }
+
+                            });
+                            //chart     
+
+
+                              
+
+                            if (reported.length > 1) {
+
+                    $("#" + dom).fadeIn(1000);
+
+                    chart_reported_2018 = c3.generate({
+                        bindto: '#' + dom,
+                        data: {
+
+                            columns: [reported, notreported],
+                            type: 'donut',
+                        },
+                        color: {
+                            pattern: ['#E84E0F', '#F7A600']
+                        },
+                        donut: {
+                            label: {
+                                format: function (value, ratio, id) {
+                                    return value;
+                                }
+                            },
+                            title:  total+" stakeholders in "+(parseInt(year+1))
+
+
+
+                        },
+                        legend: {
+                            show: false
+                        },
+                        tooltip: {
+
+                            format: {
+                                value: function (value, ratio, id) {
+                                    var percentFormat = d3.format('.1%');
+                                  ///  var per = (value * 100) / total;
+                                    var h = (value) + ' <br />(' + percentFormat(ratio) + ')'
+                                    return (value) + ' (' + percentFormat(ratio) + ')';
+                                }
+                            }
+                        }
+
+
+
+                    });
+                    var label = d3.select('#charts_reported_2018 text.c3-chart-arcs-title');
+ 
+                    label.html(''); // remove existant text
+                    label.insert('tspan').text(total).attr('dy', -20).attr('x', 0).attr('class','big-font');
+                    label.insert('tspan').text('Total').attr('dy', 25).attr('x', 0).attr('class', 'small-font');
+                    label.insert('tspan').text('stakeholders').attr('dy', 25).attr('x', 0).attr('class', 'small-font');
+                    label.insert('tspan').text('2019').attr('dy', 25).attr('x', 0).attr('class', 'small-fontlast');
+
+                } else {
+                    $("#" + dom).fadeOut(1000);
+                }
+
+
+
+
+                    });
+
+            });
+
+
+
+
+
+
+
+
+        }
+
 
   </script>
-  <script src="js/tsorter.min.js"></script>
-<script>
-  function init() {
-      var sorter = tsorter.create('cci1');
-      var sorter1 = tsorter.create('cci2');
-      var sorter2 = tsorter.create('cci3');
-  }
+ 
+ <script src='js/tablesort.min.js'></script>
 
-  window.onload = init;
+ <!-- Include sort types you need -->
+ <script src='js/tablesort.number.min.js'></script>
+
+
+ <script>
+   window.onload = function() {
+    new Tablesort(document.getElementById('cci1'));
+  new Tablesort(document.getElementById('cci2'));
+  new Tablesort(document.getElementById('cci3'));
+}
+
 </script>
-
 
 
 </body>
