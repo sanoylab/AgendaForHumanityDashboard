@@ -2558,7 +2558,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             function drawPlot() {
 
-
+                //We grab the data from the transformation api endpoint
                 d3.json('https://www.agendaforhumanity.org/viz_endpoint/transformation/get.php', function (error,
                     data) {
 
@@ -2568,7 +2568,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     var transformation_short = ['Transformation_Short'],
                         total = ['Total'],
                         transformation_long = ['Transformation_Long'];
-
+                    // we define an array for each main categroy. i.e: (for 1a, 1b, 1c, ..... 5e)
                     var a1 = ['1A'];
                     var b1 = ['1B'];
                     var c1 = ['1C'];
@@ -2599,6 +2599,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
                     data.forEach(function (element, index) {
+
+                        // iteratively we read the api end point an add it to the array defined earlier. so for example: 1a array holds data related to 1a.
+
                         if (element['Transformation_Short'] == '1A') {
                             a1.push(Number(element['Total']));
                         } else if (element['Transformation_Short'] == "1B") {
@@ -2648,10 +2651,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         } else if (element['Transformation_Short'] == "5E") {
                             e5.push(Number(element['Total']));
                         }
-
+                        
+                        // at this point all defined arrays holds the data.
                     });
                     const boxplotData = {
-                        // define label tree
+                        // here define label tree
                         labels: ['1A', '1B', '1C', '1D', '2A', '2B', '2C', '2D', '2E', '3A', '3B', '3C',
                             '3D', '3E', '3F', '3G', '4A', '4B', '4C', '5A', '5B', '5C', '5D', '5E'
                         ],
@@ -2664,23 +2668,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             padding: 10,
                             itemRadius: 0,
                             outlierColor: '#999999',
+                            //below for the dataset data, we assigned the array we defined earlier.
                             data: [
                                 a1, b1, c1, d1, a2, b2, c2, d2, e2, a3, b3, c33, d33, e3, f3,
                                 g3, a4, b4, c4, a5, b5, c5, d5, e5
                             ]
                         }]
                     };
-                    BoxPlot(boxplotData);
+
+                    // at this point the boxplotData constant veriable hold the data as well as the lable that we can use for the boxplot chart.
+
+                    BoxPlot(boxplotData); // here we passed the boxplotdata to 'BoxPlot' function
                 });
             }
 
             function BoxPlot(boxplotData) {
-
+              // this function accepts the data (lable for the chart + data from the api endpoint)
 
                 const ctx = document.getElementById("canvas").getContext("2d");
                 window.myBar = new Chart(ctx, {
                     type: 'boxplot',
-                    data: boxplotData,
+                    data: boxplotData, //here it passes the data to the chart
                     options: {
                         responsive: true,
                         legend: {
