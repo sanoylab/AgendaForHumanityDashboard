@@ -1305,12 +1305,12 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     let per = (element['Total'] * 100) / total2016;
                                     if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1321,8 +1321,8 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     let per = (element['Total'] * 100) / total2017;
                                 if (per > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:green;'>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[2].push(element['Total'] +
                                         " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
@@ -1363,14 +1363,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 '1B') {
 
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1418,14 +1418,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '1C') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1475,14 +1475,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '1D') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1528,14 +1528,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '2A') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1582,14 +1582,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '2B') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1635,14 +1635,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '2C') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1689,14 +1689,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '2D') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1744,14 +1744,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '2E') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1801,14 +1801,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '3A') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1855,14 +1855,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '3B') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1908,14 +1908,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '3C') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1961,16 +1961,15 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                             if (element['ReportingYear'] == '2016' && element[
                                     'Transformation_Short'] ==
                                 '3D') {
-
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2017,14 +2016,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '3E') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2070,14 +2069,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '3F') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2124,14 +2123,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '3G') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2178,14 +2177,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '4A') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2234,14 +2233,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '4B') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2289,14 +2288,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '4C') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2345,14 +2344,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '5A') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2399,14 +2398,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '5B') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2452,14 +2451,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '5C') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2506,14 +2505,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '5D') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -2560,14 +2559,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '5E') {
                                     let per = (element['Total'] * 100) / total2016;
-                                if (per > 0.00) {
+                                    if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:green;>'&nbsp;&nbsp;<i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
-                                        " <span style='color:red;>'&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" +
-                                        "<sup>" + per.toFixed(1) + "%</sup>" + "</span>");
+                                        " <span style='color:red;'>'&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
