@@ -168,8 +168,8 @@ th[role=columnheader]:not(.no-sort):hover:after {
                     <li><a href="stakeholder.html"><i class="fas fa-user-friends"></i> &nbsp;
                             <span>Stakeholders</span></a></li>
                     <li><a href="challenges.html"><i class="fas fa-desktop"></i> &nbsp; <span>Challenges</span></a></li>
-                    <li><a href="ranu/Tree_viz.html" target="_blank"><i class="fas fa-desktop"></i> &nbsp; <span>Subcategory - Tree Viz</span></a></li>
-                    <li><a href="ranu/treemap.html" target="_blank"><i class="fas fa-desktop"></i> &nbsp; <span>Subcategory - Tree map</span></a></li>
+                    <li><a href="cross-cutting.html"><i class="fas fa-desktop"></i> &nbsp; <span>Cross Cutting Issues</span></a></li>
+                    <li><a href="ranu/Tree_viz.html" target="_blank"><i class="fas fa-desktop"></i> &nbsp; <span>Subcategories</span></a></li>
                 </ul>
                 <table style="margin-top: 50px; color: #fff;" class="table  table-condesed">
                         <tr><td>1A - Demonstrate timely, coherent and decisive political leadership	</td></tr>
@@ -711,7 +711,9 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
             data: {
 
                 columns: countsData,
-                labels: false,
+                labels: {                                   
+                                    format: function (v, id) { return id === '2019' ? v + "%" : ""; }
+                                },
                 type: 'line',
                 padding: {
                     left: 60
@@ -3039,7 +3041,26 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
 
 </script>
 
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+    ga('create', 'UA-84289082-1', {
+        'allowAnchor': true
+    });
+    ga('send', 'pageview', {
+        'page': location.pathname + location.search + location.hash
+    });
+</script>
 </body>
 
 </html>
