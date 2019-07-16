@@ -1281,6 +1281,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                         var transformation_short = ['Transformation_Short'];
                         var total = ['Total'];
                         var transformation_long = ['Transformation_Long'];
+                        let per1;
 
                         var countsData = [
                             ['Tran'],
@@ -1314,24 +1315,28 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '1A') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                prev1 = element['Total'];
+                                per1= per;
 
 
                             }
@@ -1339,18 +1344,22 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '1A') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev1 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
                             countsData1[3].push(element['Total']);
 
@@ -1374,40 +1383,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '1B') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev2 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '1B') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev2 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
 
                             }
 
@@ -1429,43 +1447,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '1C') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev3 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '1C') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-
-
-
-                                prev3 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '1D') {
@@ -1486,40 +1510,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '1D') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev4 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '1D') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev4 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
                             if (element['Transformation_Short'] == '2A') {
                                 countsData[0].push(element['Transformation_Long']);
@@ -1539,40 +1572,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '2A') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev5 = element['Total']
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '2A') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev5 = element['Total']
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '2B') {
@@ -1593,40 +1635,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '2B') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev6 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '2B') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev6 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
                             if (element['Transformation_Short'] == '2C') {
                                 countsData[0].push(element['Transformation_Long']);
@@ -1646,40 +1697,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '2C') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev7 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '2C') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev7 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '2D') {
@@ -1700,41 +1760,50 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
 
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '2D') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev8 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '2D') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev8 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '2E') {
@@ -1755,40 +1824,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '2E') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev9 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '2E') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev9 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
 
@@ -1812,40 +1890,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3A') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev10 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3A') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev10 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '3B') {
@@ -1866,40 +1953,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3B') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev11 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3B') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev11 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
                             if (element['Transformation_Short'] == '3C') {
                                 countsData[0].push(element['Transformation_Long']);
@@ -1919,40 +2015,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3C') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev12 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3C') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev12 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '3D') {
@@ -1973,40 +2078,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3D') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev13 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3D') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev13 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '3E') {
@@ -2027,40 +2141,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3E') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev14 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3E') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev14 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
                             if (element['Transformation_Short'] == '3F') {
                                 countsData[0].push(element['Transformation_Long']);
@@ -2080,40 +2203,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3F') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev15 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3F') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev15 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '3G') {
@@ -2134,40 +2266,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3G') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev16 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3G') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev16 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '4A') {
@@ -2188,40 +2329,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '4A') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev17 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '4A') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev17 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
 
@@ -2244,40 +2394,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '4B') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev18 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '4B') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev18 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
 
                             }
 
@@ -2304,35 +2463,43 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     'Transformation_Short'] ==
                                 '4C') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev19 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '4C') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev19 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
 
@@ -2355,40 +2522,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '5A') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev20 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '5A') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev20 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '5B') {
@@ -2409,40 +2585,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '5B') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev21 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '5B') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev21 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
                             if (element['Transformation_Short'] == '5C') {
                                 countsData[0].push(element['Transformation_Long']);
@@ -2462,40 +2647,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '5C') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev22 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '5C') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev22 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '5D') {
@@ -2516,40 +2710,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '5D') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev23 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '5D') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev23 = element['Total'];
+                                countsData1[3].push(element['Total']);
+                                per1= per;
                             }
 
                             if (element['Transformation_Short'] == '5E') {
@@ -2570,41 +2773,49 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '5E') {
                                     let per = (element['Total'] * 100) / total2017;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total']);
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
-                                prev24 = element['Total'];
+                                countsData1[2].push(element['Total']);
+                                per1= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '5E') {
                                     let per = (element['Total'] * 100) / total2018;
-                                if (per > 0.00) {
+                                    let newPer = ((per - per1)/per1)*100;
+
+
+                                if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
-                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
-                                } else if (per < 0) {
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
-                                        " <span>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "<span>&nbsp;&nbsp;" +
+                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total']);
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                prev24 = element['Total'];
+                                per1= per;
                             }
 
 
