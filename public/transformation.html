@@ -1286,7 +1286,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                         var transformation_short = ['Transformation_Short'];
                         var total = ['Total'];
                         var transformation_long = ['Transformation_Long'];
-                        let per1;
+                        let per1,per2, per3, per4,per5, per6, per7,per8, per9, per10, per11, per12,per13,per14,per15,per16, per17, per18,per19, per20, per21,per22,per23,per24;
 
                         var countsData = [
                             ['Tran'],
@@ -1388,13 +1388,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per2= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '1B') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per2)/per2)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1409,13 +1409,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per2= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '1B') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per2)/per2)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1430,7 +1430,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per2= per;
 
                             }
 
@@ -1452,13 +1452,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per3= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '1C') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per3)/per3)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1473,13 +1473,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per3= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '1C') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per3)/per3)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1494,7 +1494,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per3= per;
                             }
 
                             if (element['Transformation_Short'] == '1D') {
@@ -1515,13 +1515,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per4= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '1D') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per4)/per4)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1536,13 +1536,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per4= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '1D') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per4)/per4)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1557,7 +1557,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per4= per;
                             }
                             if (element['Transformation_Short'] == '2A') {
                                 countsData[0].push(element['Transformation_Long']);
@@ -1577,13 +1577,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per5= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '2A') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per5)/per5)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1598,13 +1598,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per5= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '2A') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per5)/per5)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1619,7 +1619,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per5= per;
                             }
 
                             if (element['Transformation_Short'] == '2B') {
@@ -1640,13 +1640,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per6= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '2B') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per6)/per6)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1661,13 +1661,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per6= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '2B') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per6)/per6)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1682,7 +1682,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per6= per;
                             }
                             if (element['Transformation_Short'] == '2C') {
                                 countsData[0].push(element['Transformation_Long']);
@@ -1702,13 +1702,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per7= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '2C') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per7)/per7)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1723,13 +1723,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per7= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '2C') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per7)/per7)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1744,7 +1744,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per7= per;
                             }
 
                             if (element['Transformation_Short'] == '2D') {
@@ -1765,14 +1765,14 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per8= per;
 
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '2D') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per8)/per8)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1787,13 +1787,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per8= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '2D') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per8)/per8)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1808,7 +1808,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per8= per;
                             }
 
                             if (element['Transformation_Short'] == '2E') {
@@ -1829,13 +1829,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per9= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '2E') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per9)/per9)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1850,13 +1850,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per9= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '2E') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per9)/per9)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1871,7 +1871,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per9= per;
                             }
 
 
@@ -1895,13 +1895,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per10= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3A') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per10)/per10)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1916,13 +1916,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per10= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3A') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per10)/per10)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1937,7 +1937,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per10= per;
                             }
 
                             if (element['Transformation_Short'] == '3B') {
@@ -1958,13 +1958,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per11= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3B') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per11)/per11)*100;
 
 
                                 if (newPer > 0.00) {
@@ -1979,13 +1979,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per11= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3B') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per11)/per11)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2000,7 +2000,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per11= per;
                             }
                             if (element['Transformation_Short'] == '3C') {
                                 countsData[0].push(element['Transformation_Long']);
@@ -2020,13 +2020,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per12= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3C') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per12)/per12)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2041,13 +2041,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per12= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3C') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per12)/per12)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2062,7 +2062,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per12= per;
                             }
 
                             if (element['Transformation_Short'] == '3D') {
@@ -2083,13 +2083,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per13= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3D') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per13)/per13)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2104,13 +2104,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per13= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3D') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per13)/per13)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2125,7 +2125,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per13= per;
                             }
 
                             if (element['Transformation_Short'] == '3E') {
@@ -2146,13 +2146,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per14= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3E') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per14)/per14)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2167,13 +2167,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per14= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3E') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per14)/per14)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2188,7 +2188,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per14= per;
                             }
                             if (element['Transformation_Short'] == '3F') {
                                 countsData[0].push(element['Transformation_Long']);
@@ -2208,13 +2208,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per15= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3F') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per15)/per15)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2229,13 +2229,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per15= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3F') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per15)/per15)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2250,7 +2250,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per15= per;
                             }
 
                             if (element['Transformation_Short'] == '3G') {
@@ -2271,13 +2271,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per16= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '3G') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per16)/per16)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2292,13 +2292,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per16= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '3G') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per16)/per16)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2313,7 +2313,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per16= per;
                             }
 
                             if (element['Transformation_Short'] == '4A') {
@@ -2334,13 +2334,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per17= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '4A') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per17)/per17)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2355,13 +2355,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per17= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '4A') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per17)/per17)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2376,7 +2376,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per17= per;
                             }
 
 
@@ -2399,13 +2399,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per18= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '4B') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per18)/per18)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2420,13 +2420,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per18= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '4B') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per18)/per18)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2441,7 +2441,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per18= per;
 
                             }
 
@@ -2463,12 +2463,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
+                                per19= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '4C') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per19)/per19)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2483,13 +2484,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per19= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '4C') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per19)/per19)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2504,7 +2505,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per19= per;
                             }
 
 
@@ -2527,13 +2528,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per20= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '5A') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per20)/per20)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2548,13 +2549,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per20= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '5A') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per20)/per20)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2569,7 +2570,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per20= per;
                             }
 
                             if (element['Transformation_Short'] == '5B') {
@@ -2590,13 +2591,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per21= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '5B') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per21)/per21)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2611,13 +2612,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per21= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '5B') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per21)/per21)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2632,7 +2633,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per21= per;
                             }
                             if (element['Transformation_Short'] == '5C') {
                                 countsData[0].push(element['Transformation_Long']);
@@ -2652,13 +2653,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per22= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '5C') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per22)/per22)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2673,13 +2674,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per22= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '5C') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per22)/per22)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2694,7 +2695,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per22= per;
                             }
 
                             if (element['Transformation_Short'] == '5D') {
@@ -2715,13 +2716,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per23= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '5D') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per23)/per23)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2736,13 +2737,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per23= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '5D') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per23)/per23)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2757,7 +2758,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per23= per;
                             }
 
                             if (element['Transformation_Short'] == '5E') {
@@ -2778,13 +2779,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per24= per;
                             }
                             if (element['ReportingYear'] == '2017' && element[
                                     'Transformation_Short'] ==
                                 '5E') {
                                     let per = (element['Total'] * 100) / total2017;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per24)/per24)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2799,13 +2800,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[2].push(element['Total']);
-                                per1= per;
+                                per24= per;
                             }
                             if (element['ReportingYear'] == '2018' && element[
                                     'Transformation_Short'] ==
                                 '5E') {
                                     let per = (element['Total'] * 100) / total2018;
-                                    let newPer = ((per - per1)/per1)*100;
+                                    let newPer = ((per - per24)/per24)*100;
 
 
                                 if (newPer > 0.00) {
@@ -2820,7 +2821,7 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
                                 }
                                 countsData1[3].push(element['Total']);
-                                per1= per;
+                                per24= per;
                             }
 
 
