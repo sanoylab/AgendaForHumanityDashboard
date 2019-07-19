@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Agenda for Humanity Viz | Dashboard | Subcategory and Action Taken</title>
+
+  <!--display content in highest mode available. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!--responsive page-->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <!--source for icons used on the website-->
+  <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/Ionicons/css/ionicons.min.css">
+  <link rel="shortcut icon" href="img/favicon.png" type="image/vnd.microsoft.icon" />
+
+  <!--Page Theme-->
+  <link rel="stylesheet" href="css/AdminLTE.min.css">
+  <link rel="stylesheet" href="css/skins/skin-blue.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+
+  <!--  C3 -->
+    <link rel="stylesheet" href="css/c3.css">
+
+  <!--Google font-->
+  <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
+  <style>
+    <!-- Up and Down Arrows -->
+    .sortable th.descend:after {
+         content: "\25B2";
+     }
+
+     .sortable th.ascend:after {
+         content: "\25BC";
+     }
+
+     div.ex1 {
+       overflow-x: scroll;
+    }
+
+    div {
+      word-wrap: break-word;
+
+    }
+  </style>
+</head>
+
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+  <!-------------------------------------------------->
+  <!-- Main Header -->
+  <header class="main-header">
+
+      <!-- Logo -->
+      <a href="index2.html" class="logo">
+          <!-- mini logo for sidebar mini 50x50 pixels, when side menu is expanded-collapsed -->
+          <span class="logo-mini"><b>V</b>IZ</span>
+          <!-- logo for regular state and mobile devices-->
+          <span class="logo-lg"><b>Dashboard VIZ</b></span>
+      </a>
+
+      <!-- Header Navbar -->
+      <nav class="navbar navbar-static-top" role="navigation">
+
+              <!-- Sidebar toggle button-->
+              <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                  <span class="sr-only">Toggle navigation</span>
+              </a>
+
+              <!-- Navbar Right Menu, most menu have been disabled. Standard text is provided "Welcome to AFH..." -->
+              <div class="navbar-custom-menu">
+                  <ul class="nav navbar-nav">
+
+                          <!-- Messages: style can be found in dropdown.less-->
+                          <li class="dropdown messages-menu">
+                          <!-- Menu toggle button -->
+
+                          <!-- /.messages-menu -->
+
+                          <!-- Notifications Menu -->
+
+                          <!-- Tasks Menu -->
+
+                          <!-- User Account Menu -->
+                          <li class="dropdown user user-menu">
+                              <!-- Menu Toggle Button -->
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                  <!-- The user image in the navbar-->
+
+                                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
+                                  <span class="hidden-xs">Welcome to Agenda for Humanitarian Data Visualization
+                                      Dashboard</span>
+                              </a>
+                          </li>
+
+                          <!-- Control Sidebar Toggle Button -->
+                    </ul>
+                </div>
+      </nav>
+  </header>
+
+
+  <!-------------------------------------------------->
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+
+          <!-- Sidebar user panel (optional) -->
+          <div class="user-panel">
+              <div class="pull-left image">
+
+              </div>
+
+          </div>
+
+          <!-- search form (Optional) -->
+
+          <!-- /.search form -->
+
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu" data-widget="tree">
+              <li class="header">MAIN NAVIGATION</li>
+              <!-- Optionally, you can add icons to the links -->
+              <li><a href="index.html"><i class="fas fa-tv"></i> &nbsp;<span>Dashboard</span></a></li>
+              <li><a href="transformation.html"><i class="fas fa-laptop"></i> <span>Transformation</span></a></li>
+              <li><a href="stakeholder.html"><i class="fas fa-user-friends"></i> &nbsp;
+                      <span>Stakeholders</span></a></li>
+              <li><a href="challenges.html"><i class="fas fa-desktop"></i> &nbsp; <span>Challenges</span></a></li>
+              <li><a class="active" href="TreeSubcatActions.html"><i class="fas fa-cubes"></i> &nbsp;<span>Subcategories</span></a></li>
+          </ul>
+          <table style="margin-top: 50px; color: #fff;" class="table  table-condesed">
+                  <tr><td>1A - Demonstrate timely, coherent and decisive political leadership	</td></tr>
+                  <tr><td>1B - Act early	</td></tr>
+                  <tr><td>1C - Remain engaged and invest in stability	</td></tr>
+                  <tr><td>1D - Develop solutions with and for people	</td></tr>
+                  <tr><td>2A - Respect and protect civilians and civilian objects in the conduct of hostilities	</td></tr>
+                  <tr><td>2B - Ensure full access to and protection of the humanitarian and medical missions	</td></tr>
+                  <tr><td>2C - Speak out on violations	</td></tr>
+                  <tr><td>2D - Take concrete steps to improve compliance and accountability	</td></tr>
+                  <tr><td>2E - Uphold the rules: a global campaign to affirm the norms that safeguard humanity	</td></tr>
+                  <tr><td>3A - Reduce and address displacement	</td></tr>
+                  <tr><td>3B - Address the vulnerabilities of migrants and provide more regular and lawful opportunities for migration	</td></tr>
+                  <tr><td>3C - End statelessness in the next decade	</td></tr>
+                  <tr><td>3D - Empower and protect women and girls	</td></tr>
+                  <tr><td>3E - Eliminate gaps in education for children, adolescents and young people	</td></tr>
+                  <tr><td>3F - Enable adolescents and young people to be agents of positive transformation	</td></tr>
+                  <tr><td>3G - Address other groups or minorities in crisis settings	</td></tr>
+                  <tr><td>4A - Reinforce, do not replace, national and local systems	</td></tr>
+                  <tr><td>4B - Anticipate, do not wait, for crises	</td></tr>
+                  <tr><td>4C - Deliver collective outcomes: transcend humanitarian-development divides	</td></tr>
+                  <tr><td>5A - Invest in local capacities	</td></tr>
+                  <tr><td>5B - Invest according to risk	</td></tr>
+                  <tr><td>5C - Invest in stability	</td></tr>
+                  <tr><td>5D - Finance outcomes, not fragmentation: shift from funding to financing	</td></tr>
+                  <tr><td>5E - Diversify the resource base and increase cost-efficiency	</td></tr>
+                </table>
+      </section>
+  </aside>
+
+
+  <!-------------------------------------------------->
+  <div class="content-wrapper">
+      <section class="content-header">
+          <h1>
+                  Subcategory and Action Taken
+
+          </h1>
+
+      </section>
+
+      <section class="content container-fluid">
+
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="box box-warning">
+                      <div class="box-header with-border">
+                          <h3 class="box-title">Action Taken Analysis</h3>
+                      </div>
+                      <ul class="nav nav-tabs">
+                        <li><a href="TreeSubcatActions.html">View 1</a></li>
+                        <li class="active"><a href="TreeActions.html">View 2</a></li>
+                        <li><a href="treemap.html">View 3</a></li>
+                      </ul>
+                      <div class="box-body no-padding ex1"  style="padding-left: 20px;padding-right: 20px;">
+                          <div id="tree_viz"></div>
+                      </div>
+                  </div>
+              </div>
+      </section>
+    </div>
+
+
+    <!-------------------------------------------------->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2019. Agenda For Humanity.</strong> All rights reserved.
+    </footer>
+
+
+
+    <!---------------------------------------------->
+    <!---------------------------------------------->
+    <!-- REQUIRED JS SCRIPTS -->
+    <!-- jQuery 3 -->
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="js/adminlte.min.js"></script>
+    <script src="js/spin.js"></script>
+
+    <!-- Load d3.js and c3-->
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <!--<script type="text/javascript" src="http://mbostock.github.com/d3/d3.layout.js"></script>-->
+
+
+  <script type="text/javascript">
+      //-------------------------------------------
+      //-------------------------------------------
+      function wrap(text, width) {
+    text.each(function () {
+        var text = d3.select(this),
+            words = text.text().split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.1, // ems
+            x = text.attr("x"),
+            y = text.attr("y"),
+            dy = 0, //parseFloat(text.attr("dy")),
+            //width= text.attr("width")
+            tspan = text.text(null)
+                        .append("tspan")
+                        .attr("x", x)
+                        .attr("y", y)
+                        .attr("dy", dy + "em");
+
+        while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > width) {
+
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan")
+                            .attr("x", x)
+                            .attr("y", y)
+                            .attr("dy", ++lineNumber * lineHeight + dy + "em")
+                            .text(word);
+            }
+        }
+    });
+  }
+      //-------------------------------------------
+      //-------------------------------------------
+  </script>
+
+  <!--- D3 script ----------->
+       <script>
+
+	   <!--Tree layout -->
+/*
+    var obj = document.getElementById('tree_viz');
+
+/*
+		var canvas = d3.select("#treemap_viz").append("svg")
+			.attr("width", 2400)
+			.attr("height", 3700)
+			.append("g")
+				.attr("transform","translate(50,50)");
+
+		var tree = d3.layout.tree()
+			.size([3400,1400])
+*/
+/*
+var divWidth = obj.offsetWidth;
+
+var margin = {top: 10, right: 10, bottom: 10, left: 10},
+  width = divWidth - margin.left - margin.right,
+  height = 1900 - margin.top - margin.bottom;
+
+var canvas = d3.select("#tree_viz").append("svg")
+  .attr("width", (width))
+  .attr("height", (height*2))
+  .append("g")
+    .attr("transform","translate(50,50)");
+
+var tree = d3.layout.tree()
+  .size([(width*2),(height*0.5)])
+*/
+var obj = document.getElementById('tree_viz');
+var divWidth = obj.clientWidth;
+var divHeight = obj.clientHeight;
+console.log(divWidth);
+console.log(divHeight);
+
+var margin = {top: 10, right: 10, bottom: 10, left: 10},
+  width = divWidth - margin.left - margin.right,
+  height = 1900 - margin.top - margin.bottom;
+
+  var divWidthAdj = 0.25;
+  var divHeightAdj = 3;
+  var canvasWidthAdj = 1.5;
+  var canvasHeightAdj = 3.05;
+
+
+  var canvas = d3.select("#tree_viz").append("svg")
+    .attr("width", (width*canvasWidthAdj))
+    .attr("height", (height*canvasHeightAdj))
+    .append("g")
+      .attr("transform","translate(50,50)");
+
+  var tree = d3.layout.tree()
+    .size([(height*divHeightAdj),(width*divWidthAdj)])
+
+
+
+		//d3.json("TestData_tree.json", function(data) {
+    //d3.json("http://localhost/viz_endpoint-July02/subcatActions/getAllActions.php", function(data) {
+    d3.json("https://www.agendaforhumanity.org/viz_endpoint/subcatActions/getAllActions.php", function(data) {
+
+			var nodes = tree.nodes(data);
+			//console.log(nodes);
+			var links = tree.links(nodes);
+			//console.log(links);
+
+
+			<!-- each data point will get a node -->
+			var node = canvas.selectAll(".node")
+				.data(nodes)
+				.enter()
+				.append("g")
+					.attr("class", "node")
+          .attr("depth", function(d) { return d.depth})
+        .attr("transform", function(d) {if (d.depth == 0) {return "translate(" + d.y + "," + d.x + ")" }
+                                          else if (d.depth == 1) {return "translate(" + d.y + "," + d.x + ")" }
+                                          else { return "translate(" + (d.y+5*(d.value)) + "," + d.x + ")" }})
+//.attr("transform", function(d) {return "translate(" + d.y + "," + d.x + ")" })
+
+
+			node.append("circle")
+				.attr("r", 5)
+				.attr("fill","steelblue")
+
+			node.append("text")
+				.text(function(d) { if(d.depth == 1) {return d.action_type}
+                          //else {return d.name + " (" + d.value + ")"; }
+                        })
+        //.attr("transform", function(d) {return "translate(" + d.y + "," + (d.x+5) + ")" })
+        //.attr("x", function(d) {if (d.depth = 1) {console.log(d.x + 25)} })
+        .attr("x", function(d) {if (d.depth == 1) {return (-115) } })
+        .attr("y", function(d) {if (d.depth == 1) {return(-75)} })
+        .attr("font-size","13px")
+        .call(wrap,30.0);
+
+        //.text(function (d) {if(d.depth == 1){return wrap(this,30)}});
+
+        node.append("text")
+  				.text(function(d) {if(d.depth == 2) {return d.name + " (" + d.value + ") Subtype: " + d.type; }})
+          .attr("x", function(d) {if(d.depth == 2) { return 5} })
+          //.attr("transform", function(d) {if(d.depth == 2) {console.log("depth of 2  " + d.y + " " + d.x); return "translate(" + d.y + "," + d.x + ")"} })
+          //.attr("x", function(d) {if (d.depth = 1) {console.log(d.x + 25)} })
+          .attr("font-size","13px");
+
+
+			var diagonal = d3.svg.diagonal()
+    .projection(function(d) {if(d.depth == 2) {return [(d.y+5*(d.value)),d.x] }
+                            else {return [d.y, d.x]} });
+		//		.projection(function(d) {return [d.y, d.x]});
+
+
+			canvas.selectAll(".link")
+				.data(links)
+				.enter()
+				.append("path")
+				.attr("class","link")
+				.attr("stroke", function (d) { if(d.target.CR == '1')  {return "#00b1eb"}
+                                      else if (d.target.CR == '2') { return "#51af32"}
+                                      else if (d.target.CR == '3') { return "#a863a5"}
+                                      else if (d.target.CR == '4') { return "#f7a600"}
+                                      else if (d.target.CR == '5') { return "#e84e0f"}
+                                      else {return "#ADADAD"}})
+				.attr("d", diagonal)
+				.attr("fill","none")
+				.attr("stroke-width",function(d){return(d.target.value);});
+
+
+
+
+		});
+
+
+	   </script>
+
+</div>
+</body>
+</html>
