@@ -713,12 +713,35 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
             data: {
 
                 columns: countsData,
-                labels: {                                   
-                                    format: function (v, id) { return id === '2019' ? v + "%" : ""; }
+            
+                labels: {        
+                    format: function(v, id, point, line) {
+                        if (point === undefined || line === undefined) return;
+                        var label = d3
+                            .selectAll('.c3-chart-text')
+                        .selectAll('.c3-text')[line][point];
+                        
+                     
+                            var shift = 15 * (1-line); // set your calculation
+                            d3.select(label)
+                            .style('transform', 'translateY(' + shift + 'px)');
+                            d3.select(label)
+                           
+                            .style('transform', 'translateX(' + 25 + 'px)');
+                            d3.select(label)                           
+                            .style("font-size", "15px");
+                         
+                        
+                        return id === '2019' ? v + "%" : "";
+                    }
+
+
+                                   // format: function (v, id) { return id === '2019' ? v + "%" : ""; }
                                 },
                 type: 'line',
                 padding: {
-                    left: 60
+                    left: 60,
+                    top: 40
                 },
 
 
