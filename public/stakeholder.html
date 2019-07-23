@@ -1662,7 +1662,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 ['2018'],
                                 ['2019']
                             ];
-                            let per1;
+                            let per11;
+                            let per22;
+                            let per33;
+                            let per44;
+                            let per55;
+                            let per66;
+                            let per77;
+                            let per88;
 
                             crises.forEach(function (element, index) {
                                 if (element['Stakeholder'] == 'Africa') {
@@ -1682,13 +1689,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
-                                per1= per;
+                                per11= per;
 
                                 }
                                 if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                                     'Africa') {
                                         let per = (element['Total'] * 100) / total2017;
-                                let newPer = (per - per1);
+                                let newPer = (per - per11);
                             if (newPer > 0.00) {
                                 countsData[2].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1701,7 +1708,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[2].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per11= per;
                             prev1 = element['Total'];
 
 
@@ -1709,7 +1716,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                                     'Africa') {
                                         let per = (element['Total'] * 100) / total2018;
-                                let newPer = (per - per1);
+                                let newPer = (per - per11);
                             if (newPer > 0.00) {
                                 countsData[3].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1722,7 +1729,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[3].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per11= per;
                             prev1 = element['Total'];
                                 }
 
@@ -1746,12 +1753,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     } else {
                                         countsData[1].push(element['Total']);
                                     }
-                                    per1= per;
+                                    per22= per;
                                 }
                                 if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                                     'Asia') {
                                         let per = (element['Total'] * 100) / total2017;
-                                let newPer = (per - per1);
+                                let newPer = (per - per22);
                             if (newPer > 0.00) {
                                 countsData[2].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1764,13 +1771,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[2].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per22= per;
                             prev1 = element['Total'];
                                 }
                                 if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                                     'Asia') {
                                         let per = (element['Total'] * 100) / total2018;
-                                let newPer = (per - per1);
+                                let newPer = (per - per22);
                             if (newPer > 0.00) {
                                 countsData[3].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1783,7 +1790,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[3].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per22= per;
                             prev1 = element['Total'];
 
                                 }
@@ -1805,12 +1812,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     } else {
                                         countsData[1].push(element['Total']);
                                     }
-                                    per1= per;
+                                    per33= per;
                                 }
                                 if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                                     'Asia-Pacific') {
                                         let per = (element['Total'] * 100) / total2017;
-                                let newPer = (per - per1);
+                                let newPer = (per - per33);
                             if (newPer > 0.00) {
                                 countsData[2].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1823,13 +1830,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[2].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per33= per;
                             prev1 = element['Total'];
                                 }
                                 if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                                     'Asia-Pacific') {
                                         let per = (element['Total'] * 100) / total2018;
-                                let newPer = (per - per1);
+                                let newPer = (per - per33);
                             if (newPer > 0.00) {
                                 countsData[3].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1842,7 +1849,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[3].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per33= per;
                             prev1 = element['Total'];
                                 }
 
@@ -1863,12 +1870,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     } else {
                                         countsData[1].push(element['Total']);
                                     }
-                                    per1= per;
+                                    per44= per;
                                 }
                                 if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                                     'Europe') {
                                         let per = (element['Total'] * 100) / total2017;
-                                let newPer = (per - per1);
+                                let newPer = (per - per44);
                             if (newPer > 0.00) {
                                 countsData[2].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1881,13 +1888,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[2].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per44= per;
                             prev1 = element['Total'];
                                 }
                                 if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                                     'Europe') {
                                         let per = (element['Total'] * 100) / total2018;
-                                let newPer = (per - per1);
+                                let newPer = (per - per44);
                             if (newPer > 0.00) {
                                 countsData[3].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1900,7 +1907,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[3].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per44= per;
                             prev1 = element['Total'];
                                 }
                                 if (element['Stakeholder'] == 'Global') {
@@ -1920,12 +1927,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     } else {
                                         countsData[1].push(element['Total']);
                                     }
-                                    per1= per;
+                                    per55= per;
                                 }
                                 if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                                     'Global') {
                                         let per = (element['Total'] * 100) / total2017;
-                                let newPer = (per - per1);
+                                let newPer = (per - per55);
                             if (newPer > 0.00) {
                                 countsData[2].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1938,13 +1945,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[2].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per55= per;
                             prev1 = element['Total'];
                                 }
                                 if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                                     'Global') {
                                         let per = (element['Total'] * 100) / total2018;
-                                let newPer = (per - per1);
+                                let newPer = (per - per55);
                             if (newPer > 0.00) {
                                 countsData[3].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1957,7 +1964,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[3].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per55= per;
                             prev1 = element['Total'];
                                 }
 
@@ -1978,12 +1985,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     } else {
                                         countsData[1].push(element['Total']);
                                     }
-                                    per1= per;
+                                    per66= per;
                                 }
                                 if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                                     'Latin America and the Caribbean') {
                                         let per = (element['Total'] * 100) / total2017;
-                                let newPer = (per - per1);
+                                let newPer = (per - per66);
                             if (newPer > 0.00) {
                                 countsData[2].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -1996,13 +2003,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[2].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per66= per;
                             prev1 = element['Total'];
                                 }
                                 if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                                     'Latin America and the Caribbean') {
                                         let per = (element['Total'] * 100) / total2018;
-                                let newPer = (per - per1);
+                                let newPer = (per - per66);
                             if (newPer > 0.00) {
                                 countsData[3].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -2015,7 +2022,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[3].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per66= per;
                             prev1 = element['Total'];
                                 }
                                 if (element['Stakeholder'] == 'Middle East') {
@@ -2035,12 +2042,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     } else {
                                         countsData[1].push(element['Total']);
                                     }
-                                    per1= per;
+                                    per77= per;
                                 }
                                 if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                                     'Middle East') {
                                         let per = (element['Total'] * 100) / total2017;
-                                let newPer = (per - per1);
+                                let newPer = (per - per77);
                             if (newPer > 0.00) {
                                 countsData[2].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -2053,13 +2060,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[2].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per77= per;
                             prev1 = element['Total'];
                                 }
                                 if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                                     'Middle East') {
                                         let per = (element['Total'] * 100) / total2018;
-                                let newPer = (per - per1);
+                                let newPer = (per - per77);
                             if (newPer > 0.00) {
                                 countsData[3].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -2072,7 +2079,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[3].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per77= per;
                             prev1 = element['Total'];
                                 }
 
@@ -2093,13 +2100,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     } else {
                                         countsData[1].push(element['Total']);
                                     }
-                                    per1= per;
+                                    per88= per;
 
                                 }
                                 if (element['ReportingYear'] == '2017' && element['Stakeholder'] ==
                                     'North America') {
                                         let per = (element['Total'] * 100) / total2017;
-                                let newPer = (per - per1);
+                                let newPer = (per - per88);
                             if (newPer > 0.00) {
                                 countsData[2].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -2112,13 +2119,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[2].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per88= per;
                             prev1 = element['Total'];
                                 }
                                 if (element['ReportingYear'] == '2018' && element['Stakeholder'] ==
                                     'North America') {
                                         let per = (element['Total'] * 100) / total2018;
-                                let newPer = (per - per1);
+                                let newPer = (per - per11);
                             if (newPer > 0.00) {
                                 countsData[3].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
@@ -2131,7 +2138,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             } else {
                                 countsData[3].push(element['Total'] +" ("+newPer.toFixed(1)+") ");
                             }
-                            per1= per;
+                            per88= per;
                             prev1 = element['Total'];
                                 }
 
