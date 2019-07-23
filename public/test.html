@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+        <div id="table-cci-table-2019"></div>  
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script>
+        PopulateCrossCuttingIssueTable2019(2018);
+
+        
+        function PopulateCrossCuttingIssueTable2019(year) {
+            
+            function onlyUnique(value, index, self) { 
+                return self.indexOf(value) === index;
+            }
+
+
+            var target = document.getElementById('table-cci-table-2019');
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/crosscutting-issues/get.php', function (crises) {
+
+                var objCCI=[];
+
+                crises.forEach(function (element, index) {       
+                    objCCI.push(element['CCI']);  
+                });
+
+                var unique = objCCI.filter( onlyUnique ); // returns ['a', 1, 2, '1']
+               
+                console.log(unique);
+
+
+
+
+     d3.json('https://www.agendaforhumanity.org/viz_endpoint/crosscutting-issues/get.php', function (error,
+            data) {
+               
+                if (error) {
+                    throw error;
+                }
+                var cci = ['CCI'],
+                    reportingYear = ['ReportingYear'],
+                    total = ['Total'];
+                var myAssociativeArr = [];
+            
+                data.forEach(function (element, index) {
+                    var obj = {
+                        CCI: '',
+                        Total: '',
+                        ReportingYear:''
+                    };
+                   
+                        obj.CCI = element['CCI'];
+                        obj.ReportingYear = element['ReportingYear'];
+                        obj.Total = element['Total'];
+                        myAssociativeArr.push(obj);
+                  
+                });
+            
+            
+                if (myAssociativeArr.length > 1) {
+                //  myAssociativeArr.sort();
+                    var row =
+                        "<table id='cci1' class='table table-hover'><thead><tr class='header-row' style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>2017</th><th style='width: 95px;'>2018</th><th style='width: 95px;'>2019</th></tr></thead><tbody>";
+            
+                    for (i = 0; i < unique.length; i++) {                    
+                        row = row +
+                            "<tr class='row-data'><td style='text-align:left;'>" + unique[i] + "</td>";
+                               
+                            if(unique[i]==myAssociativeArr[i].CCI && myAssociativeArr[i].ReportingYear=="2016"){                               
+                                 row = row + "<td>" + myAssociativeArr[i].Total + "</td>";
+                            }
+                           if(unique[i]==myAssociativeArr[i].CCI && myAssociativeArr[i].ReportingYear=="2017"){   
+                               row = row + "<td>" + myAssociativeArr[i].Total + "</td>";                                
+                            }
+                           if(unique[i]==myAssociativeArr[i].CCI && myAssociativeArr[i].ReportingYear=="2018"){
+                                row = row + "<td>" + myAssociativeArr[i].Total + "</td>";
+                            } 
+                            row = row +"</tr>";
+                    }
+                    row = row + "</tbody></table>";
+                    document.getElementById("table-cci-table-2019").innerHTML = row;
+            
+                } else {
+                    $("#table-cci-table-2019").fadeOut(1000);
+                }
+            
+            });
+
+
+
+
+
+            });
+            
+            
+       
+         
+           
+            }
+            
+
+
+   </script>
+</body>
+
+</html>
