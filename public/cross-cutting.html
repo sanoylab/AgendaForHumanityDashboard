@@ -184,10 +184,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <section class="content container-fluid">
 
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                       <div class="box box-warning">
                         <div class="box-header with-border">
-                          <h3 class="box-title">2019</h3>
+                          <h3 class="box-title"></h3>
                         </div>
                         <div class="box-body no-padding">
                             <div id="table-cci-table-2019"></div>     
@@ -195,28 +195,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-4">
-                      <div class="box box-danger">
-                        <div class="box-header with-border">
-                          <h3 class="box-title">2018</h3>
-                        </div>
-                        <div class="box-body no-padding">
-                            <div id="table-cci-table-2018"></div>    
-                            <div class="alert alert-success" role="alert">The percentage represents the proportion of reporting or stakeholders from the absolute total for that particular year. The arrow represents the percentage increase or decrease compared to the previous year</div>                       
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="box box-danger">
-                          <div class="box-header with-border">
-                            <h3 class="box-title">2017</h3>
-                          </div>
-                          <div class="box-body no-padding">
-                              <div id="table-cci-table-2017"></div>      
-                              <div class="alert alert-success" role="alert">The percentage represents the proportion of reporting or stakeholders from the absolute total for that particular year. The arrow represents the percentage increase or decrease compared to the previous year</div>                     
-                          </div>
-                        </div>
-                      </div>
+                  
+                  
                   </div>
  
 
@@ -256,17 +236,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <script src='https://unpkg.com/chartjs-chart-box-and-violin-plot@2/build/Chart.BoxPlot.js'></script>
 
         <script>
+function PopulateCrossCuttingIssueTable() {
+            
+            function onlyUnique(value, index, self) { 
+                return self.indexOf(value) === index;
+            }
 
-            function PopulateCrossCuttingIssueTable2019(year) {
-            
-            
+
             var target = document.getElementById('table-cci-table-2019');
-         
-            
-            
-            var target = document.getElementById('table-cci-table-2019');
-         
-            d3.json('https://www.agendaforhumanity.org/viz_endpoint/crosscutting-issues/get.php', function (error,
+            d3.json('https://www.agendaforhumanity.org/viz_endpoint/crosscutting-issues/get.php', function (crises) {
+
+                var objCCI=[];
+
+                crises.forEach(function (element, index) {       
+                    objCCI.push(element['CCI']);  
+                });
+
+                var unique = objCCI.filter( onlyUnique ); // returns ['a', 1, 2, '1']
+               
+                console.log(unique);
+
+
+
+
+     d3.json('https://www.agendaforhumanity.org/viz_endpoint/crosscutting-issues/get.php', function (error,
             data) {
                
                 if (error) {
@@ -280,25 +273,42 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 data.forEach(function (element, index) {
                     var obj = {
                         CCI: '',
-                        Total: ''
+                        Total: '',
+                        ReportingYear:''
                     };
-                    if (element['ReportingYear'] == year) {
+                   
                         obj.CCI = element['CCI'];
+                        obj.ReportingYear = element['ReportingYear'];
                         obj.Total = element['Total'];
                         myAssociativeArr.push(obj);
-                    }
+                  
                 });
             
             
                 if (myAssociativeArr.length > 1) {
-                  myAssociativeArr.sort();
+                //  myAssociativeArr.sort();
                     var row =
-                        "<table id='cci1' class='table table-hover'><thead><tr class='header-row' style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>Total</th></tr></thead><tbody>";
+                        "<table id='cci1' class='table table-hover'><thead><tr class='header-row' style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>2017</th><th style='width: 95px;'>2018</th><th style='width: 95px;'>2019</th></tr></thead><tbody>";
             
-                    for (i = 1; i < myAssociativeArr.length; i++) {
+                    for (i = 0; i < unique.length; i++) {                    
                         row = row +
-                            "<tr class='row-data'><td style='text-align:left;'>" +
-                            myAssociativeArr[i].CCI + "</td><td>" + myAssociativeArr[i].Total + "</td></tr>";
+                            "<tr class='row-data'><td style='text-align:left;'>" + unique[i] + "</td>";
+                                for (j = 0; j < myAssociativeArr.length; j++) {     
+                               
+                                    if(unique[i]==myAssociativeArr[j].CCI && myAssociativeArr[j].ReportingYear=="2016"){                               
+                                        row = row + "<td>" + myAssociativeArr[j].Total + "</td>";
+                                    }
+                                 
+                                    if(unique[i]==myAssociativeArr[j].CCI && myAssociativeArr[j].ReportingYear=="2017"){   
+                                        row = row + "<td>" + myAssociativeArr[j].Total + "</td>";                                
+                                        }
+                                    
+                                    if(unique[i]==myAssociativeArr[j].CCI && myAssociativeArr[j].ReportingYear=="2018"){
+                                            row = row + "<td>" + myAssociativeArr[j].Total + "</td>";
+                                    } 
+                              
+                            }
+                            row = row +"</tr>";
                     }
                     row = row + "</tbody></table>";
                     document.getElementById("table-cci-table-2019").innerHTML = row;
@@ -308,6 +318,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 }
             
             });
+
+
+
+
+
+            });
+            
+            
+       
+         
+           
             }
             function PopulateCrossCuttingIssueTable2018(year) {
             
@@ -416,9 +437,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             
             </script>
 <script>
-  PopulateCrossCuttingIssueTable2019(2018);
-    PopulateCrossCuttingIssueTable2018(2017);
-    PopulateCrossCuttingIssueTable2017(2016);
+    
 </script>
 
 <script>
@@ -449,12 +468,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 <script>
+    $(document).ready(function(){
+          PopulateCrossCuttingIssueTable();
+
+    });
   window.onload = function() {
+   
+
    new Tablesort(document.getElementById('cci1'));
- new Tablesort(document.getElementById('cci2'));
- new Tablesort(document.getElementById('cci3'));
+
 }
 </script>
+
 </body>
 
 </html>

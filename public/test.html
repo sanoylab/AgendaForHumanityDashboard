@@ -74,16 +74,21 @@
                     for (i = 0; i < unique.length; i++) {                    
                         row = row +
                             "<tr class='row-data'><td style='text-align:left;'>" + unique[i] + "</td>";
+                                for (j = 0; j < myAssociativeArr.length; j++) {     
                                
-                            if(unique[i]==myAssociativeArr[i].CCI && myAssociativeArr[i].ReportingYear=="2016"){                               
-                                 row = row + "<td>" + myAssociativeArr[i].Total + "</td>";
+                                    if(unique[i]==myAssociativeArr[j].CCI && myAssociativeArr[j].ReportingYear=="2016"){                               
+                                        row = row + "<td>" + myAssociativeArr[j].Total + "</td>";
+                                    }
+                                 
+                                    if(unique[i]==myAssociativeArr[j].CCI && myAssociativeArr[j].ReportingYear=="2017"){   
+                                        row = row + "<td>" + myAssociativeArr[j].Total + "</td>";                                
+                                        }
+                                    
+                                    if(unique[i]==myAssociativeArr[j].CCI && myAssociativeArr[j].ReportingYear=="2018"){
+                                            row = row + "<td>" + myAssociativeArr[j].Total + "</td>";
+                                    } 
+                              
                             }
-                           if(unique[i]==myAssociativeArr[i].CCI && myAssociativeArr[i].ReportingYear=="2017"){   
-                               row = row + "<td>" + myAssociativeArr[i].Total + "</td>";                                
-                            }
-                           if(unique[i]==myAssociativeArr[i].CCI && myAssociativeArr[i].ReportingYear=="2018"){
-                                row = row + "<td>" + myAssociativeArr[i].Total + "</td>";
-                            } 
                             row = row +"</tr>";
                     }
                     row = row + "</tbody></table>";
