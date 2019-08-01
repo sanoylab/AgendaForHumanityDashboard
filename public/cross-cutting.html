@@ -26,6 +26,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <style>
+        .header-row1{
+            width: 200px !important;
+        }
         #chart-stakeholder-2018,
         #chart-stakeholder-2018,
         #chart-stakeholder-region-2019,
@@ -288,7 +291,7 @@ function PopulateCrossCuttingIssueTable() {
                 if (myAssociativeArr.length > 1) {
                 //  myAssociativeArr.sort();
                     var row =
-                        "<table id='cci1' class='table table-hover'><thead><tr class='header-row' style='cursor:pointer'><th>Cross Cutting Issues</th><th style='width: 95px;'>2017</th><th style='width: 95px;'>2018</th><th style='width: 95px;'>2019</th></tr></thead><tbody>";
+                        "<table id='cci1' class='table table-hover'><thead><tr class='header-row1' style='cursor:pointer;'><th style='width: 100px;'>Cross Cutting Issues</th><th style='width: 95px;'>2017</th><th style='width: 95px;'>2018</th><th style='width: 95px;'>2019</th></tr></thead><tbody>";
             
                     for (i = 0; i < unique.length; i++) {                    
                         row = row +
