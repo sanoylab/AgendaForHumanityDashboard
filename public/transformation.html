@@ -1781,11 +1781,11 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                     if (per > 0.00) {
                                     countsData[1].push(element['Total'] +
                                         " <span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "(" + per.toFixed(3) + "%)" + "</span>");
                                 } else if (per < 0) {
                                     countsData[1].push(element['Total'] +
                                         " <span style='color:red;'>'&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)" + "</span>");
+                                        "(" + per.toFixed(3) + "%)" + "</span>");
                                 } else {
                                     countsData[1].push(element['Total']);
                                 }
@@ -1802,13 +1802,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 if (newPer > 0.00) {
                                     countsData[2].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                        "(" + per.toFixed(3) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(3)+"</span>");
                                 } else if (newPer < 0) {
                                     countsData[2].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
+                                        "(" + per.toFixed(3) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(3) +"</span>");
                                 } else {
-                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(1));
+                                    countsData[2].push(element['Total'] +" "+newPer.toFixed(3));
                                 }
                                 countsData1[2].push(element['Total']);
                                 per8= per;
@@ -1823,13 +1823,13 @@ d3.json('https://www.agendaforhumanity.org/viz_endpoint/stakeholder/total.php', 
                                 if (newPer > 0.00) {
                                     countsData[3].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(1)+"</span>");
+                                        "(" + per.toFixed(3) + "%)&nbsp;&nbsp;</span> <span style='color:green;'><i class='fas fa-arrow-up'></i>&nbsp;&nbsp;" + newPer.toFixed(3)+"</span>");
                                 } else if (newPer < 0) {
                                     countsData[3].push(element['Total'] +
                                         "<span>&nbsp;&nbsp;" +
-                                        "(" + per.toFixed(1) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(1) +"</span>");
+                                        "(" + per.toFixed(3) + "%)</span> <span style='color:red;'>&nbsp;&nbsp;<i class='fas fa-arrow-down'></i>&nbsp;&nbsp;" + newPer.toFixed(3) +"</span>");
                                 } else {
-                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(1));
+                                    countsData[3].push(element['Total'] +" "+newPer.toFixed(3));
                                 }
                                 countsData1[3].push(element['Total']);
                                 per8= per;
