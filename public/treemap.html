@@ -292,8 +292,8 @@
 
 
   // read json data
+  //d3.json("http://localhost/viz_endpoint-July02/subcatActions/getSubcatOne.php", function(data) {
   d3.json("https://www.agendaforhumanity.org/viz_endpoint/subcatActions/getSubcatOne.php", function(data) {
-
 
 
     // Give the data to this cluster layout:
@@ -347,7 +347,7 @@
       .enter()
       .append("text")
         .attr("x", function(d){ return d.x0+5})    // +10 to adjust position (more right)
-        .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
+        .attr("y", function(d){ return d.y0+10})    // +20 to adjust position (lower)
         .attr('width', function (d) {console.log("hello"+ d.x1-d.x0); return d.x1 - d.x0; })
         .text(function(d){ return d.data.name })
         .attr("font-size", "10px")

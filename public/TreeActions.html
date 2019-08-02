@@ -330,15 +330,14 @@ var margin = {top: 10, right: 10, bottom: 10, left: 10},
     .size([(height*divHeightAdj),(width*divWidthAdj)])
 
 
-
 		//d3.json("TestData_tree.json", function(data) {
     //d3.json("http://localhost/viz_endpoint-July02/subcatActions/getAllActions.php", function(data) {
     d3.json("https://www.agendaforhumanity.org/viz_endpoint/subcatActions/getAllActions.php", function(data) {
 
 			var nodes = tree.nodes(data);
-			//console.log(nodes);
+			console.log(nodes);
 			var links = tree.links(nodes);
-			//console.log(links);
+			console.log(links);
 
 
 			<!-- each data point will get a node -->
@@ -372,11 +371,30 @@ var margin = {top: 10, right: 10, bottom: 10, left: 10},
         //.text(function (d) {if(d.depth == 1){return wrap(this,30)}});
 
         node.append("text")
-  				.text(function(d) {if(d.depth == 2) {return d.name + " (" + d.value + ") Subtype: " + d.type; }})
+  				.text(function(d)
+            {if(d.depth == 2)
+              if(d.type=="1")
+                {return d.type + ", " + d.name + ", " + d.subcategory + "( " + d.value + " )" ; }
+              else
+                {return  "2, " + d.name + ", " + d.subcategory + "( " + d.value + " )" ; }
+          })
           .attr("x", function(d) {if(d.depth == 2) { return 5} })
           //.attr("transform", function(d) {if(d.depth == 2) {console.log("depth of 2  " + d.y + " " + d.x); return "translate(" + d.y + "," + d.x + ")"} })
           //.attr("x", function(d) {if (d.depth = 1) {console.log(d.x + 25)} })
           .attr("font-size","13px");
+
+/*
+
+.text(function(d) {if(d.depth == 2) {return d.type + ", " + d.name + ", " + d.subcategory + "( " + d.value + " )" ; }})
+
+        node.append("text")
+  				.text(function(d) {if(d.depth == 2) {return d.name + " (" + d.value + ")" + d.subcategory; }})
+          .attr("x", function(d) {if(d.depth == 2) { return 30} })
+          //.attr("transform", function(d) {if(d.depth == 2) {console.log("depth of 2  " + d.y + " " + d.x); return "translate(" + d.y + "," + d.x + ")"} })
+          //.attr("x", function(d) {if (d.depth = 1) {console.log(d.x + 25)} })
+          .attr("font-size","13px");
+*/
+
 
 
 			var diagonal = d3.svg.diagonal()
